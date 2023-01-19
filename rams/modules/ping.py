@@ -15,7 +15,7 @@ from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardButton
-from pyrogram.types import InlineKeyboartMarkup
+from pyrogram.types import InlineKeyboardMarkup
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.constants import WWW
 from geezlibs.ram.helpers.PyroHelpers import SpeedConvert
