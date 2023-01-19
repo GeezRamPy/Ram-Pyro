@@ -14,6 +14,7 @@ import speedtest
 from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
+from pyrogram.types import InlineKeyboardButton
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.constants import WWW
 from geezlibs.ram.helpers.PyroHelpers import SpeedConvert
@@ -132,7 +133,7 @@ async def ramping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        "RamPyro-bot\n"
+        text="RamPyro-bot\n"
         "ㅤㅤStatus : Menyala!\n"
         f"ㅤㅤㅤㅤping bot:"
         f"`%sms` \n"
@@ -142,6 +143,7 @@ async def ramping(client: Client, message: Message):
         f"`{uptime}` \n"
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
         f"ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration)
+    buttons = [InlineKeyboardButton(text="Owner", url=client.t.me/thisrama],
     )
         
 add_command_help(
