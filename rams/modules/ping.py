@@ -156,7 +156,6 @@ async def ramping(client: Client, message: Message):
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
         f"ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration),
         reply_markup=InlineKeyboardMarkup(rambot),
-        parse_mode=ParseMode.HTML,
         quote=True,
         disable_web_page_preview=True,
     )
