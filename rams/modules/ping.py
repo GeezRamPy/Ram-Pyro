@@ -143,8 +143,10 @@ async def ramping(client: Client, message: Message):
         f"`{uptime}` \n"
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
         f"ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration)
-    buttons = [InlineKeyboardButton(text="Owner", url=client.t.me/thisrama],
-    )
+   buttons = [
+       [InlineKeyboardButton(text="Owner", url="t.me/thisrama"],
+   ]
+ )
         
 add_command_help(
     "speedtest",
