@@ -24,8 +24,8 @@ def globals_init():
         global sql, sql2
         from importlib import import_module
 
-        sql = import_module("rams.helpers.SQL.gban_sql")
-        sql2 = import_module("rams.helpers.SQL.gmute_sql")
+        sql = import_module("geezlibs.ram.helpers.SQL.gban_sql")
+        sql2 = import_module("geezlibs.ram.helpers.SQL.gmute_sql")
     except Exception as e:
         sql = None
         sql2 = None
