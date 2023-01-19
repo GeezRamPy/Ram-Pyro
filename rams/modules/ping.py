@@ -14,6 +14,7 @@ import speedtest
 from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
+from pyrogram.enums import ParseMode
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
 from geezlibs.ram.helpers.basic import edit_or_reply
@@ -155,6 +156,7 @@ async def ramping(client: Client, message: Message):
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
         f"ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration),
         reply_markup=InlineKeyboardMarkup(rambot),
+        parse_mode=ParseMode.HTML,
         quote=True,
         disable_web_page_preview=True,
     )
