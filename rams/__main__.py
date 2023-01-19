@@ -1,3 +1,4 @@
+import time
 import importlib 
 from pyrogram import idle
 from uvloop import install
@@ -6,6 +7,7 @@ from config import BOT_VER, CMD_HANDLER
 from rams import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots, app, ids
 from rams.helpers.misc import create_botlog, git, heroku
 from rams.modules import ALL_MODULES
+
 MSG_ON = """
 🔥 **RamPyro-Bot Menyala** 🔥
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
@@ -13,6 +15,7 @@ MSG_ON = """
 ⌨️ **Ketik** `{}rama` **untuk Mengecheck Bot**
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 """
+MSG_BOT = (f"**Ram Pyro Assistant**\nis alive...")
 
 
 async def main():
@@ -32,6 +35,7 @@ async def main():
                 await bot.send_message(
                     BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)
                 )
+                await app.send_message(BOTLOG_CHATID, MSG_BOT)
             except BaseException:
                 pass
             LOGGER("rams").info(
