@@ -314,7 +314,7 @@ async def tinying(client: Client, message: Message):
         return await edit_or_reply(message, "**Silahkan Balas Ke Pesan Sticker!**")
     Man = await edit_or_reply(message, "`Processing . . .`")
     ik = await client.download_media(reply)
-    im1 = Image.open("rams/resources/RAMBOT.png")
+    im1 = Image.open("geezlibs.ram/resources/RAMBOT.png")
     if ik.endswith(".tgs"):
         await client.download_media(reply, "man.tgs")
         await bash("lottie_convert.py man.tgs json.json")
