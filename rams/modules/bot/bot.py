@@ -16,7 +16,7 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 
 from rams import CMD_HELP, app
 from geezlibs.ram.helpers.data import Data
-from geezlibs.geez.helper.inline import cb_wrapper, paginate_help
+from geezlibs.ram.helpers.inline import cb_wrapper, paginate_help
 from rams import ids as users
 
 @Client.on_callback_query()
