@@ -3,7 +3,7 @@ from pyrogram import idle
 from uvloop import install
 
 from config import BOT_VER, CMD_HANDLER
-from rams import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots
+from rams import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots, app, ids
 from rams.helpers.misc import create_botlog, git, heroku
 from rams.modules import ALL_MODULES
 MSG_ON = """
@@ -16,6 +16,7 @@ MSG_ON = """
 
 
 async def main():
+    await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module(f"rams.modules.{all_module}")
     for bot in bots:
@@ -26,6 +27,7 @@ async def main():
             await bot.join_chat("userbotch")
             await bot.join_chat("b4c0d")
             await bot.join_chat("teman_random")
+            ids.append(bot.me.id)
             try:
                 await bot.send_message(
                     BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)

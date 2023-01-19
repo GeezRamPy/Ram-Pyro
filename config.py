@@ -13,7 +13,7 @@ from os import getenv
 
 from dotenv import load_dotenv
 
-load_dotenv("config.env")
+load_dotenv(".env")
 
 
 ALIVE_EMOJI = getenv("ALIVE_EMOJI", "👑")
@@ -26,6 +26,7 @@ if not BLACKLIST_CHAT:
     BLACKLIST_CHAT = [-1001692751821]
 BLACKLIST_GCAST = {int(x) for x in getenv("BLACKLIST_GCAST", "").split()}
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
+BOT_TOKEN = getenv("BOT_TOKEN", None)
 BOT_VER = "0.3.1@master"
 BRANCH = getenv("BRANCH", "master")
 CH_SFS = getenv("CH_SFS", "K0Kb4c0de")

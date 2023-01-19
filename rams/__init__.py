@@ -17,6 +17,7 @@ from config import (
     API_HASH,
     API_ID,
     BOTLOG_CHATID,
+    BOT_TOKEN,
     DB_URL,
     STRING_SESSION1,
     STRING_SESSION2,
@@ -90,6 +91,8 @@ trl = Translator()
 aiosession = ClientSession()
 
 CMD_HELP = {}
+clients = []
+ids = []
 
 scheduler = AsyncIOScheduler()
 
@@ -101,6 +104,14 @@ TEMP_SETTINGS: Dict[Any, Any] = {}
 TEMP_SETTINGS["PM_COUNT"] = {}
 TEMP_SETTINGS["PM_LAST_MSG"] = {}
 
+app = Client(
+    name="app",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN,
+    plugins=dict(root="rams/modules/bot"),
+    in_memory=True,
+)
 
 bot1 = (
     Client(
