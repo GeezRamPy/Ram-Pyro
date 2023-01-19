@@ -15,6 +15,7 @@ from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardButton
+from pyrogram.types import InlineKeyboartMarkup
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.constants import WWW
 from geezlibs.ram.helpers.PyroHelpers import SpeedConvert
@@ -27,6 +28,15 @@ from rams import CMD_HELP, StartTime
 from .help import add_command_help
 
 modules = CMD_HELP
+
+
+def ping_buttons(client):
+        buttons = [
+            [
+                InlineKeyboartButton(text="Owner", url=client.me.mention),
+            ],
+        ]
+        return buttons
 
 @Client.on_message(filters.command(["speed", "speedtest"], cmd) & filters.me)
 async def speed_test(client: Client, message: Message):
@@ -132,6 +142,7 @@ async def ramping(client: Client, message: Message):
     start = datetime.now()
     end = datetime.now()
     duration = (end - start).microseconds / 1000
+    rambot = ping_buttons(client)
     await message.reply_text(
         text="RamPyro-bot\n"
         "ㅤㅤStatus : Menyala!\n"
@@ -142,10 +153,10 @@ async def ramping(client: Client, message: Message):
         f"ㅤㅤㅤㅤbot uptime:"
         f"`{uptime}` \n"
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
-        f"ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration)
-        buttons = [
-            [InlineKeyboardButton(text="Owner", url="t.me/thisrama"],
-        ]
+        f"ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration),
+        reply_markup=InlineKeyboardMarkup(rambot),
+        quote=True,
+        disable_web_page_preview=True,
     )
         
 add_command_help(
