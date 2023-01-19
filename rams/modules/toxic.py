@@ -11,13 +11,12 @@ import asyncio
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
+from geezlibs.ram.helpers.adminHelpers import DEVS
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram.utils import extract_user, extract_user_and_reason
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER as cmd
-from rams.helpers.adminHelpers import DEVS
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.PyroHelpers import ReplyCheck
-from rams.utils import extract_user, extract_user_and_reason
 from .help import add_command_help
 
 

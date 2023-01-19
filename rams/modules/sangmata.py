@@ -13,10 +13,9 @@ from pyrogram import *
 from pyrogram import filters
 from pyrogram.errors import YouBlockedUser
 from pyrogram.types import *
-
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.utils import extract_user
 from config import CMD_HANDLER as cmd
-from rams.helpers.basic import edit_or_reply
-from rams.utils import extract_user
 
 from .help import add_command_help
 

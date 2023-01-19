@@ -12,11 +12,10 @@ from os import environ, execle, remove
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.misc import HAPP
 from config import CMD_HANDLER as cmd
 from rams import BOTLOG_CHATID, LOGGER
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.misc import HAPP
 
 from .help import add_command_help
 

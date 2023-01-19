@@ -9,13 +9,12 @@
 
 from pyrogram import Client, errors, filters
 from pyrogram.types import ChatPermissions, Message
-
+from geezlibs.ram.helpers.adminHelpers import DEVS, WHITELIST
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.PyroHelpers import get_ub_chats
+from geezlibs.ram.utils import extract_user, extract_user_and_reason
 from config import CMD_HANDLER as cmd
 from rams import *
-from rams.helpers.adminHelpers import DEVS, WHITELIST
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.PyroHelpers import get_ub_chats
-from rams.utils import extract_user, extract_user_and_reason
 
 from .help import add_command_help
 

@@ -12,11 +12,10 @@ from threading import Event
 
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
-
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.utils.misc import extract_args
 from config import BLACKLIST_CHAT, BOTLOG_CHATID
 from config import CMD_HANDLER as cmd
-from rams.helpers.basic import edit_or_reply
-from rams.utils.misc import extract_args
 
 from .help import add_command_help
 

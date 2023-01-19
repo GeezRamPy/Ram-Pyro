@@ -5,7 +5,7 @@ from uvloop import install
 
 from config import BOT_VER, CMD_HANDLER
 from rams import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots, app, ids
-from rams.helpers.misc import create_botlog, git, heroku
+from geezlibs.ram.helpers.misc import create_botlog, git, heroku
 from rams.modules import ALL_MODULES
 
 MSG_ON = """

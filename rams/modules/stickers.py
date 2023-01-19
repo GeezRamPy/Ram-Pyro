@@ -21,12 +21,11 @@ from pyrogram.errors import StickersetInvalid, YouBlockedUser
 from pyrogram.raw.functions.messages import GetStickerSet
 from pyrogram.raw.types import InputStickerSetShortName
 from pyrogram.types import Message
-
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram.helpers.tools import get_arg, get_text, resize_media
+from geezlibs.ram.utils.tools import add_text_img, bash
 from config import CMD_HANDLER as cmd
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.PyroHelpers import ReplyCheck
-from rams.helpers.tools import get_arg, get_text, resize_media
-from rams.utils.tools import add_text_img, bash
 
 from .help import add_command_help
 

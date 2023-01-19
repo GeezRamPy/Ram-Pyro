@@ -3,10 +3,10 @@ from os.path import basename, dirname, isfile
 
 from config import *
 from rams import *
-from rams.helpers import *
-from rams.helpers.SQL import *
-from rams.resources import *
-from rams.utils import *
+from geezlibs.ram.helpers import *
+from geezlibs.ram.helpers.SQL import *
+from geezlibs.ram.resources import *
+from geezlibs.ram.utils import *
 
 
 def __list_all_modules():

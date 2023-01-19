@@ -17,17 +17,17 @@ from pyrogram import __version__ as versipyro
 from pyrogram import filters
 from pyrogram.types import Message
 from telegraph import exceptions, upload_file
-
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram.helpers.SQL.globals import gvarstatus
+from geezlibs.ram.helpers.tools import convert_to_image
+from geezlibs.ram.utils import get_readable_time
+from geezlibs.ram.utils.misc import restart
 from config import BOT_VER, CHANNEL
 from config import CMD_HANDLER as cmd
 from config import GROUP
 from rams import CMD_HELP, StartTime
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.PyroHelpers import ReplyCheck
-from rams.helpers.SQL.globals import gvarstatus
-from rams.helpers.tools import convert_to_image
-from rams.utils import get_readable_time
-from rams.utils.misc import restart
+
 
 from .help import add_command_help
 

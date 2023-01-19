@@ -22,17 +22,16 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
+from geezlibs.ram.helpers.adminHelpers import DEVS
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.misc import HAPP, XCB
+from geezlibs.ram.helpers.tools import get_arg
+from geezlibs.ram.utils.misc import restart
+from geezlibs.ram.utils.pastebin import PasteBin
+from geezlibs.ram.utils.tools import bash
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
-from rams.helpers.adminHelpers import DEVS
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.misc import HAPP, XCB
-from rams.helpers.tools import get_arg
-from rams.utils.misc import restart
-from rams.utils.pastebin import PasteBin
-from rams.utils.tools import bash
 
 from .help import add_command_help
 
@@ -203,7 +202,7 @@ async def upstream(client: Client, message: Message):
         await status.edit(
             "`RamPyro-Bot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
         )
-        args = [sys.executable, "-m", "rams"]
+        args = [sys.executable, "-m", "geezlibs.ram"]
         execle(sys.executable, *args, environ)
         return
 

@@ -26,6 +26,20 @@ When you have installed this userbot, it means you are ready with the risks.
 ## Okteto Deploy [Recomended if heroku not free]
   <a href="https://okteto.com">Click Here</a>
 
+## VPS 
+```
+- git clone https://github.com/izzy-adeeva/RamPyro-bot
+- cd RamPyro-bot
+- pip install -U -r requirements.txt
+- cp sample-config.env .env
+- nano .env (isi vars)(save)
+- screen -S RamPyro-bot
+- bash start
+- seduh kopi, bakar roko, nyender
+
+(tested on ubuntu 20-22 / python 3.9 - 3.10.14)
+```
+
 ## 🏷 Support
 
 - Follow Channel [@userbotch](https://t.me/userbotch) untuk info Update bot 

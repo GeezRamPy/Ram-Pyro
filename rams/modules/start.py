@@ -11,13 +11,12 @@ from datetime import datetime
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
+from geezlibs.ram.helpers.adminHelpers import DEVS
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.constants import First
 from config import CMD_HANDLER as cmd
 from config import *
 from rams import *
-from rams.helpers.adminHelpers import DEVS
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.constants import First
 
 from .help import add_command_help
 

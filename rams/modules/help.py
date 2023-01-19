@@ -10,10 +10,10 @@ import asyncio
 from prettytable import PrettyTable
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.utility import split_list
 from config import CMD_HANDLER
 from rams import CMD_HELP,app
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.utility import split_list
 
 def ReplyCheck(message: Message):
     reply_id = None

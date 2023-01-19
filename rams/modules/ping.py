@@ -14,16 +14,15 @@ import speedtest
 from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
-
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.constants import WWW
+from geezlibs.ram.helpers.PyroHelpers import SpeedConvert
+from geezlibs.ram.utils.tools import get_readable_time
+from geezlibs.ram.helpers.adminHelpers import DEVS
+from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from config import BOT_VER, CMD_HANDLER as cmd
 from config import BRANCH as branch
 from rams import CMD_HELP, StartTime
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.constants import WWW
-from rams.helpers.PyroHelpers import SpeedConvert
-from rams.utils.tools import get_readable_time
-from rams.helpers.adminHelpers import DEVS
-from rams.helpers.PyroHelpers import ReplyCheck
 from .help import add_command_help
 
 modules = CMD_HELP

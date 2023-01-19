@@ -11,12 +11,11 @@ import time
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
+from geezlibs.ram.helpers.msg_types import Types, get_message_type
+from geezlibs.ram.helpers.parser import escape_markdown, mention_markdown
+from geezlibs.ram.helpers.SQL.afk_db import get_afk, set_afk
 from config import CMD_HANDLER as cmd
 from rams import BOTLOG_CHATID
-from rams.helpers.msg_types import Types, get_message_type
-from rams.helpers.parser import escape_markdown, mention_markdown
-from rams.helpers.SQL.afk_db import get_afk, set_afk
 from rams.modules.help import add_command_help
 
 # Set priority to 11 and 12
