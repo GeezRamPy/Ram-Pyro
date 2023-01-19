@@ -24,7 +24,7 @@ from geezlibs.ram.utils.tools import get_readable_time
 from geezlibs.ram.helpers.adminHelpers import DEVS
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from config import BOT_VER, CMD_HANDLER as cmd
-from config import BRANCH as branch
+from config import GROUP, BRANCH as branch
 from rams import CMD_HELP, StartTime
 from .help import add_command_help
 
@@ -34,7 +34,7 @@ modules = CMD_HELP
 def ping_buttons(client: Client):
         buttons = [
             [
-                InlineKeyboardButton(text="Owner", url=client.me.mention),
+                InlineKeyboardButton(text="Support", url=f"https://t.me/{GROUP}),
             ],
         ]
         return buttons
