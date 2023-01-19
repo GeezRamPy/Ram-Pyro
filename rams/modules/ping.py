@@ -30,7 +30,7 @@ from .help import add_command_help
 modules = CMD_HELP
 
 
-def ping_buttons(client):
+def ping_buttons(client: Client):
         buttons = [
             [
                 InlineKeyboardButton(text="Owner", url=client.me.mention),
