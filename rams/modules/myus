@@ -24,7 +24,7 @@ from config import CMD_HANDLER as cmd
 import multiprocessing
 import time
 import calendar
-from rams.helpers.tools import *
+from geezlibs.ram.helpers.tools import *
 from .help import *
 from pytgcalls import GroupCallFactory, GroupCallFileAction
 import signal
