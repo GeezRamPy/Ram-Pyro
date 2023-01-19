@@ -1,4 +1,4 @@
-from rams.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.basic import edit_or_reply
 import asyncio
 import os
 import time
