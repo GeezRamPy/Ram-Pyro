@@ -33,7 +33,7 @@ modules = CMD_HELP
 def ping_buttons(client):
         buttons = [
             [
-                InlineKeyboartButton(text="Owner", url=client.me.mention),
+                InlineKeyboardButton(text="Owner", url=client.me.mention),
             ],
         ]
         return buttons
