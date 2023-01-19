@@ -34,7 +34,7 @@ modules = CMD_HELP
 def ping_buttons(client: Client):
         buttons = [
             [
-                InlineKeyboardButton(text="Support", url=f"https://t.me/{GROUP}),
+                InlineKeyboardButton(text="Support", url=f"https://t.me/{GROUP}"),
             ],
         ]
         return buttons
