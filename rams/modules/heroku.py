@@ -22,7 +22,7 @@ import urllib3
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.misc import HAPP, in_heroku
+from rams.split.misc import HAPP, in_heroku
 from geezlibs.ram.utils.misc import restart
 from config import *
 
