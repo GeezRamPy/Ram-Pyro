@@ -265,11 +265,3 @@ async def updaterman(client: Client, message: Message):
         restart()
         exit()
 
-
-add_command_help(
-    "update",
-    [
-        ["apdet", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
-        ["apdet dulu", "Untuk mengupdate userbot."],
-    ],
-)
