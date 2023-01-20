@@ -36,7 +36,7 @@ async def asupan(client: Client, message: Message):
 
 @ram.on_message(filters.command(["bokep", "bkp"], cmd) & filters.me)
 async def bokep(client: Client, message: Message):
-    if message.chat.id == -1001664137877:
+    if message.chat.id == -1001502253053:
         return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
     await client.join_chat("LonteGabut")
     await asyncio.sleep(2)
@@ -48,7 +48,7 @@ async def bokep(client: Client, message: Message):
             [
                     bokep.video.file_id
                     async for bokep in client.search_messages(
-                       "LonteGabut", filter=enums.MessagesFilter.VIDEO
+                       "ajshajhsaj", filter=enums.MessagesFilter.VIDEO
                     )
                 ]
             ),
