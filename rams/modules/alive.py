@@ -29,8 +29,6 @@ from config import GROUP
 from rams import CMD_HELP, StartTime
 
 
-from .help import add_command_help
-
 modules = CMD_HELP
 alive_logo = (
     gvarstatus("ALIVE_LOGO") or "https://telegra.ph/file/eda4816a97d4e74445fc0.jpg"
@@ -46,7 +44,7 @@ async def alive(client: Client, message: Message):
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"**꧁༺[RamPyro-Bot](https://github.com/ramadhani892/RamPyro-Bot)༻꧂**\n\n"
+        f"**꧁༺[RamPyro-Bot](https://github.com/izzy-adeeva/RamPyro-Master)༻꧂**\n\n"
         f"━───────╯•╰───────━\n"
         f"{emoji} <b>ʙᴏᴛ ᴠᴇʀsɪᴏɴ :</b> <code>{BOT_VER}</code> \n"
         f"{emoji} <b>ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
@@ -155,25 +153,3 @@ async def setemoji(client: Client, message: Message):
     await Man.edit(f"**Berhasil Mengcustom EMOJI ALIVE Menjadi** {emoji}")
     restart()
 
-
-add_command_help(
-    "alive",
-    [
-        [
-            "alive",
-            "Untuk memeriksa userbot anda berfungsi atau tidak",
-        ],
-        [
-            "setalivelogo <link telegraph atau reply ke foto/video/gif>",
-            "Untuk mengcustom alive logo userbot anda",
-        ],
-        [
-            "setalivetext <text>",
-            "Untuk mengcustom alive text userbot anda",
-        ],
-        [
-            "setemoji <emoji>",
-            "Untuk mengcustom emoji alive userbot anda",
-        ],
-    ],
-)
