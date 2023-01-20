@@ -71,11 +71,3 @@ async def logs_ubot(client: Client, message: Message):
     remove("Logs-Heroku.txt")
 
 
-add_command_help(
-    "system",
-    [
-        ["restart", "Untuk merestart userbot."],
-        ["shutdown", "Untuk mematikan userbot."],
-        ["logs", "Untuk melihat logs userbot."],
-    ],
-)
