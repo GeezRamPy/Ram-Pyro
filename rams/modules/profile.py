@@ -131,18 +131,3 @@ async def view_pfp(client: Client, message: Message):
     if os.path.exists(profile_photo):
         os.remove(profile_photo)
 
-
-add_command_help(
-    "profile",
-    [
-        ["block", "Untuk memblokir pengguna telegram"],
-        ["unblock", "Untuk membuka pengguna yang anda blokir"],
-        ["setname", "Untuk Mengganti Nama Telegram."],
-        ["setbio", "Untuk Mengganti Bio Telegram."],
-        [
-            "setpfp",
-            f"Balas Ke Gambar Ketik {cmd}setpfp Untuk Mengganti Foto Profil Telegram.",
-        ],
-        ["vpfp", "Untuk melihat foto profile pengguna saat ini."],
-    ],
-)
