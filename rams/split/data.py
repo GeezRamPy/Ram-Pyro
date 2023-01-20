@@ -4,7 +4,7 @@ from config import CMD_HANDLER as cmd
 class Data:
 
     text_help_menu = (
-        f"**Command List & Help**\n**— command:{cmd}"
+        f"**Command List & Help**\n**— Your Command: {cmd}"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
