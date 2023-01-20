@@ -128,24 +128,3 @@ async def keluar(client: Client, message: Message):
     await asyncio.sleep(1)
     await xx.edit(f"{client.me.first_name} has left this group, bye!!")
 
-
-add_command_help(
-    "salam",
-    [
-        ["p", "Assalamualaikum."],
-        ["pe", "Assalamualaikum Warahmatullahi Wabarakatuh."],
-        ["l", "Wa'alaikumsalam."],
-        ["ass", "Assalamualaikum Bahas arab."],
-        ["oi", "Salam Kenal dan salam."],
-        ["l", "Wa'alaikumsalam."],
-        ["el", "Wa'alaikumsalam Warahmatullahi Wabarakatuh."],
-    ],
-)
-
-add_command_help(
-    "sfs",
-    [
-        ["sfs", "Subs for Subs Channel."],
-        ["mutu", "Mutualan Ig cuyyyy,"],
-    ],
-)
