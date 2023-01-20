@@ -71,7 +71,7 @@ async def sspam(client: Client, message: Message):
     amount = int(message.command[1])
     text = " ".join(message.command[2:])
 
-    cooldown = {"spam": 0.15, "statspam": 0.1, "slowspam": 0.9, "fastspam": 0}
+    cooldown = {"spam": 0.5, "statspam": 0.1, "slowspam": 0.9, "fastspam": 0}
 
     await message.delete()
 
@@ -129,5 +129,6 @@ add_command_help(
             "delayspam <detik> <jumlah spam> <text>",
             "Mengirim teks spam dengan jangka delay yang ditentukan!",
         ],
+        ["sspam <jumlah spam>", "Mengirim Spam Sticker, Wajib Reply Sticker!!!"],
     ],
 )
