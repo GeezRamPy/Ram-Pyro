@@ -67,13 +67,3 @@ async def yt_vid(client: Client, message: Message):
         if files and os.path.exists(files):
             os.remove(files)
 
-
-add_command_help(
-    "video",
-    [
-        [
-            ".video",
-            "Download Video from YouTube ",
-        ]
-    ],
-)
