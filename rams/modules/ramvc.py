@@ -135,19 +135,3 @@ async def leavevc(client: Client, message: Message):
         msg += f"\n└ **Chat ID:** `{chat_id}`"
     await Man.edit(msg)
 
-
-add_command_help(
-    "vctools",
-    [
-        ["startvc", "Untuk Memulai voice chat group."],
-        ["stopvc", "Untuk Memberhentikan voice chat group."],
-        [
-            f"jvc atau {cmd}jvc <chatid/username gc>",
-            "Untuk Bergabung ke voice chat group.",
-        ],
-        [
-            f"lvc atau {cmd}lvc <chatid/username gc>",
-            "Untuk Turun dari voice chat group.",
-        ],
-    ],
-)
