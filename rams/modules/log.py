@@ -154,26 +154,3 @@ async def set_gruplog(client: Client, message: Message):
         await edit_or_reply(message, "**Group Log Berhasil Diaktifkan**")
     else:
         await edit_or_reply(message, "**Group Log Sudah Dimatikan**")
-
-
-add_command_help(
-    "log",
-    [
-        [
-            "log",
-            "Untuk mengaktifkan Log Chat dari obrolan/grup itu.",
-        ],
-        [
-            "nolog",
-            "Untuk menonaktifkan Log Chat dari obrolan/grup itu.",
-        ],
-        [
-            "pmlog on/off",
-            "Untuk mengaktifkan atau menonaktifkan log pesan pribadi yang akan di forward ke grup log.",
-        ],
-        [
-            "gruplog on/off",
-            "Untuk mengaktifkan atau menonaktifkan tag grup, yang akan masuk ke grup log.",
-        ],
-    ],
-)
