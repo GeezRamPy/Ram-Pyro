@@ -15,7 +15,7 @@ from pyrogram.errors import MessageDeleteForbidden
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from rams import CMD_HELP, app
-from geezlibs.ram.helpers.data import Data
+from rams.split.data import Data
 from geezlibs.ram.helpers.inline import cb_wrapper, paginate_help
 from rams import ids as users
 
