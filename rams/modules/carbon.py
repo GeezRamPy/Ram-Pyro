@@ -57,10 +57,3 @@ async def carbon_func(client: Client, message: Message):
     )
     carbon.close()
 
-
-add_command_help(
-    "carbon",
-    [
-        ["carbon <reply>", "Carbonisasi teks dengan pengaturan default."],
-    ],
-)
