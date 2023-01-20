@@ -102,11 +102,3 @@ async def purgeme(client: Client, message: Message):
     await message.delete()
 
 
-add_command_help(
-    "purge",
-    [
-        ["del", "Menghapus pesan, balas ke pesan."],
-        ["purge", "Menghapus pesan, balas ke pesan."],
-        ["purgeme <angka>", "Menghapus jumlah pesan anda, yang mau anda hapus."],
-    ],
-)
