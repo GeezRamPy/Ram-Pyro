@@ -46,9 +46,3 @@ async def telegraph(client: Client, message: Message):
         os.remove(download_location)
 
 
-add_command_help(
-    "telegraph",
-    [
-        ["tm", "Reply foto/video untuk menjadikan link telegraph."],
-    ],
-)
