@@ -72,18 +72,3 @@ async def invite_link(client: Client, message: Message):
         except Exception:
             await Man.edit("Denied permission")
 
-
-add_command_help(
-    "invite",
-    [
-        [
-            "invitelink",
-            "Untuk Mendapatkan Link invite ke grup Obrolan Anda. [Need Admin]",
-        ],
-        ["invite @username", "Untuk Mengundang Anggota ke grup Anda."],
-        [
-            "inviteall @usernamegc",
-            "Untuk Mengundang Anggota dari obrolan grup lain ke obrolan grup Anda.",
-        ],
-    ],
-)
