@@ -31,13 +31,6 @@ from .help import add_command_help
 modules = CMD_HELP
 
 
-def ping_buttons(client: Client):
-        buttons = [
-            [
-                InlineKeyboardButton(text="Support", url=f"https://t.me/{GROUP}"),
-            ],
-        ]
-        return buttons
 
 @Client.on_message(filters.command(["speed", "speedtest"], cmd) & filters.me)
 async def speed_test(client: Client, message: Message):
@@ -143,7 +136,6 @@ async def ramping(client: Client, message: Message):
     start = datetime.now()
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    rambot = ping_buttons(client)
     await message.reply_text(
         text="RamPyro-bot\n"
         "ㅤㅤStatus : Menyala!\n"
@@ -155,9 +147,6 @@ async def ramping(client: Client, message: Message):
         f"`{uptime}` \n"
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
         f"ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration),
-        reply_markup=InlineKeyboardMarkup(rambot),
-        quote=True,
-        disable_web_page_preview=True,
     )
         
 add_command_help(
