@@ -283,15 +283,3 @@ async def globals_check(client: Client, message: Message):
 
     message.continue_propagation()
 
-
-add_command_help(
-    "globals",
-    [
-        [
-            "gban <reply/username/userid>",
-            "Melakukan Global Banned Ke Semua Grup Dimana anda Sebagai Admin.",
-        ],
-        ["ungban <reply/username/userid>", "Membatalkan Global Banned."],
-        ["listgban", "Menampilkan List Global Banned."],
-    ],
-)
