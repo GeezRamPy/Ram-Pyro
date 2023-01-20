@@ -82,17 +82,3 @@ async def kickmeallch(client: Client, message: Message):
         f"**Berhasil Keluar dari {done} Channel, Gagal Keluar dari {er} Channel**"
     )
 
-
-add_command_help(
-    "joinleave",
-    [
-        [
-            "exit",
-            "Keluar dari grup dengan menampilkan pesan has left this group, bye!!.",
-        ],
-        ["exitsgc", "Keluar dari semua grup telegram yang anda gabung."],
-        ["exitsch", "Keluar dari semua channel telegram yang anda gabung."],
-        ["join <UsernameGC>", "Untuk Bergabung dengan Obrolan Melalui username."],
-        ["leave <UsernameGC>", "Untuk keluar dari grup Melalui username."],
-    ],
-)
