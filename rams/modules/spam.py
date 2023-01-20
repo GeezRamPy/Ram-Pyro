@@ -119,16 +119,3 @@ async def spam_stick(client: Client, message: Message):
                 sticker = message.reply_to_message.sticker.file_id
                 await client.send_sticker(message.chat.id, sticker)
                 await asyncio.sleep(0.10)
-
-
-add_command_help(
-    "spam",
-    [
-        ["spam <jumlah spam> <text>", "Mengirim teks secara spam dalam obrolan!!"],
-        [
-            "delayspam <detik> <jumlah spam> <text>",
-            "Mengirim teks spam dengan jangka delay yang ditentukan!",
-        ],
-        ["sspam <jumlah spam>", "Mengirim Spam Sticker, Wajib Reply Sticker!!!"],
-    ],
-)
