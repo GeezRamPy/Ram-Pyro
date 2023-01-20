@@ -170,17 +170,3 @@ Music Downloaded And Uploaded By King Userbot"""
     await rep.delete()
 
 
-add_command_help(
-    "song",
-    [
-        ["song", "Mendownload Musik dari Youtube."],
-        ["deezer", "Mendownload musik dari deezer."],
-    ],
-)
-
-add_command_help(
-    "saavn",
-    [
-            ["saavn", "Download From Saavn"],
-    ],
-)
