@@ -137,14 +137,3 @@ async def locktypes(client: Client, message: Message):
 
     await message.edit_text(perms)
 
-
-add_command_help(
-    "locks",
-    [
-        ["lock <all atau jenis lock>", "Mengunci izin di grup."],
-        [
-            "unlock <all atau jenis unlock>",
-            "Membuka izin di grup\n\nSupported Locks / Unlocks:` `msg` | `media` | `stickers` | `polls` | `info`  | `invite` | `webprev` |`pin` | `all`.",
-        ],
-    ],
-)
