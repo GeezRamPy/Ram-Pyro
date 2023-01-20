@@ -202,14 +202,14 @@ async def get_list_bots(client: Client, message: Message):
 add_command_help(
     "tag",
     [
-        [f"{cmd}admins", "Get chats Admins list."],
-        [f"{cmd}kickdel", "To Kick deleted Accounts."],
+        ["admins", "Get chats Admins list."],
+        ["kickdel", "To Kick deleted Accounts."],
         [
-            f"{cmd}everyone `or` {cmd}tagall",
+            "everyone `or` {cmd}tagall",
             "to mention Everyone ",
         ],
         [
-            f"{cmd}botlist",
+            "botlist",
             "To get Chats Bots list",
         ],
     ],
