@@ -64,7 +64,7 @@ async def logs_ubot(client: Client, message: Message):
     await client.send_document(
         message.chat.id,
         "Logs-Heroku.txt",
-        thumb="rams/resources/logo.jpg",
+        thumb="rams/split/rampyro.jpg",
         caption="**Ini Logs Heroku anda**",
     )
     await Man.delete()
