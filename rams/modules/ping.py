@@ -168,3 +168,11 @@ add_command_help(
         ["rping", "Untuk Menunjukkan Ping Bot Anda ( Beda animasi doang )."],
     ],
 )
+
+add_command_help(
+    "alip",
+    [
+        ["alive", "untuk menampilkan dekorasi gajelas😂."],
+        ["setalivelogo", "Untuk Mengubah Text Alive."],
+    ],
+)
