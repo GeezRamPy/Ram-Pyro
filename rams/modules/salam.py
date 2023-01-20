@@ -14,7 +14,7 @@ from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from config import CMD_HANDLER as cmd
-from config import IG_ALIVE, CH_SFS, REPO_URL, 
+from config import IG_ALIVE, CH_SFS, REPO_URL
 from .help import add_command_help
 
 
