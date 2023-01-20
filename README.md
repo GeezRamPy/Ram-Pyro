@@ -14,7 +14,7 @@ When you have installed this userbot, it means you are ready with the risks.
 ```
 
 <h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku</h3>
-<a href="https://heroku.com/deploy?template=https://github.com/izzy-adeeva/RamPyro-Bot"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
+<a href="https://heroku.com/deploy?template=https://github.com/izzy-adeeva/RamPyro-Master"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
 </div>
 
 ## 🖇 Generating Pyrogram String Session
