@@ -34,27 +34,6 @@ async def asupan(client: Client, message: Message):
 
 # WARNING PORNO VIDEO THIS !!!
 
-@ram.on_message(filters.command(["bokep", "bkp"], cmd) & filters.me)
-async def bokep(client: Client, message: Message):
-    if message.chat.id == -1001692751821:
-        return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
-    await client.join_chat("ajshajhsaj")
-    await asyncio.sleep(2)
-    kontol = await edit_or_reply(message, "wait a minute send a porn video")
-    await gather(
-        kontol.delete(),
-        client.send_video(message.chat.id,
-        choice(
-            [
-                    bokep.video.file_id
-                    async for bokep in client.search_messages(
-                       "ajshajhsaj", filter=enums.MessagesFilter.VIDEO
-                    )
-                ]
-            ),
-            reply_to_message_id=ReplyCheck(message),
-        ),
-    )
 
 
 @ram.on_message(filters.command(["ayang", "ayg"], cmd) & filters.me)
