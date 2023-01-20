@@ -41,11 +41,3 @@ async def create(client: Client, message: Message):
             disable_web_page_preview=True,
         )
 
-
-add_command_help(
-    "create",
-    [
-        ["create ch", "Untuk membuat channel telegram dengan userbot"],
-        ["create gc", "Untuk membuat group telegram dengan userbot"],
-    ],
-)
