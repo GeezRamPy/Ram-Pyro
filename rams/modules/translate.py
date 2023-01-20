@@ -71,12 +71,3 @@ async def translate(client: Client, message: Message):
     )
 
 
-add_command_help(
-    "translate",
-    [
-        [
-            "tr <kode bahasa> <text/reply>",
-            "Menerjemahkan teks ke bahasa yang disetel. (Default kode bahasa indonesia)",
-        ],
-    ],
-)
