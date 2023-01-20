@@ -69,31 +69,3 @@ async def voicelang(client: Client, message: Message):
         message, "**Bahasa untuk Voice Google diganti menjadi** `{}`".format(lang)
     )
 
-
-add_command_help(
-    "voice",
-    [
-        [f"voice atau {cmd}tts [text/reply]", "Ubah teks menjadi suara oleh google."],
-        [
-            f"{cmd}voicelang (lang_id) ",
-            "Setel bahasa suara anda\n\nBeberapa Bahasa Suara yang Tersedia:"
-            "\nID| Language  | ID| Language\n"
-            "af: Afrikaans | ar: Arabic\n"
-            "cs: Czech     | de: German\n"
-            "el: Greek     | en: English\n"
-            "es: Spanish   | fr: French\n"
-            "hi: Hindi     | id: Indonesian\n"
-            "is: Icelandic | it: Italian\n"
-            "ja: Japanese  | jw: Javanese\n"
-            "ko: Korean    | la: Latin\n"
-            "my: Myanmar   | ne: Nepali\n"
-            "nl: Dutch     | pt: Portuguese\n"
-            "ru: Russian   | su: Sundanese\n"
-            "sv: Swedish   | th: Thai\n"
-            "tl: Filipino  | tr: Turkish\n"
-            "vi: Vietname  |\n"
-            "zh-cn: Chinese (Mandarin/China)\n"
-            "zh-tw: Chinese (Mandarin/Taiwan)",
-        ],
-    ],
-)
