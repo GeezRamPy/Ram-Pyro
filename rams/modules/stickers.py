@@ -24,11 +24,69 @@ from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from geezlibs.ram.helpers.tools import get_arg, get_text, resize_media
-from geezlibs.ram.utils.tools import add_text_img, bash
+from geezlibs.ram.utils.tools import bash
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
 
+
+async def add_text_img(image_path, text):
+    font_size = 12
+    stroke_width = 1
+
+    if ";" in text:
+        upper_text, lower_text = text.split(";")
+    else:
+        upper_text = text
+        lower_text = ""
+
+    img = Image.open(image_path).convert("RGBA")
+    img_info = img.info
+    image_width, image_height = img.size
+    font = ImageFont.truetype(
+        font="rams/split/default.ttf",
+        size=int(image_height * font_size) // 100,
+    )
+    draw = ImageDraw.Draw(img)
+
+    char_width, char_height = font.getsize("A")
+    chars_per_line = image_width // char_width
+    top_lines = textwrap.wrap(upper_text, width=chars_per_line)
+    bottom_lines = textwrap.wrap(lower_text, width=chars_per_line)
+
+    if top_lines:
+        y = 10
+        for line in top_lines:
+            line_width, line_height = font.getsize(line)
+            x = (image_width - line_width) / 2
+            draw.text(
+                (x, y),
+                line,
+                fill="white",
+                font=font,
+                stroke_width=stroke_width,
+                stroke_fill="black",
+            )
+            y += line_height
+
+    if bottom_lines:
+        y = image_height - char_height * len(bottom_lines) - 15
+        for line in bottom_lines:
+            line_width, line_height = font.getsize(line)
+            x = (image_width - line_width) / 2
+            draw.text(
+                (x, y),
+                line,
+                fill="white",
+                font=font,
+                stroke_width=stroke_width,
+                stroke_fill="black",
+            )
+            y += line_height
+
+    final_image = os.path.join("memify.webp")
+    img.save(final_image, **img_info)
+    return final_image
 
 @Client.on_message(filters.command(["tikel", "kang"], cmd) & filters.me)
 async def kang(client: Client, message: Message):
