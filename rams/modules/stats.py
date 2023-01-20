@@ -61,9 +61,3 @@ async def stats(client: Client, message: Message):
     )
 
 
-add_command_help(
-    "stats",
-    [
-        ["stats", "Untuk Cek Status Akun Anda."],
-    ],
-)
