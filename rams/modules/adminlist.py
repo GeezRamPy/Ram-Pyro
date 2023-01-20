@@ -198,19 +198,3 @@ async def get_list_bots(client: Client, message: Message):
     else:
         await message.edit(teks)
 
-
-add_command_help(
-    "tag",
-    [
-        ["admins", "Get chats Admins list."],
-        ["kickdel", "To Kick deleted Accounts."],
-        [
-            "everyone `or` {cmd}tagall",
-            "to mention Everyone ",
-        ],
-        [
-            "botlist",
-            "To get Chats Bots list",
-        ],
-    ],
-)
