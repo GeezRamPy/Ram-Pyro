@@ -98,17 +98,3 @@ async def ppanime(client, message):
 
     await yanto.delete()
 
-
-add_command_help(
-    "fundb",
-    [
-        [
-            "asupan",
-            "Asupan video TikTok",
-        ],
-        [f"ayang & {cmd}ayg", "Mencari Foto ayang kamu /nNote: Modul ini buat cwo yang jomblo."],
-        [f"ppcp & {cmd}cpp", "Mencari Foto PP Couple Random."],
-        [f"bokep & {cmd}bkp", "to send random porno videos."],
-        [f"ppanime & {cmd}anim", "Mencari Foto PP Couple Anime."],
-    ],
-)
