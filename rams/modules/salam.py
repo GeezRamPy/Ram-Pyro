@@ -14,7 +14,7 @@ from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from config import CMD_HANDLER as cmd
-from config import IG_ALIVE, CH_SFS
+from config import IG_ALIVE, CH_SFS, REPO_URL, 
 from .help import add_command_help
 
 
@@ -106,6 +106,20 @@ async def channel(client: Client, message: Message):
     xx = await edit_or_reply(message, "**Yok SFS!!**")
     await asyncio.sleep(2)
     await xx.edit(f"Nih CH Ku = [TEKAN](https://t.me/{CH_SFS})")
+
+
+@Client.on_message(filters.command("getrepo", cmd) & filters.me)
+async def reporl(client: Client, message: Message):
+    xx = await edit_or_reply(message, "**Jan Bawel!!**")
+    await asyncio.sleep(2)
+    await xx.edit(f"Nih REPONYA = [TEKAN](https://github.com/izzy-adeeva/RamPyro-Master)")
+
+
+@Client.on_message(filters.command("getstring", cmd) & filters.me)
+async def channel(client: Client, message: Message):
+    xx = await edit_or_reply(message, "**Jan Bawel!!**")
+    await asyncio.sleep(2)
+    await xx.edit(f"Nih String = [TEKAN](https://t.me/geezRamStringBot)")
 
 
 @Client.on_message(filters.command("keluar", cmd) & filters.me)
