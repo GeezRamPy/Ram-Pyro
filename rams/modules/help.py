@@ -115,7 +115,7 @@ async def module_helper(client: Client, message: Message):
             )
 
 def add_command_help(module_name, commands):
-    if module_name in CMD_HANDLER.keys():
+    if module_name in CMD_HELP.keys():
         command_dict = CMD_HANDLER[module_name]
     else:
         command_dict = {}
