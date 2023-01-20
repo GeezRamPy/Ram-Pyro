@@ -166,29 +166,3 @@ async def delblacklist(client: Client, message: Message):
     else:
         await xxnx.edit("**Grup ini tidak ada dalam daftar blacklist gcast.**")
 
-
-add_command_help(
-    "broadcast",
-    [
-        [
-            "gcast <text/reply>",
-            "Mengirim Global Broadcast pesan ke Seluruh Grup yang kamu masuk. (Bisa Mengirim Media/Sticker)",
-        ],
-        [
-            "gucast <text/reply>",
-            "Mengirim Global Broadcast pesan ke Seluruh Private Massage / PC yang masuk. (Bisa Mengirim Media/Sticker)",
-        ],
-        [
-            "blchat",
-            "Untuk Mengecek informasi daftar blacklist gcast.",
-        ],
-        [
-            "addblacklist",
-            "Untuk Menambahkan grup tersebut ke blacklist gcast.",
-        ],
-        [
-            "delblacklist",
-            f"Untuk Menghapus grup tersebut dari blacklist gcast.\n\n  •  **Note : **Ketik perintah** `{cmd}addblacklist` **dan** `{cmd}delblacklist` **di grup yang kamu Blacklist.",
-        ],
-    ],
-)
