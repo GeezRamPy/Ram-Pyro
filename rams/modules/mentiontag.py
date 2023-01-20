@@ -62,16 +62,3 @@ async def cancel_spam(client: Client, message: Message):
         return await message.edit("**Memberhentikan Mention.**")
 
 
-add_command_help(
-    "mentiontag",
-    [
-        [
-            "mention [text/reply ke chat]",
-            "Untuk Mention semua member group",
-        ],
-        [
-            "cancel",
-            f"Untuk Membatalkan Perintah {cmd}tagall",
-        ],
-    ],
-)
