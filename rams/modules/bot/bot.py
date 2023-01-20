@@ -18,6 +18,7 @@ from rams import CMD_HELP, app
 from rams.split.data import Data
 from rams.split.inline import cb_wrapper, paginate_help
 from rams import ids as users
+from config import CMD_HANDLER as cmd
 
 @Client.on_callback_query()
 async def _callbacks(_, callback_query: CallbackQuery):
@@ -71,7 +72,7 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
     commands: dict = CMD_HELP[modul_name]
     this_command = f"**Help For {str(modul_name).upper()}** 」──\n\n"
     for x in commands:
-        this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+        this_command += f"  •  **Command:** `{cmd}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
     this_command += "© Geez | RAM"
     bttn = [
         [InlineKeyboardButton(text="Return", callback_data="reopen")],
