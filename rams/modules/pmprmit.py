@@ -335,37 +335,3 @@ async def reset_pmpermit(client: Client, cust_msg: Message):
         sql.delgvar("unapproved_msg")
         await Man.edit("**Berhasil Mengubah Pesan Custom PMPERMIT menjadi Default**")
 
-
-add_command_help(
-    "pmpermit",
-    [
-        [
-            f"ok atau {cmd}setuju",
-            "Menerima pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm",
-        ],
-        [
-            f"tolak atau {cmd}nopm",
-            "Menolak pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm",
-        ],
-        [
-            "pmlimit <angka>",
-            "Untuk mengcustom pesan limit auto block pesan",
-        ],
-        [
-            "setpmpermit <balas ke pesan>",
-            "Untuk mengcustom pesan PMPERMIT untuk orang yang pesannya belum diterima.",
-        ],
-        [
-            "getpmpermit",
-            "Untuk melihat pesan PMPERMIT.",
-        ],
-        [
-            "resetpmpermit",
-            "Untuk Mereset Pesan PMPERMIT menjadi DEFAULT",
-        ],
-        [
-            "pmpermit on/off",
-            "Untuk mengaktifkan atau menonaktifkan PMPERMIT",
-        ],
-    ],
-)
