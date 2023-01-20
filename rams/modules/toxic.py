@@ -386,34 +386,3 @@ async def toxicvirtual(client: Client, message: Message):
     await xx.edit("**BHAHAHAHA**")
     await asyncio.sleep(1.5)
     await xx.edit("**KASIAN MANA MASIH MUDA**")
-
-
-add_command_help(
-    "toxic",
-    [
-        ["jamet", "Menghina Jamet telegram"],
-        ["pp", "Menghina Jamet telegram yang ga pake foto profil."],
-        ["dp", "Menghina Jamet muka hina!"],
-        ["so", "Ngeledek orang sokab."],
-        ["nb", "Ngeledek orang norak baru pake bot."],
-        ["skb", "Ngeledek orang sokab versi 2."],
-        ["met", "Ngeledek si jamet caper."],
-        ["war", "Ngeledek orang so keras ngajak war."],
-        ["wartai", "Ngeledek orang so ketrigger ngajak cod minta sharelok."],
-        ["kismin", "Ngeledek orang kismin so jagoan di tele."],
-        ["ded", "Nyuruh orang mati aja goblok wkwk."],
-        ["sokab", "Ngeledek orang so kenal so dekat padahal kga kenal goblok."],
-        ["gembel", "Ngeledek bapaknya si jamet."],
-        ["cuih", "Ngeludahin keluarganya satu satu wkwk."],
-        ["dih", "Ngeledek anak haram."],
-        ["gcs", "Ngeledek gc sampah."],
-    ],
-)
-
-add_command_help(
-    "fglobal",
-    [
-        ["gbn", "Global Banned Secara fake."],
-        ["gmt", "Global Mute secara fake."],
-    ],
-)
