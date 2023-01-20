@@ -9,6 +9,7 @@
 
 import asyncio
 import os
+import textwrap
 from io import BytesIO
 
 import cv2
