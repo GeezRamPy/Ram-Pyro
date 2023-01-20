@@ -146,13 +146,3 @@ async def get_id(client: Client, message: Message):
 
 
 # Command help section
-add_command_help(
-    "start",
-    [
-        ["alive", "Mencoba Apakah Bot dalam keadaan menyala atau mati."],
-        ["repo", "Memunculkan Repo."],
-        ["creator", "Memberitahukan Pembuat Userbot RamPyro-Bot."],
-        ["id", "Balas Pesan Seseorang dan dapatkan Id nya."],
-        [f"up `or` {cmd}uptime", "Check bot's current uptime."],
-    ],
-)
