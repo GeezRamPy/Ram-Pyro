@@ -12,7 +12,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.utility import split_list
-from config import CMD_HANDLER as cmd
+from config import CMD_HANDLER as cdm
 from rams import CMD_HELP,app
 
 def ReplyCheck(message: Message):
@@ -26,7 +26,7 @@ def ReplyCheck(message: Message):
 
     return reply_id
 
-@Client.on_message(filters.command(["help", "helpme"], cmd) & filters.me)
+@Client.on_message(filters.command(["help", "helpme"], cdm) & filters.me)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
@@ -56,7 +56,7 @@ async def module_help(client: Client, message: Message):
                 reply_to_message_id=ReplyCheck(message),
             )
             await xx.reply(
-                f"**Usage:** `{cmd}help broadcast` **To View Module Information**"
+                f"**Usage:** `{cdm}help broadcast` **To View Module Information**"
             )
             return
 
@@ -65,7 +65,7 @@ async def module_help(client: Client, message: Message):
             commands: dict = CMD_HELP[help_arg]
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
-                this_command += f"  •  **Command:** `{cmd}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+                this_command += f"  •  **Command:** `{cdm}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @UserbotCh"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
@@ -76,7 +76,7 @@ async def module_help(client: Client, message: Message):
                 f"`{help_arg}` **Bukan Nama Modul yang Valid.**",
             )
 
-@Client.on_message(filters.command(["helper", "rhelp"], cmd) & filters.me)
+@Client.on_message(filters.command(["helper", "rhelp"], cdm) & filters.me)
 async def module_helper(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
@@ -95,7 +95,7 @@ async def module_helper(client: Client, message: Message):
             message, f"```{str(ac)}```\n• @GeezRam >< @UserbotCh •"
         )
         await message.reply(
-            f"**Usage**:`{cmd}help broadcast` **To View Module details**"
+            f"**Usage**:`{cdm}help broadcast` **To View Module details**"
         )
 
     if help_arg:
@@ -103,7 +103,7 @@ async def module_helper(client: Client, message: Message):
             commands: dict = CMD_HELP[help_arg]
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
-                this_command += f"  •  **Command:** `{cmd}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+                this_command += f"  •  **Command:** `{cdm}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @GeezRam >< @UserbotCh"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
