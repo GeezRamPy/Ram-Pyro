@@ -131,13 +131,3 @@ async def no_longer_afk(client: Client, message: Message):
             pass
         MENTIONED = []
 
-
-add_command_help(
-    "afk",
-    [
-        [
-            "afk <alasan>",
-            "Memberi tahu orang yang menandai atau membalas salah satu pesan atau dm anda kalau anda sedang afk",
-        ],
-    ],
-)
