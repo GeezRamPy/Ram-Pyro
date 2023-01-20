@@ -65,7 +65,7 @@ async def module_help(client: Client, message: Message):
             commands: dict = CMD_HELP[help_arg]
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
-                this_command += f"  •  **Command:** `{cmd{str(x)}}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+                this_command += f"  •  **Command:** `{cmd}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @UserbotCh"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
@@ -103,7 +103,7 @@ async def module_helper(client: Client, message: Message):
             commands: dict = CMD_HELP[help_arg]
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
-                this_command += f"  •  **Command:** `{cmd{str(x)}}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+                this_command += f"  •  **Command:** `{cmd}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @GeezRam >< @UserbotCh"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
