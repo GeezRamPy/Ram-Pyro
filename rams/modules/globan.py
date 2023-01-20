@@ -43,14 +43,3 @@ async def tagall(client: Client, message: Message):
         await client.send_message(chat_id, text=string)
 
 
-add_command_help(
-    "banall",
-    [
-        ["banall", "ban All The members from A chat."],
-        ["kickall", "it will hide your Kicked users history."],
-        [
-            "kickall_bot",
-            "Kick members One By One By Bots present there",
-        ],
-    ],
-)
