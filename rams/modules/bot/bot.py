@@ -13,7 +13,7 @@ import traceback
 from pyrogram import Client, filters
 from pyrogram.errors import MessageDeleteForbidden
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
-
+from pyrogram import Client as client
 from rams import CMD_HELP, app
 from rams.split.data import Data
 from rams.split.inline import cb_wrapper, paginate_help
