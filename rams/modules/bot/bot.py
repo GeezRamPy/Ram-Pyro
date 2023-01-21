@@ -19,7 +19,6 @@ from rams.split.data import Data
 from rams.split.inline import cb_wrapper, paginate_help
 from rams import ids as users
 from config import CMD_HANDLER as cmd
-user = client.get_users
 @Client.on_callback_query()
 async def _callbacks(_, callback_query: CallbackQuery):
     query = callback_query.data.lower()
@@ -67,7 +66,7 @@ async def _callbacks(_, callback_query: CallbackQuery):
 
 @app.on_callback_query(filters.regex("ub_modul_(.*)"))
 @cb_wrapper
-async def on_plug_in_cb(_, callback_query: CallbackQuery):
+async def on_plug_in_cb(_, client: Client, callback_query: CallbackQuery):
     modul_name = callback_query.matches[0].group(1)
     commands: dict = CMD_HELP[modul_name]
     this_command = f"**Help For {str(modul_name).upper()}** 」──\n\n"
@@ -76,7 +75,7 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
     this_command += "© Geez | RAM"
     bttn = [
         [
-           InlineKeyboardButton(text="•owner•", url=f"tg://user?id={user.id}"),
+           InlineKeyboardButton(text="•owner•", url=f"{client.me.mention}"),
            InlineKeyboardButton(text="•support•", url="https://t.me/GeezRam"),
         ],
         [InlineKeyboardButton(text="Return", callback_data="reopen")],
