@@ -153,7 +153,7 @@ async def ramping(client: Client, message: Message):
          [InlineKeyboardButton(text="•owner•", url=f"https://t.me/thisrama")],
        ]
     await app.send_inline_text(
-        text_ping,
+        data_ping,
         reply_markup=InlineKeyboardMarkup(baten),
     )
         
