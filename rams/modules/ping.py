@@ -31,11 +31,11 @@ from .help import add_command_help
 modules = CMD_HELP
 
 data_ping = f"""
-RamPyro-bot\n
-ㅤㅤㅤㅤStatus : Menyala!\n
-ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n
-ㅤㅤㅤㅤbot version: {BOT_VER} \n
-ㅤㅤㅤㅤbranch: {branch} \n\n
+RamPyro-bot
+ㅤㅤㅤㅤStatus : Menyala!
+ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> 
+ㅤㅤㅤㅤbot version: {BOT_VER} 
+ㅤㅤㅤㅤbranch: {branch} 
 """
     
 
@@ -147,7 +147,7 @@ async def ramping(client: Client, message: Message):
     baten = [ 
          [InlineKeyboardButton(text="•owner•", url=f"https://t.me/thisrama")],
        ]
-    await app.get_inline_text(
+    await app.edit_inline_text(
         text=data_ping,
         reply_markup=InlineKeyboardMarkup(baten),
     )
