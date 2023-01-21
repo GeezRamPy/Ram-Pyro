@@ -137,7 +137,7 @@ async def kping(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("rama", cmd) & filters.me & filters.via_bot)
+@Client.on_message(filters.command("rama", cmd) & filters.me)
 async def ramping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     bot_me = await app.get_me()
@@ -147,8 +147,8 @@ async def ramping(client: Client, message: Message):
     baten = [ 
          [InlineKeyboardButton(text="•owner•", url=f"https://t.me/thisrama")],
        ]
-    await client.get_inline_text(
-        data_ping,
+    await message.reply_text(
+        text=data_ping,
         reply_markup=InlineKeyboardMarkup(baten),
     )
         
