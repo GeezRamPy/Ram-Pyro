@@ -76,7 +76,7 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
     this_command += "© Geez | RAM"
     bttn = [
         [
-           InlineKeyboardButton(text="•channel•", url=,"https://t.me/UserbotCh"),
+           InlineKeyboardButton(text="•channel•", url="https://t.me/UserbotCh"),
            InlineKeyboardButton(text="•support•", url="https://t.me/GeezRam"),
         ],
         [InlineKeyboardButton(text="Return", callback_data="reopen")],
