@@ -27,8 +27,8 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message,
 )
-from geezlibs.ram.helpers.data import Data
-from geezlibs.ram.helpers.inline import inline_wrapper, paginate_help
+from rams.split.data import Data
+from rams.split.inline import inline_wrapper, paginate_help
 from config import BOT_VER
 from rams import CMD_HELP, StartTime, app
 
