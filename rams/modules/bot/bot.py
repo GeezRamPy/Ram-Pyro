@@ -75,6 +75,10 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
         this_command += f"  •  **Command:** `{cmd}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
     this_command += "© Geez | RAM"
     bttn = [
+        [
+           InlineKeyboardButton(text="•owner•", url=f"{app.me.mention}"),
+           InlineKeyboardButton(text="•support•", url="t.me/GeezRam"),
+        ],
         [InlineKeyboardButton(text="Return", callback_data="reopen")],
     ]
     reply_pop_up_alert = (
