@@ -25,12 +25,24 @@ from geezlibs.ram.helpers.adminHelpers import DEVS
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from config import BOT_VER, CMD_HANDLER as cmd
 from config import GROUP, BRANCH as branch
-from rams import CMD_HELP, StartTime
+from rams import CMD_HELP, StartTime, app
 from .help import add_command_help
 
 modules = CMD_HELP
 
-
+data_ping = f"""
+RamPyro-bot\n
+ㅤㅤㅤㅤStatus : Menyala!\n
+ㅤㅤㅤㅤping bot:
+`%sms` \n
+ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n
+ㅤㅤㅤㅤbot version: {BOT_VER} \n
+ㅤㅤㅤㅤbot uptime:
+`{uptime}` \n
+ㅤㅤㅤㅤbranch: {branch} \n\n
+ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration),)
+"""
+    
 
 @Client.on_message(filters.command(["speed", "speedtest"], cmd) & filters.me)
 async def speed_test(client: Client, message: Message):
@@ -130,22 +142,19 @@ async def kping(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("rama", cmd) & filters.me)
+@Client.on_message(filters.command("rama", cmd) & filters.me & filters.via_bot)
 async def ramping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
+    bot_me = await app.get_me()
     start = datetime.now()
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await message.reply_text(
-        text="RamPyro-bot\n"
-        "ㅤㅤStatus : Menyala!\n"
-        f"ㅤㅤㅤㅤping bot:"
-        f"`%sms` \n"
-        f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
-        f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
-        f"ㅤㅤㅤㅤbot uptime:"
-        f"`{uptime}` \n"
-        f"ㅤㅤㅤㅤbranch: {branch} \n\n"
-        f"ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration),
+    baten = [ 
+         [InlineKeyboardButton(text="•owner•", url=f"https://t.me/thisrama")],
+       ]
+    await app.send_inline_text(
+        text_ping,
+        reply_markup=InlineKeyboardMarkup(baten),
     )
+        
        
