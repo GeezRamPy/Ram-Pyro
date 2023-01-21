@@ -33,14 +33,9 @@ modules = CMD_HELP
 data_ping = f"""
 RamPyro-bot\n
 ㅤㅤㅤㅤStatus : Menyala!\n
-ㅤㅤㅤㅤping bot:
-`%sms` \n
 ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n
 ㅤㅤㅤㅤbot version: {BOT_VER} \n
-ㅤㅤㅤㅤbot uptime:
-`{uptime}` \n
 ㅤㅤㅤㅤbranch: {branch} \n\n
-ㅤㅤㅤㅤOwner : {client.me.mention}" % (duration),)
 """
     
 
