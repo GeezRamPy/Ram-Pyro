@@ -19,7 +19,7 @@ from rams.split.data import Data
 from rams.split.inline import cb_wrapper, paginate_help
 from rams import ids as users
 from config import CMD_HANDLER as cmd
-user = await client.get_users
+user = client.get_users
 @Client.on_callback_query()
 async def _callbacks(_, callback_query: CallbackQuery):
     query = callback_query.data.lower()
