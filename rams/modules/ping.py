@@ -149,6 +149,3 @@ async def ramping(client: Client, message: Message):
               results.results[0].id,
               reply_to_message_id=message.ReplyCheck(message),
           )
-          await xnxx.delete()
-      except BaseException as e:
-          await ramss.edit(rams, f"<b>ERROR:</b> <code>{e}</code>")
