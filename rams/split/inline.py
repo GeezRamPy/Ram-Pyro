@@ -1,6 +1,6 @@
 from math import ceil
 from traceback import format_exc
-from pyrogram import Client as client
+from pyrogram import Client
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import (
     InlineKeyboardButton,
