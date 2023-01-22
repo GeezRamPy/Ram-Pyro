@@ -88,6 +88,7 @@ async def pingme(client: Client, message: Message):
     await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
     await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
     await ram.edit("⚡")
+    await asyncio.sleep(2.5)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await ram.edit(
@@ -125,5 +126,5 @@ async def ramping(client: Client, message: Message):
         f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
         f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
-        f"**[𝚂𝚞𝚙𝚙𝚘𝚛𝚝](https://t.me/{GROUP})** | **[𝙲𝚑𝚊𝚗𝚗𝚎𝚕](https://t.me/{CHANNEL})** | **{client.me.mention}", disable_web_page_preview=True,
+        f"**[𝚂𝚞𝚙𝚙𝚘𝚛𝚝](https://t.me/{GROUP})** | **[𝙲𝚑𝚊𝚗𝚗𝚎𝚕](https://t.me/{CHANNEL})** | **[𝙾𝚠𝚗𝚎𝚛](tg://user?id={client.me.id})**", disable_web_page_preview=True,
     )
