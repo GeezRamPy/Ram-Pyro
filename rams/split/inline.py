@@ -1,6 +1,5 @@
 from math import ceil
 from traceback import format_exc
-from pyrogram import Client
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import (
     InlineKeyboardButton,
@@ -37,14 +36,11 @@ def paginate_help(page_number, loaded_modules, prefix, client: Client):
             modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
         ] + [
             (
-                InlineKeyboardButton(text="•owner•", url=f"(tg://user?id={client.me.id})"),
-            ),
-            (
                 InlineKeyboardButton(
-                    text="⇚", callback_data=f"{prefix}_prev({modulo_page})"
+                    text="•⇚•", callback_data=f"{prefix}_prev({modulo_page})"
                 ),
                 InlineKeyboardButton(
-                    text="⇛", callback_data=f"{prefix}_next({modulo_page})"
+                    text="•⇛•", callback_data=f"{prefix}_next({modulo_page})"
                 ),
             )
         ]
