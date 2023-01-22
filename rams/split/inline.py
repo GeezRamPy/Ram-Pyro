@@ -13,7 +13,7 @@ from rams import ids as list_users
 looters = None
 
 
-def paginate_help(page_number, loaded_modules, prefix):
+def paginate_help(page_number, loaded_modules, prefix, client: Client):
     number_of_rows = 4
     number_of_cols = 2
     global looters
