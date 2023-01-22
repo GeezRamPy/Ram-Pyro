@@ -138,19 +138,17 @@ async def kping(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("rama", cmd) & filters.me)
-async def ramping(client: Client, message: Message, callback_query: CallbackQuery):
-    uptime = await get_readable_time((time.time() - StartTime))
-    bot_me = await app.get_me()
-    start = datetime.now()
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    baten = [ 
-         [InlineKeyboardButton(text="•owner•", url=f"https://t.me/thisrama")],
-       ]
-    await app.edit_inline_text(
-        callback_query.inline_message_id,
-        text=data_ping,
-        reply_markup=InlineKeyboardMarkup(baten),
-    )
-        
-       
+async def ramping(client: Client, message: Message):
+    if app:
+       try:
+          ramss = await message.reply_text(f"{data_ping}")
+          bot.me = await app.get_me()
+          results = await client.get_inline_bot_results(bot.me.username, f"rama")
+          await message.reply_inline_bot_result(
+              results.query_id,
+              results.results[0].id,
+              reply_to_message_id=message.ReplyCheck(message),
+          )
+          await xnxx.delete()
+      except BaseException as e:
+          await ramss.edit(rams, f"<b>ERROR:</b> <code>{e}</code>")
