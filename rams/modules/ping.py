@@ -23,7 +23,7 @@ from geezlibs.ram.helpers.PyroHelpers import SpeedConvert
 from geezlibs.ram.utils.tools import get_readable_time
 from geezlibs.ram.helpers.adminHelpers import DEVS
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
-from config import BOT_VER, CMD_HANDLER as cmd
+from config import BOT_VER, GROUP, CHANNEL, CMD_HANDLER as cmd
 from config import GROUP, BRANCH as branch
 from rams import CMD_HELP, StartTime, app
 from .help import add_command_help
@@ -94,22 +94,11 @@ async def pingme(client: Client, message: Message):
     await ram.edit("**▁ ▂ ▄ ▅ ▆**")
     await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
     await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
-    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
-    await ram.edit("**▁ ▂ ▄ ▅ ▆**")
-    await ram.edit("**▁ ▂ ▄ ▅ **")
-    await ram.edit("**▁ ▂ ▄**")
-    await ram.edit("**▁ ▂**")
-    await ram.edit("**▁**")
-    await ram.edit("**▁ ▂**")
-    await ram.edit("**▁ ▂ ▄**")
-    await ram.edit("**▁ ▂ ▄ ▅**")
-    await ram.edit("**▁ ▂ ▄ ▅ ▆**")
-    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
-    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
+    await ram.edit("⚡")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await ram.edit(
-        f"**🌟𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗕𝗼𝘁🌟**\n"
+        f"**𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿**\n"
         f"** ➠  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
         f"** ➠  Uᴘᴛɪᴍᴇ  :** "
@@ -128,24 +117,24 @@ async def kping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"**╰•★★ |Pyro-Ping| ★★•╯**\n"
-        f"★ **speed:** "
-        f"`%sms` \n"
-        f"★ **Uptime:** "
-        f"`{uptime}` \n"
-        f"★ **owner:** {client.me.mention}" % (duration)
+        f"❏ **╰☞ 𝗠𝗔𝗦𝗧𝗘𝗥™╮**\n"
+        f"├• **╰☞** - `%sms`\n"
+        f"├• **╰☞ -** `{uptime}` \n"
+        f"└• **╰☞:** {client.me.mention}" % (duration)
     )
 
 
 @Client.on_message(filters.command("rama", cmd) & filters.me)
 async def ramping(client: Client, message: Message):
-    if app:
-       try:
-          ramss = await message.reply_text(f"{data_ping}")
-          bot.me = await app.get_me()
-          results = await client.get_inline_bot_results(bot.me.username, f"rama")
-          await message.reply_inline_bot_result(
-              results.query_id,
-              results.results[0].id,
-              reply_to_message_id=message.ReplyCheck(message),
-          )
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
+    await message.reply_text(
+        f"[𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿](https://github.com/izzy-adeeva/RamPyro-Master)\n"
+        "ㅤㅤStatus : __Menyala!__\n"
+        f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
+        f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
+        f"ㅤㅤㅤㅤbranch: {branch} \n\n"
+        f"**[𝚂𝚞𝚙𝚙𝚘𝚛𝚝](https://t.me/{GROUP})** | **[𝙲𝚑𝚊𝚗𝚗𝚎𝚕](https://t.me/{CHANNEL})** | **[𝙾𝚠𝚗𝚎𝚛]({client.me.mention})" % (duration), disable_web_page_preview=True,
+    )
