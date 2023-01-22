@@ -15,7 +15,7 @@ from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
 from pyrogram.enums import ParseMode
-from pyrogram.types import InlineKeyboardButton, CallBackQuery
+from pyrogram.types import InlineKeyboardButton, CallbackQuery
 from pyrogram.types import InlineKeyboardMarkup
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.constants import WWW
@@ -138,7 +138,7 @@ async def kping(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("rama", cmd) & filters.me)
-async def ramping(client: Client, message: Message, callback_query: CallBackQuerry):
+async def ramping(client: Client, message: Message, callback_query: CallbackQuery):
     uptime = await get_readable_time((time.time() - StartTime))
     bot_me = await app.get_me()
     start = datetime.now()
