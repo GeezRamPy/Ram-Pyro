@@ -117,10 +117,10 @@ async def kping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"❏ **╰☞ 𝗠𝗔𝗦𝗧𝗘𝗥™╮**\n"
-        f"├• **╰☞** - `%sms`\n"
-        f"├• **╰☞ -** `{uptime}` \n"
-        f"└• **╰☞:** {client.me.mention}" % (duration)
+        f"**╰☞ 𝗠𝗔𝗦𝗧𝗘𝗥™╮**\n"
+        f"**╰☞** - `%sms`\n"
+        f"**╰☞ -** `{uptime}` \n"
+        f"**╰☞:** {client.me.mention}" % (duration)
     )
 
 
@@ -131,7 +131,7 @@ async def ramping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"[𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿](https://github.com/izzy-adeeva/RamPyro-Master)\n"
+        f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿\n"
         "ㅤㅤStatus : __Menyala!__\n"
         f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
         f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
