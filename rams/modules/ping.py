@@ -30,13 +30,6 @@ from .help import add_command_help
 
 modules = CMD_HELP
 
-data_ping = f"""
-RamPyro-bot
-ㅤㅤㅤㅤStatus : Menyala!
-ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> 
-ㅤㅤㅤㅤbot version: {BOT_VER} 
-ㅤㅤㅤㅤbranch: {branch} 
-"""
     
 
 @Client.on_message(filters.command(["speed", "speedtest"], cmd) & filters.me)
@@ -126,13 +119,9 @@ async def kping(client: Client, message: Message):
 
 @Client.on_message(filters.command("rama", cmd) & filters.me)
 async def ramping(client: Client, message: Message):
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿\n"
-        "ㅤㅤStatus : __Menyala!__\n"
+        f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿 \n"
+        "ㅤㅤStatus : __Menyala!__ \n"
         f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
         f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
         f"ㅤㅤㅤㅤbranch: {branch} \n\n"
