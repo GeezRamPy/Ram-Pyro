@@ -15,8 +15,13 @@ from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
 from pyrogram.enums import ParseMode
-from pyrogram.types import InlineKeyboardButton, CallbackQuery
-from pyrogram.types import InlineKeyboardMarkup
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    Message,
+)
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.constants import WWW
 from geezlibs.ram.helpers.PyroHelpers import SpeedConvert
@@ -117,13 +122,21 @@ async def kping(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("rama", cmd) & filters.me)
-async def ramping(client: Client, message: Message):
-    await message.reply_text(
-        f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿 \n"
-        "ㅤㅤStatus : __Menyala!__ \n"
-        f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
-        f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
-        f"ㅤㅤㅤㅤbranch: {branch} \n\n"
-        f"**[𝚂𝚞𝚙𝚙𝚘𝚛𝚝](https://t.me/{GROUP})** | **[𝙲𝚑𝚊𝚗𝚗𝚎𝚕](https://t.me/{CHANNEL})** | **[𝙾𝚠𝚗𝚎𝚛](tg://user?id={client.me.id})**", disable_web_page_preview=True,
-    )
+@Client.on_message(filters.command(["rama", "alip"], cmd) & filters.me)
+async def module_ping(client: Client, message: Message):
+    cmd = message.command
+    help_arg = ""
+    bot_username = (await app.get_me()).username
+    if len(cmd) > 1:
+        help_arg = " ".join(cmd[1:])
+    elif not message.reply_to_message and len(cmd) == 1:
+        try:
+            nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
+            await asyncio.gather(
+                message.delete(),
+                client.send_inline_bot_result(
+                    message.chat.id, nice.query_id, nice.results[0].id
+                ),
+            )
+        except BaseException as e:
+            print(f"{e}")
