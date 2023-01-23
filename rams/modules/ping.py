@@ -140,7 +140,7 @@ async def module_ping(client: Client, message: Message):
         try:
             nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
             await asyncio.gather(
-                message.delete(),
+                message.reply_text(),
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id
                 ),
