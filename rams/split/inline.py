@@ -42,8 +42,7 @@ def paginate_help(page_number, loaded_modules, prefix):
             ],
             [
                 InlineKeyboardButton(
-                    text="•Tutup Menu•", callback_data=f"close_help"),
-                InlineKeyboardButton(text="•Tutup Inline•", callback_data=f"close"),
+                    text="•Tutup Menu•", callback_data=f"close"),
         ],
         ]]
     return pairs
