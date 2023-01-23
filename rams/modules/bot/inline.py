@@ -87,7 +87,7 @@ async def alive_function(message: Message, answers):
     )
     return answers
 
-async def ping_function(client: Client, message: Message, answers):
+async def ping_function(message: Message, answers):
     msg = (
         f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿 \n"
         "ㅤㅤStatus : __Menyala!__ \n"
