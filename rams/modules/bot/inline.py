@@ -29,9 +29,10 @@ from pyrogram.types import (
 )
 from rams.split.data import Data
 from rams.split.inline import inline_wrapper, paginate_help
-from config import BOT_VER
+from config import BOT_VER, BRANCH as branch
 from rams import CMD_HELP, StartTime, app
 
+modules = CMD_HELP
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -86,6 +87,28 @@ async def alive_function(message: Message, answers):
     )
     return answers
 
+async def ping_function(message: Message, answers):
+    msg = (
+        f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿 \n"
+        "ㅤㅤStatus : __Menyala!__ \n"
+        f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
+        f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
+        f"ㅤㅤㅤㅤbranch: {branch} \n\n"
+    )
+    answers.append(
+        InlineQueryResultArticle(
+            title="rama",
+            description="Check Bot's Stats",
+            thumb_url="https://telegra.ph/file/c78bb1efdeed38ee16eb2.png",
+            input_message_content=InputTextMessageContent(
+                msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            ),
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="•owner•", url=f"tg://user?id={client.me.id}")]]
+            ),
+        )
+    )
+    return answers
 
 async def help_function(answers):
     bttn = paginate_help(0, CMD_HELP, "helpme")
