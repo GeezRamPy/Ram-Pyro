@@ -134,7 +134,7 @@ async def module_ping(client: Client, message: Message):
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
-    if len(cmd) > 1:
+    if len(cdm) > 1:
         help_arg = " ".join(cdm[1:])
     elif not message.reply_to_message and len(cdm) == 1:
         try:
