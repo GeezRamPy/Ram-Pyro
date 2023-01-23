@@ -22,12 +22,13 @@ def paginate_help(page_number, loaded_modules, prefix):
     modules = [[
         InlineKeyboardButton(text="•Tutup Inline•", callback_data=f"close"),
         ],
+        [
         InlineKeyboardButton(
             text="{}".format(x),
             callback_data=f"ub_modul_{x}",
         )
         for x in helpable_modules
-    ]
+    ]]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
     if len(modules) % number_of_cols == 1:
         pairs.append((modules[-1],))
