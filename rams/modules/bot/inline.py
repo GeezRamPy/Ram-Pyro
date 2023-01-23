@@ -104,7 +104,7 @@ async def ping_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="•owner•", url=f"tg://user?id={client.me.id}")]]
+                [[InlineKeyboardButton(text="•open inline•", calback_data="reopen")]]
             ),
         )
     )
