@@ -348,6 +348,13 @@ add_command_help(
     ],
 )
 
+add_command_help(
+    "openai",
+    [
+        [f"ask [question]", "to ask questions using the API."],
+    ],
+)
+
 
 add_command_help(
     "webshot",
