@@ -49,7 +49,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                     text="•close•", callback_data=f"close_help")"
                 ),
             )
-        ]
+        ]]
     return pairs
 
 
