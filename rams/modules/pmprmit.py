@@ -43,8 +43,8 @@ DEF_UNAPPROVED_MSG = (
 )
 async def incomingpm(client: Client, message: Message):
     try:
-        from rams.helpers.SQL.globals import gvarstatus
-        from rams.helpers.SQL.pm_permit_sql import is_approved
+        from geezlibs.ram.helpers.SQL.globals import gvarstatus
+        from geezlibs.ram.helpers.SQL.pm_permit_sql import is_approved
     except BaseException:
         pass
 
@@ -100,7 +100,7 @@ async def incomingpm(client: Client, message: Message):
 
 async def auto_accept(client, message):
     try:
-        from rams.helpers.SQL.pm_permit_sql import approve, is_approved
+        from geezlibs.ram.helpers.SQL.pm_permit_sql import approve, is_approved
     except BaseException:
         pass
 
@@ -147,7 +147,7 @@ async def auto_accept(client, message):
 )
 async def approvepm(client: Client, message: Message):
     try:
-        from rams.helpers.SQL.pm_permit_sql import approve
+        from geezlibs.ram.helpers.SQL.pm_permit_sql import approve
     except BaseException:
         await message.edit("Running on Non-SQL mode!")
         return
@@ -186,7 +186,7 @@ async def approvepm(client: Client, message: Message):
 )
 async def disapprovepm(client: Client, message: Message):
     try:
-        from rams.helpers.SQL.pm_permit_sql import dissprove
+        from geezlibs.ram.helpers.SQL.pm_permit_sql import dissprove
     except BaseException:
         await message.edit("Running on Non-SQL mode!")
         return
