@@ -5,7 +5,7 @@ from pyrogram.errors import MessageNotModified
 from rams.split.apaan import *
 from geezlibs.ram.helpers.basic import *
 from geezlibs.ram.helpers.adminHelpers import DEVS
-from config import BLACKLIST_GCAST, CMD_HANDLER as cmd
+from config import OPENAI_API_KEY, BLACKLIST_GCAST, CMD_HANDLER as cmd
 from geezlibs.ram.utils.misc import *
 from geezlibs.ram.utils.tools import *
 
@@ -22,7 +22,7 @@ async def openai(client: Client, message: Message):
     question = message.text.split(" ", maxsplit=1)[1]
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {OPENAI_API}",
+        "Authorization": f"Bearer {OPENAI_API_KEY}",
     }
 
     json_data = {
