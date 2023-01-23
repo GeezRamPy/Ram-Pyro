@@ -2,7 +2,7 @@ from pyrogram import *
 from pyrogram.types import *
 from pyrogram import Client as ram
 from pyrogram.errors import MessageNotModified
-from geezlibs.ram.helpers.what import *
+from rams.split.apaan import *
 from geezlibs.ram.helpers.basic import *
 from geezlibs.ram.helpers.adminHelpers import DEVS
 from config import BLACKLIST_GCAST, CMD_HANDLER as cmd
