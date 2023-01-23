@@ -142,6 +142,6 @@ async def module_ping(client: Client, message: Message):
             await asyncio.gather(
                 message.reply_text(message),
                 client.send_inline_bot_result(
-                    message.chat.id, nice.query_id, nice.results[0].id
-                ),
+                    message.chat.id, nice.query_id, nice.results[0].id),
             )
+            
