@@ -19,7 +19,9 @@ def paginate_help(page_number, loaded_modules, prefix):
     looters = page_number
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
     helpable_modules = sorted(helpable_modules)
-    modules = [
+    modules = [[
+        InlineKeyboardButton(text="•Tutup Inline•", callback_data=f"close"),
+        ],
         InlineKeyboardButton(
             text="{}".format(x),
             callback_data=f"ub_modul_{x}",
@@ -42,7 +44,7 @@ def paginate_help(page_number, loaded_modules, prefix):
             ],
             [
                 InlineKeyboardButton(
-                    text="•close•", callback_data=f"close_help")
+                    text="•Tutup Menu•", callback_data=f"close_help")
         ]]
     return pairs
 
