@@ -8,9 +8,16 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import time
+import traceback
+from sys import version as pyver
 from datetime import datetime
+import os
+import shlex
+import textwrap
+from typing import Tuple
 import asyncio
 import speedtest
+
 from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
