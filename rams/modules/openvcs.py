@@ -19,7 +19,7 @@ import random
 async def openai(client: Client, message: Message):
     if len(message.command) == 1:
         return await message.reply(f"Ketik <code>.{message.command[0]} [question]</code> Pertanya untuk menggunakan OpenAI")
-    question = m.text.split(" ", maxsplit=1)[1]
+    question = message.text.split(" ", maxsplit=1)[1]
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {OPENAI_API}",
