@@ -124,12 +124,12 @@ async def kping(client: Client, message: Message):
 
 @Client.on_message(filters.command(["rama", "alip"], cmd) & filters.me)
 async def module_ping(client: Client, message: Message):
-    cmd = message.command
+    cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
     if len(cmd) > 1:
-        help_arg = " ".join(cmd[1:])
-    elif not message.reply_to_message and len(cmd) == 1:
+        help_arg = " ".join(cdm[1:])
+    elif not message.reply_to_message and len(cdm) == 1:
         try:
             nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
             await asyncio.gather(
