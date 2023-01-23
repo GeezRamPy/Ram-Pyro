@@ -5,7 +5,8 @@ from geezlibs.geez.helper.cmd import *
 from pyrogram.errors import MessageNotModified
 from geezlibs.geez.helper.what import *
 from geezlibs.geez.helper.basic import *
-from rams import import DEVS, BL_GCAST
+from geezlibs.ram.helpers.adminHelpers import DEVS, 
+from config import BLACKLIST_GCAST
 from geezlibs.geez.utils.misc import *
 from geezlibs.geez.utils.tools import *
 
