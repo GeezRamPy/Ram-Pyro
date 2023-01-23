@@ -2,7 +2,7 @@ from pyrogram import *
 from pyrogram.types import *
 from pyrogram import Client as ram
 from pyrogram.errors import MessageNotModified
-from geezlibs.geez.helper.what import OPENAI_API
+from geezlibs.ram.helpers.what import *
 from geezlibs.ram.helpers.basic import *
 from geezlibs.ram.helpers.adminHelpers import DEVS
 from config import BLACKLIST_GCAST, CMD_HANDLER as cmd
@@ -18,7 +18,7 @@ import random
 @ram.on_message(filters.command("ask", cmd) & filters.me)
 async def openai(client: Client, message: Message):
     if len(message.command) == 1:
-        return await m.reply(f"Ketik <code>.{message.command[0]} [question]</code> Pertanya untuk menggunakan OpenAI")
+        return await message.reply(f"Ketik <code>.{message.command[0]} [question]</code> Pertanya untuk menggunakan OpenAI")
     question = m.text.split(" ", maxsplit=1)[1]
     headers = {
         "Content-Type": "application/json",
