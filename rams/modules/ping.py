@@ -144,4 +144,5 @@ async def module_ping(client: Client, message: Message):
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
             )
-        except BaseException as e:
+        except BaseException:
+            pass
