@@ -131,7 +131,6 @@ async def kping(client: Client, message: Message):
 
 @Client.on_message(filters.command("rama", cmd) & filters.me)
 async def module_ping(client: Client, message: Message):
-    ram = await message.reply("⚡")
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
@@ -141,7 +140,7 @@ async def module_ping(client: Client, message: Message):
         try:
             nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
             await asyncio.gather(
-                message.reply(ram),
+                message.reply(rama),
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
             )
