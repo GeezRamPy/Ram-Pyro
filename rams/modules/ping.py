@@ -91,7 +91,7 @@ async def nearest_dc(client: Client, message: Message):
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    ram = await edit_or_reply(message, "**Mengecek Sinyal...**")
+    ram = await message.reply("**Mengecek Sinyal...**")
     await ram.edit("**▁**")
     await ram.edit("**▁ ▂**")
     await ram.edit("**▁ ▂ ▄**")
