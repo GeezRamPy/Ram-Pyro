@@ -87,7 +87,7 @@ async def nearest_dc(client: Client, message: Message):
 @Client.on_message(
     filters.command("ceping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("rping", cmd) & filters.me)
+@Client.on_message(filters.command("ping", cmd) & filters.me)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -116,7 +116,7 @@ async def pingme(client: Client, message: Message):
 @Client.on_message(
     filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("ping", cmd) & filters.me)
+@Client.on_message(filters.command("pink", cmd) & filters.me)
 async def kping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -131,6 +131,7 @@ async def kping(client: Client, message: Message):
 
 @Client.on_message(filters.command("rama", cmd) & filters.me)
 async def module_ping(client: Client, message: Message):
+    ram = await message.reply("⚡")
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
@@ -140,6 +141,7 @@ async def module_ping(client: Client, message: Message):
         try:
             nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
             await asyncio.gather(
+                message.reply(ram)
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
             )
