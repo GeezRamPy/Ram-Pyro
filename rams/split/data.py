@@ -4,7 +4,7 @@ from config import CMD_HANDLER as cmd
 class Data:
 
     text_help_menu = (
-        f"**◇ Menu Inline RamPyro-Master ◇**"
+        f"**《 Menu Inline RamPyro-Master 》\nperintah: {cmd}**"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
