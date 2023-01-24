@@ -36,13 +36,9 @@ def paginate_help(page_number, loaded_modules, prefix):
             modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
         ] + [[   
                 InlineKeyboardButton(
-                    text="⇭ Tutup Inline ⇭", callback_data=f"close")
-            ],
-            [
+                    text="⇚", callback_data=f"{prefix}_prev({modulo_page})"),
                 InlineKeyboardButton(
-                    text="•⇚•", callback_data=f"{prefix}_prev({modulo_page})"),
-                InlineKeyboardButton(
-                    text="•⇛•", callback_data=f"{prefix}_next({modulo_page})")
+                    text="⇛", callback_data=f"{prefix}_next({modulo_page})")
             ],
             [
                 InlineKeyboardButton(
