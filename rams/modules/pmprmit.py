@@ -277,7 +277,7 @@ async def setpmpermit(client: Client, cust_msg: Message):
             "**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `.setvar PM_AUTO_BAN True`"
         )
     try:
-        import rams.helpers.SQL.globals as sql
+        import geezlibs.ram.helpers.SQL.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
@@ -300,7 +300,7 @@ async def get_pmermit(client: Client, cust_msg: Message):
             "**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `.setvar PM_AUTO_BAN True`"
         )
     try:
-        import rams.helpers.SQL.globals as sql
+        import geezlibs.ram.helpers.SQL.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
@@ -322,7 +322,7 @@ async def reset_pmpermit(client: Client, cust_msg: Message):
             f"**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}setvar PM_AUTO_BAN True`"
         )
     try:
-        import rams.helpers.SQL.globals as sql
+        import geezlibs.ram.helpers.SQL.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
