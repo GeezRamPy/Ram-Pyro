@@ -38,4 +38,4 @@ async def openai(client: Client, message: Message):
     except MessageNotModified:
         pass
     except Exception:
-        await msg.edit("**Biar bener Aja kalo nanya...**")
+        await msg.edit("**Terjadi Kesalahan!!\nMungkin OPEN_AI_APIKEY mu Belum terdaftar nih.**")
