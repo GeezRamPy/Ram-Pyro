@@ -21,7 +21,7 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = sorted(helpable_modules)
     modules = [
         InlineKeyboardButton(
-            text="⇬{}⇬".format(x),
+            text="⇬ {} ⇬".format(x),
             callback_data=f"ub_modul_{x}",
         )
         for x in helpable_modules
@@ -36,9 +36,9 @@ def paginate_help(page_number, loaded_modules, prefix):
             modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
         ] + [[
                 InlineKeyboardButton(
-                    text="⇭Tutup Menu⇭", callback_data=f"close_help"),   
+                    text="⇭ Tutup Menu ⇭", callback_data=f"close_help"),   
                 InlineKeyboardButton(
-                    text="⇭Tutup Inline⇭", callback_data=f"close")
+                    text="⇭ Tutup Inline ⇭", callback_data=f"close")
             ],
             [
                 InlineKeyboardButton(
