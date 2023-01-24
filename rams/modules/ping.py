@@ -139,10 +139,9 @@ async def module_ping(client: Client, message: Message):
     elif not message.reply_to_message and len(cdm) == 1:
         try:
             nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
-            await asyncio.gather(
+            await message.reply(
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
-                message.reply(cdm),
             )
         except BaseException:
             pass
