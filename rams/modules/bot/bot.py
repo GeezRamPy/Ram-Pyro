@@ -70,7 +70,7 @@ async def _callbacks(_, callback_query: CallbackQuery):
 async def on_plug_in_cb(_, callback_query: CallbackQuery):
     modul_name = callback_query.matches[0].group(1)
     commands: dict = CMD_HELP[modul_name]
-    this_command = f"**Bantuan Untuk {str(modul_name).upper()}** 」──\n\n"
+    this_command = f"**╔═════•●•═════╗\n{str(modul_name).upper()}**\n╚═════•●•═════╝\n\n"
     for x in commands:
         this_command += f"  •  **Perintah:** `{cmd}{str(x)}`\n  •  **Fungsi:** `{str(commands[x])}`\n\n"
     this_command += "© @GeezRam | @UserbotCh"
