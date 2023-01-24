@@ -13,8 +13,16 @@ import os
 from pyrogram import filters, Client
 from pyrogram.types import Message
 from py_trans import Async_PyTranslator
-from geezlibs.ram.helpers.utility import get_arg
 from config import CMD_HANDLER as cmds
+
+def get_arg(message):
+    msg = message.text
+    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+    split = msg[1:].replace("\n", " \n").split(" ")
+    if " ".join(split[1:]).strip() == "":
+        return ""
+    return " ".join(split[1:])
+
 
 @Client.on_message(filters.command(["tr", "translate"], cmds) & filters.me)
 async def pytrans_tr(_, message: Message):
