@@ -38,7 +38,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                 InlineKeyboardButton(
                     text="•⇚•", callback_data=f"{prefix}_prev({modulo_page})"),
                 InlineKeyboardButton(
-                    text="•⇛•", callback_data=f"{prefix}_next({modulo_page})"),
+                    text="•⇛•", callback_data=f"{prefix}_next({modulo_page})")
             ],
             [
                 InlineKeyboardButton(
