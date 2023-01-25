@@ -19,8 +19,9 @@ from rams import CMD_HELP, app
 from rams.split.data import Data
 from rams.split.inline import cb_wrapper, paginate_help
 from rams import ids as users
-from config import CMD_HANDLER as cmd
+from config import BOT_VER, BRANCH, CMD_HANDLER as cmd
 modules = CMD_HELP
+branch = BRANCH
 
 @Client.on_callback_query()
 async def _callbacks(_, callback_query: CallbackQuery):
