@@ -19,7 +19,6 @@ MSG_BOT = (f"**Ram Pyro Assistant**\nis alive...")
 
 
 async def main():
-    await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module(f"rams.modules.{all_module}")
     for bot in bots:
@@ -42,7 +41,7 @@ async def main():
                 f"Logged in as {bot.me.first_name} | [ {bot.me.id} ]"
             )
         except Exception as a:
-            LOGGER("master").warning(a)
+            LOGGER("main").warning(a)
     LOGGER("rams").info(f"RamPyro-Bot v{BOT_VER} [🔥 UDAH AKTIF NGENTOT! 🔥]")
     if not str(BOTLOG_CHATID).startswith("-100"):
         await create_botlog(bot1)
