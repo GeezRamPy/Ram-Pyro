@@ -42,7 +42,7 @@ def paginate_help(page_number, loaded_modules, prefix):
             ],
             [
                 InlineKeyboardButton(
-                    text="⇭ Tutup ⇭", callback_data=f"close_help")
+                    text="⇭ ᴛᴜᴛᴜᴘ ⇭", callback_data=f"close_help")
         ]]
     return pairs
 
