@@ -35,17 +35,6 @@ async def absen(_, message: Message):
     await message.reply("**Sayang Rama😍!**")
 
 
-@Client.on_message(filters.command("repo", cmd) & filters.me)
-async def repo(client: Client, message: Message):
-    await edit_or_reply(
-        message, First.REPO.format(BOT_VER), disable_web_page_preview=True
-    )
-
-
-@Client.on_message(filters.command("creator", cmd) & filters.me)
-async def creator(client: Client, message: Message):
-    await edit_or_reply(message, First.CREATOR)
-
 
 @Client.on_message(filters.command(["uptime", "up"], cmd) & filters.me)
 async def uptime(client: Client, message: Message):
