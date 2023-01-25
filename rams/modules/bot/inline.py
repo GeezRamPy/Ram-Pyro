@@ -90,12 +90,12 @@ async def alive_function(message: Message, answers):
 async def ping_function(message: Message, answers):
     msg = (
         f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿 \n"
-        "ㅤㅤ⋙ Status : 𝗠𝗲𝗻𝘆𝗮𝗹𝗮!!! \n"
-        f"ㅤㅤㅤㅤ⋙ modules:</b> <code>{len(modules)} Modules</code> \n"
-        f"ㅤㅤㅤㅤ⋙ bot version: {BOT_VER} \n"
-        f"ㅤㅤㅤㅤ⋙ branch: {branch} \n"
-        f"ㅤㅤㅤㅤ⋙ versi Pyro: </b> <code>{pyrover}</code>\n"
-        f"ㅤㅤㅤㅤ⋙ versy python: </b> <code>{pyver.split()[0]}</code>"
+        "ㅤㅤ⋙ sᴛᴀᴛᴜs : 𝗔𝗸𝘁𝗶𝗳!!! \n"
+        f"ㅤㅤㅤㅤ⋙ ᴍᴏᴅᴜʟᴇs: </b> <code>{len(modules)} Modules</code> \n"
+        f"ㅤㅤㅤㅤ⋙ ᴠᴇʀsɪ ʙᴏᴛ: {BOT_VER} \n"
+        f"ㅤㅤㅤㅤ⋙ ʙʀᴀɴᴄʜ: {branch} \n"
+        f"ㅤㅤㅤㅤ⋙ ᴠᴇʀsɪ ᴘʏʀᴏ: </b> <code>{pyrover}</code>\n"
+        f"ㅤㅤㅤㅤ⋙ ᴠᴇʀsɪ ᴘʏᴛʜᴏɴ: </b> <code>{pyver.split()[0]}</code>"
     )
     answers.append(
         InlineQueryResultArticle(
@@ -106,7 +106,7 @@ async def ping_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="❈ support ❈", url="t.me/GeezRam")], [InlineKeyboardButton(text="❈ close ❈", callback_data="close"), InlineKeyboardButton(text="❈ open ❈", callback_data="reopen")]]
+                [[InlineKeyboardButton(text="❈ sᴜᴘᴘᴏʀᴛ ❈", url="t.me/GeezRam")], [InlineKeyboardButton(text="❈ ᴛᴜᴛᴜᴘ ❈", callback_data="close"), InlineKeyboardButton(text="❈ ʙᴜᴋᴀ ❈", callback_data="reopen")]]
             ),
         )
     )
