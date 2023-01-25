@@ -75,7 +75,7 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
         this_command += f"  •  **Perintah:** `{cmd}{str(x)}`\n  •  **Fungsi:** `{str(commands[x])}`\n\n"
     this_command += "© @GeezRam | @UserbotCh"
     bttn = [
-        [InlineKeyboardButton(text="⇕ Back ⇕", callback_data="reopen")],
+        [InlineKeyboardButton(text="⇕ ʙᴀᴄᴋ ⇕", callback_data="reopen")],
     ]
     reply_pop_up_alert = (
         this_command
