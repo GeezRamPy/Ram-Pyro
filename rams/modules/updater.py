@@ -25,10 +25,10 @@ from pyrogram.types import Message
 from geezlibs.ram.helpers.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from rams.split.misc import HAPP, XCB
-from geezlibs.ram.helpers.tools import get_arg
-from geezlibs.ram.utils.misc import restart
-from geezlibs.ram.utils.pastebin import PasteBin
-from geezlibs.ram.utils.tools import bash
+from rams.split.tools import get_arg
+from rams.split.berak.misc import restart
+from rams.split.berak.pastebin import PasteBin
+from rams.split.berak.tools import bash
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
