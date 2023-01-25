@@ -11,7 +11,7 @@ from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 
 
 @Client.on_message(filters.command(["sholawat", "saw"], cmd) & filters.me)
-async def asupan_cmd(client: Client, message: Message):
+async def sholawat(client: Client, message: Message):
     ram = await message.reply("`Tunggu Sebentar...`")
     await gather(
         ram.delete(),
@@ -41,7 +41,7 @@ async def asupan_cmd(client: Client, message: Message):
                 [
                     alquran.voice.file_id
                     async for asupan in client.search_messages(
-                        "Alquran_voicee", filter=enums.MessagesFilter.VOICE
+                        "Alquran_voicee", filter=enums.MessagesFilter.VOICE_NOTE
                     )
                 ]
             ),
