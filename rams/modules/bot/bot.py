@@ -32,7 +32,7 @@ async def _callbacks(_, callback_query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     elif query == "close":
-        await app.edit_inline_text(callback_query.inline_message_id, "**⋙ MENUTUP ALIVE ⋘**")
+        await app.edit_inline_text(callback_query.inline_message_id, "**⋙ MENUTUP SEMUA ⋘**")
         return
     elif query == "close_help":
         if callback_query.from_user.id not in users:
@@ -40,7 +40,9 @@ async def _callbacks(_, callback_query: CallbackQuery):
         await app.edit_inline_text(
             callback_query.inline_message_id,
             "**⋙ MENU TELAH DITUTUP ⋘**",
-            reply_markup=InlineKeyboardMarkup(Data.reopen),
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKyeboardButton(text="⇕ ʙᴜᴋᴀ ʟᴀɢɪ ⇕", callback_data="reopen")], InlineKeyboardButton(text="⇕ ᴛᴜᴛᴜᴘ ᴀᴊᴀ ⇕", callback_data="close")]]
+            ),
         )
         return
     elif query == "closed":
