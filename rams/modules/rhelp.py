@@ -397,7 +397,7 @@ add_command_help(
     "ping",
     [
         ["ping", "Untuk Menunjukkan Ping Bot Anda."],
-        ["rping", "Untuk Menunjukkan Ping Bot Anda ( Beda animasi doang )."],
+        ["rama", "Untuk Menunjukkan Ping Bot Anda ( Beda animasi doang )."],
     ],
 )
 
