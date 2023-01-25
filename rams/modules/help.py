@@ -37,10 +37,9 @@ async def module_help(client: Client, message: Message):
         try:
             nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
             await asyncio.gather(
-                message.delete(),
                 client.send_inline_bot_result(
-                    message.chat.id, nice.query_id, nice.results[0].id
-                ),
+                    message.chat.id, nice.query_id, nice.results[0].id),
+                message.delete(),
             )
         except BaseException as e:
             print(f"{e}")
