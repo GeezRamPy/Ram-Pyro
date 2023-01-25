@@ -35,13 +35,14 @@ def paginate_help(page_number, loaded_modules, prefix):
         pairs = pairs[
             modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
         ] + [   
+            (
                 InlineKeyboardButton(
                     text="⇚", callback_data=f"{prefix}_prev({modulo_page})"),
                 InlineKeyboardButton(
                     text="⇭ ᴛᴜᴛᴜᴘ ⇭", callback_data=f"close_help"),
                 InlineKeyboardButton(
-                    text="⇛", callback_data=f"{prefix}_next({modulo_page})")
-            
+                    text="⇛", callback_data=f"{prefix}_next({modulo_page})"),
+            )
         ]
     return pairs
 
