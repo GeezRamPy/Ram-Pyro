@@ -10,4 +10,4 @@ class Data:
         .replace("]", "")
         .replace("'", "")
     )
-    reopen = [[InlineKeyboardButton("⇕ open menu ⇕", callback_data="reopen")]]
+    reopen = [[InlineKeyboardButton("⇕ ʙᴜᴋᴀ ⇕", callback_data="reopen")]]
