@@ -558,8 +558,8 @@ add_command_help(
     "start",
     [
         ["alive", "Mencoba Apakah Bot dalam keadaan menyala atau mati."],
-        ["getrepo", "Memunculkan Repo."],
-        ["creator", "Memberitahukan Pembuat Userbot RamPyro-Bot."],
+        ["repo", "Memunculkan Repo."],
+        ["getstring", "Untuk Mengambil String."],
         ["id", "Balas Pesan Seseorang dan dapatkan Id nya."],
         [f"up `or` {cmd}uptime", "Check bot's current uptime."],
     ],
