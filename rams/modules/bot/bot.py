@@ -9,7 +9,8 @@
 # kopas repo dan hapus credit, ga akan jadikan lu seorang developer
 # ©2023 Geez & Ram Team
 import traceback
-
+from sys import version as pyver
+from pyrogram import __version__ as pyrover
 from pyrogram import Client, filters
 from pyrogram.errors import MessageDeleteForbidden
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
@@ -32,7 +33,13 @@ async def _callbacks(_, callback_query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     elif query == "close":
-        await app.edit_inline_text(callback_query.inline_message_id, "**⋙ MENUTUP SEMUA ⋘**")
+        await app.edit_inline_text(callback_query.inline_message_id, "**⋙ f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿 \n"
+        "ㅤㅤ⋙ sᴛᴀᴛᴜs : 𝗔𝗸𝘁𝗶𝗳!!! \n"
+        f"ㅤㅤㅤㅤ⋙ ᴍᴏᴅᴜʟᴇs: </b> <code>{len(modules)} Modules</code> \n"
+        f"ㅤㅤㅤㅤ⋙ ᴠᴇʀsɪ ʙᴏᴛ: {BOT_VER} \n"
+        f"ㅤㅤㅤㅤ⋙ ʙʀᴀɴᴄʜ: {branch} \n"
+        f"ㅤㅤㅤㅤ⋙ ᴠᴇʀsɪ ᴘʏʀᴏ: </b> <code>{pyrover}</code>\n"
+        f"ㅤㅤㅤㅤ⋙ ᴠᴇʀsɪ ᴘʏᴛʜᴏɴ: </b> <code>{pyver.split()[0]}</code>" ⋘**")
         return
     elif query == "close_help":
         if callback_query.from_user.id not in users:
