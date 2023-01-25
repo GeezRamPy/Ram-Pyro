@@ -35,7 +35,7 @@ async def module_help(client: Client, message: Message):
         help_arg = " ".join(cmd[1:])
     elif not message.reply_to_message and len(cmd) == 1:
         try:
-            nice = await client.get_inline_bot_results(bot=bot_username, query="helper")
+            nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
             await asyncio.gather(
                 message.delete(),
                 client.send_inline_bot_result(
