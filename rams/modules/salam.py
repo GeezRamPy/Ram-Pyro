@@ -98,21 +98,21 @@ async def ngegas(client: Client, message: Message):
 async def igehh(client: Client, message: Message):
     xx = await message.reply("**Mutualan IG Yuk!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih IG Ku = [TEKAN](https://instagram.com/{IG_ALIVE}), disable_web_page_preview=True")
+    await xx.edit(f"Nih IG Ku = [TEKAN](https://instagram.com/{IG_ALIVE})", disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command("sfs", cmd) & filters.me)
 async def channel(client: Client, message: Message):
     xx = await message.reply("**Yok SFS!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih CH Ku = [TEKAN](https://t.me/{CH_SFS}), disable_web_page_preview=True")
+    await xx.edit(f"Nih CH Ku = [TEKAN](https://t.me/{CH_SFS})", disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command("repo", cmd) & filters.me)
 async def reporl(client: Client, message: Message):
     xx = await reply.message("**Jan Bawel!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih REPONYA = [TEKAN](https://github.com/GeezRamPy/Ram-Pyro), disable_web_page_preview=True")
+    await xx.edit(f"Nih REPONYA = [TEKAN](https://github.com/GeezRamPy/Ram-Pyro)", disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command("getstring", cmd) & filters.me)
