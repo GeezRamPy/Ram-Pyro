@@ -31,17 +31,17 @@ async def sholawat(client: Client, message: Message):
 
 
 @Client.on_message(filters.command(["alquran", "alq"], cmd) & filters.me)
-async def asupan_cmd(client: Client, message: Message):
+async def alquran(client: Client, message: Message):
     ram = await message.reply("`Tunggu Sebentar...`")
     await gather(
         ram.delete(),
-        client.send_voice(
+        client.send_audio(
             message.chat.id,
             choice(
                 [
-                    alquran.voice.file_id
+                    alquran.audio.file_id
                     async for asupan in client.search_messages(
-                        "Alquran_voicee", filter=enums.MessagesFilter.VOICE_NOTE
+                        "Alquran_voicee", filter=enums.MessagesFilter.AUDIO
                     )
                 ]
             ),
