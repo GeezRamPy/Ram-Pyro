@@ -4,10 +4,9 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from rams.helpers.basic import edit_or_reply
-from rams.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 
-from .help import add_command_help
 
 
 @Client.on_message(filters.command(["alquran", "alq"], cmd) & filters.me)
@@ -48,21 +47,3 @@ async def sholawat_cmd(client: Client, message: Message):
         ),
     )
 
-
-add_command_help(
-    "islamic",
-    [
-        [
-            f"alquran atau {cmd}alq",
-            "Untuk Mengirim Voice Not Alquran secara random.",
-        ],
-        [
-            f"sholawat atau {cmd}saw",
-            "Untuk Mengirim Audio Sholawat Secara Random.",
-        ],
-        [
-            f"adzan atau {cmd}adhan",
-            "Untuk Mengirim Jadwal Adzan Di wilayah Kalian.",
-        ],
-    ],
-)
