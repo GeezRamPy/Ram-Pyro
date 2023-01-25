@@ -96,35 +96,35 @@ async def ngegas(client: Client, message: Message):
 
 @Client.on_message(filters.command("mutu", cmd) & filters.me)
 async def igehh(client: Client, message: Message):
-    xx = await edit_or_reply(message, "**Mutualan IG Yuk!!**")
+    xx = await message.reply("**Mutualan IG Yuk!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih IG Ku = [TEKAN](https://instagram.com/{IG_ALIVE})")
+    await xx.edit(f"Nih IG Ku = [TEKAN](https://instagram.com/{IG_ALIVE}), disable_web_page_preview=True")
 
 
 @Client.on_message(filters.command("sfs", cmd) & filters.me)
 async def channel(client: Client, message: Message):
-    xx = await edit_or_reply(message, "**Yok SFS!!**")
+    xx = await message.reply("**Yok SFS!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih CH Ku = [TEKAN](https://t.me/{CH_SFS})")
+    await xx.edit(f"Nih CH Ku = [TEKAN](https://t.me/{CH_SFS}), disable_web_page_preview=True")
 
 
-@Client.on_message(filters.command("getrepo", cmd) & filters.me)
+@Client.on_message(filters.command("repo", cmd) & filters.me)
 async def reporl(client: Client, message: Message):
-    xx = await edit_or_reply(message, "**Jan Bawel!!**")
+    xx = await reply.message("**Jan Bawel!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih REPONYA = [TEKAN](https://github.com/izzy-adeeva/RamPyro-Master)")
+    await xx.edit(f"Nih REPONYA = [TEKAN](https://github.com/GeezRamPy/Ram-Pyro), disable_web_page_preview=True")
 
 
 @Client.on_message(filters.command("getstring", cmd) & filters.me)
-async def channel(client: Client, message: Message):
-    xx = await edit_or_reply(message, "**Jan Bawel!!**")
+async def string(client: Client, message: Message):
+    xx = await message.reply("**Jan Bawel!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih String = [TEKAN](https://t.me/geezRamStringBot)")
+    await xx.edit(f"Nih String = [TEKAN](https://t.me/geezRamStringroBot)", disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command("keluar", cmd) & filters.me)
 async def keluar(client: Client, message: Message):
-    xx = await edit_or_reply(message, "`Processing...`")
+    xx = await message.reply("`Processing...`")
     await asyncio.sleep(1)
     await xx.edit(f"{client.me.first_name} has left this group, bye!!")
 
