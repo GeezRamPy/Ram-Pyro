@@ -272,6 +272,26 @@ add_command_help(
         ],
     ],
 )
+
+add_command_help(
+    "islamic",
+    [
+        [
+            f"alquran atau {cmd}alq",
+            "Untuk Mengirim Voice Not Alquran secara random.",
+        ],
+        [
+            f"sholawat atau {cmd}saw",
+            "Untuk Mengirim Audio Sholawat Secara Random.",
+        ],
+        [
+            f"adzan atau {cmd}adhan",
+            "Untuk Mengirim Jadwal Adzan Di wilayah Kalian.",
+        ],
+    ],
+)
+
+
 add_command_help(
     "joinleave",
     [
