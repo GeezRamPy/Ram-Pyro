@@ -19,6 +19,7 @@ MSG_BOT = (f"**Ram Pyro Assistant**\nis alive...")
 
 
 async def main():
+    await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module(f"rams.modules.{all_module}")
     for bot in bots:
