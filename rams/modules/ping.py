@@ -127,22 +127,3 @@ async def kping(client: Client, message: Message):
         f"`%sms`\n"
         f"**╰☞:** {client.me.mention}" % (duration)
     )
-
-
-@Client.on_message(filters.command("rama", cmd) & filters.me)
-async def module_ping(client: Client, message: Message):
-    cdm = message.command
-    help_arg = ""
-    bot_username = (await app.get_me()).username
-    if len(cdm) > 1:
-        help_arg = " ".join(cdm[1:])
-    elif not message.reply_to_message and len(cdm) == 1:
-        try:
-            nice = await client.get_inline_bot_results(bot=bot_username, query="rama")
-            await asyncio.gather(
-                client.send_inline_bot_result(
-                    message.chat.id, nice.query_id, nice.results[0].id),
-                message.delete(),
-            )
-        except BaseException:
-            pass
