@@ -43,7 +43,7 @@ async def _callbacks(_, callback_query: CallbackQuery):
             f"ㅤㅤ⋙ ᴠᴇʀsɪ ᴘʏʀᴏ: </b> <code>{pyrover}</code>\n"
             f"ㅤㅤ⋙ ᴠᴇʀsɪ ᴘʏᴛʜᴏɴ: </b> <code>{pyver.split()[0]}</code>",
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="❈ sᴜᴘᴘᴏʀᴛ ❈", url="t.me/GeezRam")], [InlineKeyboardButton(text="❈ ᴛᴜᴛᴜᴘ ʟᴀɢɪ ❈", callback_data="tutup"), InlineKeyboardButton(text="❈ ʙᴜᴋᴀ ʟᴀɢɪ ❈", callback_data="helper")]]
+                [[InlineKeyboardButton(text="❈ sᴜᴘᴘᴏʀᴛ ❈", url="t.me/GeezRam")], [InlineKeyboardButton(text="❈ ʀᴇᴘᴏ ❈", url="https://github.com/GeezRampy/Ram-Pyro"), InlineKeyboardButton(text="❈ ʙᴜᴋᴀ ʟᴀɢɪ ❈", callback_data="helper")]]
             ),
         )
         return
