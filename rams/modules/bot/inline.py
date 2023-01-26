@@ -106,7 +106,7 @@ async def ping_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="❈ sᴜᴘᴘᴏʀᴛ ❈", url="t.me/GeezRam")], [InlineKeyboardButton(text="❈ ᴛᴜᴛᴜᴘ ❈", callback_data="close_help"), InlineKeyboardButton(text="❈ ʙᴜᴋᴀ ❈", callback_data="helper")]]
+                [[InlineKeyboardButton(text="❈ Oᴡɴᴇʀ ❈", url=f"{message.from_user}")]]
             ),
         )
     )
