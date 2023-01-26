@@ -29,7 +29,6 @@ async def main():
             await bot.join_chat("geezram")
             await bot.join_chat("userbotch")
             await bot.join_chat("b4c0d")
-            await bot.join_chat("teman_random")
             ids.append(bot.me.id)
             try:
                 await bot.send_message(
