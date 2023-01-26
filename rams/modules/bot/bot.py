@@ -50,7 +50,11 @@ async def _callbacks(_, callback_query: CallbackQuery):
         )
         return
     elif query == "tutup":
-        await app.edit_inline_text(callback_query.inline_message_id, "⋙ MENUTUP HELP ⋘")
+        await app.edit_inline_text(callback_query.inline_message_id, "⋙ MENUTUP HELP ⋘",
+            reply_markup=InlineKeyboardmarkup(
+                [[InlineKeyboardButton(text="❈ ʙᴜᴋᴀ ʟᴀɢɪ ❈", callback_data="close"]]
+            ),
+        )
         return
     elif query == "close_help":
         if callback_query.from_user.id not in users:
