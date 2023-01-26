@@ -20,8 +20,9 @@
       "description": "Buat Lah Bot di @botfather & Masukan Bot Token Untuk Menghidupkan inline Bot",
       "required": true
     },
-    "OPENAI_API_KEY": {
-      "description": "Masukan ApiKey Jika Ingin Menghidupkan OpenAi https://beta.openai.com",
+    "ID_OWNER": {
+      "description": "Masukan Id Owner Mu Untuk Mendaftarkan Kamu Sebagai Pemilik Bot",
+      "value": "910766621",
       "required": false
     }
   },
