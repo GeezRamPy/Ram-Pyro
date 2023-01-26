@@ -32,10 +32,6 @@ from rams.split.inline import inline_wrapper, paginate_help
 from config import BOT_VER, BRANCH as branch
 from rams import CMD_HELP, StartTime, bots, app
 
-for bot in bots:
-    try:
-        bot.me = await bot.get_me()
-
 modules = CMD_HELP
 
 async def get_readable_time(seconds: int) -> str:
@@ -110,7 +106,7 @@ async def ping_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="❈ Oᴡɴᴇʀ ❈", url=f"tg://user?id={bot.me.id}")]]
+                [[InlineKeyboardButton(text="❈ Oᴡɴᴇʀ ❈", url=f"tg://user?id={me.id}")]]
             ),
         )
     )
