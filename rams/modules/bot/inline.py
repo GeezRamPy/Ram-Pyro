@@ -34,9 +34,7 @@ from rams import CMD_HELP, StartTime, bots, app
 
 for bot in bots:
     try:
-        bot.me: await bot.get_me()
-        except BaseException:
-            pass
+        bot.me = await bot.get_me()
 
 modules = CMD_HELP
 
