@@ -29,8 +29,8 @@ from pyrogram.types import (
 )
 from rams.split.data import Data
 from rams.split.inline import inline_wrapper, paginate_help
-from config import BOT_VER, BRANCH as branch
-from rams import CMD_HELP, StartTime, bots, app
+from config import ID_OWNER, BOT_VER, BRANCH as branch
+from rams import CMD_HELP, StartTime, app
 
 modules = CMD_HELP
 
@@ -106,7 +106,7 @@ async def ping_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="❈ Oᴡɴᴇʀ ❈", url=f"tg://user?id={me.id}")]]
+                [[InlineKeyboardButton(text="❈ Oᴡɴᴇʀ ❈", url=f"tg://user?id={ID_OWNER}")]]
             ),
         )
     )
