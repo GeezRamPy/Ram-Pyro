@@ -88,7 +88,6 @@ async def alive_function(message: Message, answers):
     return answers
 
 async def ping_function(message: Message, answers):
-    user = await message.get_users("me")
     msg = (
         f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿 \n"
         "ㅤ⋙ sᴛᴀᴛᴜs : 𝗔𝗸𝘁𝗶𝗳!!! \n"
