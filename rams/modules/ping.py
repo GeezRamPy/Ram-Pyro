@@ -129,7 +129,7 @@ async def kping(client: Client, message: Message):
     )
 
 @Client.on_message(
-    filters.command("rama", cmd) & (filters.me)
+    filters.command(["rama", "alive"], cmd) & (filters.me)
 )
 async def module_ping(client: Client, message: Message):
     cdm = message.command
