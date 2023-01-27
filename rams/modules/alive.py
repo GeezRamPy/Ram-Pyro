@@ -37,7 +37,7 @@ emoji = gvarstatus("ALIVE_EMOJI") or "🤖"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am rams."
 
 
-@Client.on_message(filters.command(["alive", "gue"], cmd) & filters.me)
+@Client.on_message(filters.command(["bots", "gue"], cmd) & filters.me)
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "🤖")
     await asyncio.sleep(2)
