@@ -397,14 +397,13 @@ add_command_help(
     "ping",
     [
         ["ping", "Untuk Menunjukkan Ping Bot Anda."],
-        ["rama", "Untuk Menunjukkan Ping Bot Anda ( Beda animasi doang )."],
     ],
 )
 
 add_command_help(
     "alip",
     [
-        ["alive", "untuk menampilkan dekorasi gajelas😂."],
+        ["bots", "untuk menampilkan dekorasi gajelas😂."],
         ["setalivelogo", "Untuk Mengubah Text Alive."],
     ],
 )
