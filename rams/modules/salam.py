@@ -18,7 +18,7 @@ from config import IG_ALIVE, CH_SFS, REPO_URL
 from .help import add_command_help
 
 
-@Client.on_message(filters.command("p", cmd) & filters.me)
+@Client.on_message(filters.command("p", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def salamone(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -30,7 +30,7 @@ async def salamone(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("pe", cmd) & filters.me)
+@Client.on_message(filters.command("pe", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def salamdua(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -42,7 +42,7 @@ async def salamdua(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("l", cmd) & filters.me)
+@Client.on_message(filters.command("l", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def jwbsalam(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -54,7 +54,7 @@ async def jwbsalam(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("el", cmd) & filters.me)
+@Client.on_message(filters.command("el", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def jwbsalamlngkp(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -66,63 +66,63 @@ async def jwbsalamlngkp(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("oi", cmd) & filters.me)
+@Client.on_message(filters.command("oi", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def salken(client: Client, message: Message):
     xx = await edit_or_reply(message, f"**Haii Salken Saya {client.me.first_name}**")
     await asyncio.sleep(2)
     await xx.edit("Kalian Anjing,Anak Haram Titisan Asmodeus, Bocah tengik, Penyembah tongkat Kera Sakti")
 
 
-@Client.on_message(filters.command("ass", cmd) & filters.me)
+@Client.on_message(filters.command("ass", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def salamarab(client: Client, message: Message):
     xx = await edit_or_reply(message, "Salam Dulu Gua..")
     await asyncio.sleep(2)
     await xx.edit("السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ")
 
 
-@Client.on_message(filters.command("j", cmd) & filters.me)
+@Client.on_message(filters.command("j", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def jakasem(client: Client, message: Message):
     xx = await edit_or_reply(message, "**Woi Kontol....**")
     await asyncio.sleep(3)
     await xx.edit("**Muka lo jelek Bgt Kaya kontol!!!🔥**")
 
 
-@Client.on_message(filters.command("k", cmd) & filters.me)
+@Client.on_message(filters.command("k", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def ngegas(client: Client, message: Message):
     xx = await edit_or_reply(message, f"**Hallo KIMAAKK SAYA {client.me.first_name}**")
     await asyncio.sleep(2)
     await xx.edit("**LU SEMUA NGENTOT 😂**")
 
 
-@Client.on_message(filters.command("mutu", cmd) & filters.me)
+@Client.on_message(filters.command("mutu", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def igehh(client: Client, message: Message):
     xx = await message.reply("**Mutualan IG Yuk!!**")
     await asyncio.sleep(2)
     await xx.edit(f"Nih IG Ku = [TEKAN](https://instagram.com/{IG_ALIVE})", disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command("sfs", cmd) & filters.me)
+@Client.on_message(filters.command("sfs", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def channel(client: Client, message: Message):
     xx = await message.reply("**Yok SFS!!**")
     await asyncio.sleep(2)
     await xx.edit(f"Nih CH Ku = [TEKAN](https://t.me/{CH_SFS})", disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command("repo", cmd) & filters.me)
+@Client.on_message(filters.command("repo", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def reporl(client: Client, message: Message):
     xx = await message.reply("**Jan Bawel!!**")
     await asyncio.sleep(2)
     await xx.edit(f"Nih REPONYA = [TEKAN](https://github.com/GeezRamPy/Ram-Pyro)", disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command("getstring", cmd) & filters.me)
+@Client.on_message(filters.command("getstring", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def string(client: Client, message: Message):
     xx = await message.reply("**Jan Bawel!!**")
     await asyncio.sleep(2)
     await xx.edit(f"Nih String = [TEKAN](https://t.me/geezRamStringroBot)", disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command("keluar", cmd) & filters.me)
+@Client.on_message(filters.command("keluar", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def keluar(client: Client, message: Message):
     xx = await message.reply("`Processing...`")
     await asyncio.sleep(1)
