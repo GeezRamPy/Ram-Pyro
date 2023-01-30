@@ -79,7 +79,7 @@ async def updateme_requirements():
 @Client.on_message(
     filters.command("diupdate", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("apdet", cmd) & filters.me)
+@Client.on_message(filters.command("apdet", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def upstream(client: Client, message: Message):
     status = await edit_or_reply(message, "`Gua Cek dulu brok, Sabar...`")
     conf = get_arg(message)
@@ -208,7 +208,7 @@ async def upstream(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("cupdate", ["."]) & filters.user(DEVS) & ~filters.me)
-@Client.on_message(filters.command("goupdate", cmd) & filters.me)
+@Client.on_message(filters.command("goupdate", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def updaterman(client: Client, message: Message):
     if await is_heroku():
         if HAPP is None:
