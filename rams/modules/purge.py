@@ -11,7 +11,7 @@ import asyncio
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.adminHelpers import DEVS
+from rams.split.berak.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from config import CMD_HANDLER as cmd
 
