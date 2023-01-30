@@ -37,7 +37,7 @@ emoji = gvarstatus("ALIVE_EMOJI") or "🤖"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am rams."
 
 
-@Client.on_message(filters.command(["botme", "gue"], cmd) & filters.me)
+@Client.on_message(filters.command(["botme", "gue"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "🤖")
     await asyncio.sleep(2)
@@ -67,7 +67,7 @@ async def alive(client: Client, message: Message):
         await xx.edit(man, disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command("setalivelogo", cmd) & filters.me)
+@Client.on_message(filters.command("setalivelogo", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def setalivelogo(client: Client, message: Message):
     try:
         import rams.helpers.SQL.globals as sql
@@ -104,7 +104,7 @@ async def setalivelogo(client: Client, message: Message):
     restart()
 
 
-@Client.on_message(filters.command("setalivetext", cmd) & filters.me)
+@Client.on_message(filters.command("setalivetext", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def setalivetext(client: Client, message: Message):
     try:
         import rams.helpers.SQL.globals as sql
@@ -131,7 +131,7 @@ async def setalivetext(client: Client, message: Message):
     restart()
 
 
-@Client.on_message(filters.command("setemoji", cmd) & filters.me)
+@Client.on_message(filters.command("setemoji", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def setemoji(client: Client, message: Message):
     try:
         import rams.helpers.SQL.globals as sql
