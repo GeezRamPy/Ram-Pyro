@@ -14,7 +14,7 @@ from pyrogram.errors import ChatAdminRequired
 from pyrogram.types import ChatPermissions, ChatPrivileges, Message
 
 from config import CMD_HANDLER as cmd
-from geezlibs.ram.helpers.adminHelpers import DEVS
+from rams.split.berak.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from rams.modules.help import add_command_help
 from geezlibs.ram.utils.misc import extract_user, extract_user_and_reason, list_admins
