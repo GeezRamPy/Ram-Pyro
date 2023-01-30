@@ -29,7 +29,7 @@ async def make_carbon(code):
     return image
 
 
-@Client.on_message(filters.command("carbon", cmd) & filters.me)
+@Client.on_message(filters.command("carbon", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def carbon_func(client: Client, message: Message):
     text = (
         message.text.split(None, 1)[1]
