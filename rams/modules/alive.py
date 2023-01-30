@@ -31,7 +31,7 @@ from rams import CMD_HELP, StartTime
 
 modules = CMD_HELP
 alive_logo = (
-    gvarstatus("ALIVE_LOGO") or "https://telegra.ph/file/eda4816a97d4e74445fc0.jpg"
+    gvarstatus("ALIVE_LOGO") or "https://telegra.ph/file/d370f45bf3ff8fa0cba8f.jpg"
 )
 emoji = gvarstatus("ALIVE_EMOJI") or "🤖"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am rams."
