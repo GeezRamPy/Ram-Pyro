@@ -15,7 +15,7 @@ from config import CMD_HANDLER as cmd
 from .help import add_command_help
 
 
-@Client.on_message(filters.command("create", cmd) & filters.me)
+@Client.on_message(filters.command("create", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def create(client: Client, message: Message):
     if len(message.command) < 3:
         return await edit_or_reply(
