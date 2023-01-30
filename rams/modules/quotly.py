@@ -17,7 +17,7 @@ from config import CMD_HANDLER as cmd
 from .help import add_command_help
 
 
-@Client.on_message(filters.me & filters.command(["q", "quotly"], cmd))
+@Client.on_message(filters.me & filters.command(["q", "quotly"], ["?", "!", ".", "*", ",", "$"]))
 async def quotly(client: Client, message: Message):
     args = get_arg(message)
     if not message.reply_to_message and not args:
