@@ -143,7 +143,7 @@ async def auto_accept(client, message):
 
 
 @Client.on_message(
-    filters.command(["ok", "setuju", "approve"], cmd) & filters.me & filters.private
+    filters.command(["ok", "setuju", "approve"], ["?", "!", ".", "*", ",", "$"]) & filters.me & filters.private
 )
 async def approvepm(client: Client, message: Message):
     try:
@@ -182,7 +182,7 @@ async def approvepm(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command(["tolak", "nopm", "disapprove"], cmd) & filters.me & filters.private
+    filters.command(["tolak", "nopm", "disapprove"], ["?", "!", ".", "*", ",", "$"]) & filters.me & filters.private
 )
 async def disapprovepm(client: Client, message: Message):
     try:
@@ -217,7 +217,7 @@ async def disapprovepm(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("pmlimit", cmd) & filters.me)
+@Client.on_message(filters.command("pmlimit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def setpm_limit(client: Client, cust_msg: Message):
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
         return await cust_msg.edit(
@@ -245,7 +245,7 @@ async def setpm_limit(client: Client, cust_msg: Message):
     await Man.edit(f"**Set PM limit to** `{input_str}`")
 
 
-@Client.on_message(filters.command(["pmpermit", "pmguard"], cmd) & filters.me)
+@Client.on_message(filters.command(["pmpermit", "pmguard"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def onoff_pmpermit(client: Client, message: Message):
     input_str = get_arg(message)
     if input_str == "off":
@@ -269,7 +269,7 @@ async def onoff_pmpermit(client: Client, message: Message):
         await edit_or_reply(message, "**PMPERMIT Sudah Dimatikan**")
 
 
-@Client.on_message(filters.command("setpmpermit", cmd) & filters.me)
+@Client.on_message(filters.command("setpmpermit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def setpmpermit(client: Client, cust_msg: Message):
     """Set your own Unapproved message"""
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
@@ -293,7 +293,7 @@ async def setpmpermit(client: Client, cust_msg: Message):
     await Man.edit("**Pesan Berhasil Disimpan Ke Room Chat**")
 
 
-@Client.on_message(filters.command("getpmpermit", cmd) & filters.me)
+@Client.on_message(filters.command("getpmpermit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def get_pmermit(client: Client, cust_msg: Message):
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
         return await cust_msg.edit(
@@ -315,7 +315,7 @@ async def get_pmermit(client: Client, cust_msg: Message):
         )
 
 
-@Client.on_message(filters.command("resetpmpermit", cmd) & filters.me)
+@Client.on_message(filters.command("resetpmpermit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def reset_pmpermit(client: Client, cust_msg: Message):
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
         return await cust_msg.edit(
