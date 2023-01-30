@@ -17,7 +17,7 @@ from config import CMD_HANDLER as cmd
 from .help import *
 
 
-@Client.on_message(filters.command(["stats", "status"], cmd) & filters.me)
+@Client.on_message(filters.command(["stats", "status"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def stats(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Collecting stats...`")
     start = datetime.now()
