@@ -10,7 +10,7 @@
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.adminHelpers import DEVS
+from rams.split.berak.adminHelpers import DEVS
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER as cmd
 from .help import add_command_help
