@@ -11,7 +11,7 @@ from pyrogram import filters, Client
 from pyrogram.types import User , Message
 from .help import add_command_help
 
-@Client.on_message(filters.command(["vid", "video"] , cmd) & filters.me)
+@Client.on_message(filters.command(["vid", "video"] , ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def yt_vid(client: Client, message: Message):
     input_st = message.text
     input_str= input_st.split(" ", 1)[1]
