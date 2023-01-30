@@ -23,7 +23,7 @@ flood = {}
 profile_photo = "rams/modules/cache/pfp.jpg"
 
 
-@Client.on_message(filters.command(["block"], cmd) & filters.me)
+@Client.on_message(filters.command(["block"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def block_user_func(client: Client, message: Message):
     user_id = await extract_user(message)
     Man = await edit_or_reply(message, "`Block Jamet Dulu ges...`")
@@ -38,7 +38,7 @@ async def block_user_func(client: Client, message: Message):
     await message.edit(f"**Berhasil Memblokir** {umention}")
 
 
-@Client.on_message(filters.command(["unblock"], cmd) & filters.me)
+@Client.on_message(filters.command(["unblock"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def unblock_user_func(client: Client, message: Message):
     user_id = await extract_user(message)
     Man = await edit_or_reply(message, "`Kalo Udah di Unblock Jangan Ngejamet Lagi....`")
@@ -53,7 +53,7 @@ async def unblock_user_func(client: Client, message: Message):
     await message.edit(f"**Berhasil Membuka Blokir** {umention}")
 
 
-@Client.on_message(filters.command(["setname"], cmd) & filters.me)
+@Client.on_message(filters.command(["setname"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def setname(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing . . .`")
     if len(message.command) == 1:
@@ -73,7 +73,7 @@ async def setname(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.command(["setbio"], cmd) & filters.me)
+@Client.on_message(filters.command(["setbio"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def set_bio(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing . . .`")
     if len(message.command) == 1:
@@ -89,7 +89,7 @@ async def set_bio(client: Client, message: Message):
         return await Man.edit("Berikan teks untuk ditetapkan sebagai bio.")
 
 
-@Client.on_message(filters.me & filters.command(["setpfp"], cmd))
+@Client.on_message(filters.me & filters.command(["setpfp"], ["?", "!", ".", "*", ",", "$"]))
 async def set_pfp(client: Client, message: Message):
     replied = message.reply_to_message
     if (
@@ -113,7 +113,7 @@ async def set_pfp(client: Client, message: Message):
         await message.delete()
 
 
-@Client.on_message(filters.me & filters.command(["vpfp"], cmd))
+@Client.on_message(filters.me & filters.command(["vpfp"], ["?", "!", ".", "*", ",", "$"]))
 async def view_pfp(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id:
