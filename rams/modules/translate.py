@@ -24,7 +24,7 @@ def get_arg(message):
     return " ".join(split[1:])
 
 
-@Client.on_message(filters.command(["tr", "translate"], cmds) & filters.me)
+@Client.on_message(filters.command(["tr", "translate"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def pytrans_tr(_, message: Message):
   tr_msg = await message.edit("`Processing...`")
   r_msg = message.reply_to_message
