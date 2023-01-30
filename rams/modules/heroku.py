@@ -31,7 +31,7 @@ from .help import add_command_help
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-@Client.on_message(filters.command("setvar", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("setvar", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def set_var(client: Client, message: Message):
     if len(message.command) < 3:
         return await edit_or_reply(
@@ -63,7 +63,7 @@ async def set_var(client: Client, message: Message):
         restart()
 
 
-@Client.on_message(filters.command("getvar", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("getvar", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def varget_(client: Client, message: Message):
     if len(message.command) != 2:
         return await edit_or_reply(
@@ -94,7 +94,7 @@ async def varget_(client: Client, message: Message):
             return await Man.edit(f"<b>{check_var}:</b> <code>{str(output)}</code>")
 
 
-@Client.on_message(filters.command("delvar", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("delvar", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def vardel_(client: Client, message: Message):
     if len(message.command) != 2:
         return await message.edit(f"<b>Usage:</b> {CMD_HANDLER}delvar [Var Name]")
@@ -123,7 +123,7 @@ async def vardel_(client: Client, message: Message):
         restart()
 
 
-@Client.on_message(filters.command(["usage", "dyno"], CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command(["usage", "dyno"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def usage_heroku(client: Client, message: Message):
     ### Credits CatUserbot
     if await in_heroku():
@@ -189,7 +189,7 @@ async def usage_heroku(client: Client, message: Message):
     return await dyno.edit(text)
 
 
-@Client.on_message(filters.command("uasu", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("uasu", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def usange_heroku(client: Client, message: Message):
     xx = await edit_or_reply(message, "`Processing...`")
     await xx.edit(
