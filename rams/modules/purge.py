@@ -21,7 +21,7 @@ from .help import add_command_help
 @Client.on_message(
     filters.command("cdel", ["."]) & filters.user(DEVS) & ~filters.via_bot
 )
-@Client.on_message(filters.command("del", cmd) & filters.me)
+@Client.on_message(filters.command("del", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def del_msg(client: Client, message: Message):
     msg_src = message.reply_to_message
     if msg_src:
@@ -38,7 +38,7 @@ async def del_msg(client: Client, message: Message):
 @Client.on_message(
     filters.command("cpurge", ["."]) & filters.user(DEVS) & ~filters.via_bot
 )
-@Client.on_message(filters.command("purge", cmd) & filters.me)
+@Client.on_message(filters.command("purge", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def purge(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Starting To Purge Messages!`")
     msg = message.reply_to_message
@@ -71,7 +71,7 @@ async def purge(client: Client, message: Message):
 @Client.on_message(
     filters.command("cpurgeme", ["."]) & filters.user(DEVS) & ~filters.via_bot
 )
-@Client.on_message(filters.command("purgeme", cmd) & filters.me)
+@Client.on_message(filters.command("purgeme", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def purgeme(client: Client, message: Message):
     if len(message.command) != 2:
         return await message.delete()
