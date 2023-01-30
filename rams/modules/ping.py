@@ -44,7 +44,7 @@ modules = CMD_HELP
 
     
 
-@Client.on_message(filters.command(["speed", "speedtest"], cmd) & filters.me)
+@Client.on_message(filters.command(["speed", "speedtest"], ["?", "!", ".", "*", "$"]) & filters.me)
 async def speed_test(client: Client, message: Message):
     new_msg = await edit_or_reply(message, "`Running speed test . . .`")
     spd = speedtest.Speedtest()
@@ -76,7 +76,7 @@ async def speed_test(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("dc", cmd) & filters.me)
+@Client.on_message(filters.command("dc", ["?", "!", ".", "*", "$"]) & filters.me)
 async def nearest_dc(client: Client, message: Message):
     dc = await client.send(functions.help.GetNearestDc())
     await edit_or_reply(
@@ -87,7 +87,7 @@ async def nearest_dc(client: Client, message: Message):
 @Client.on_message(
     filters.command("ceping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("ping", cmd) & filters.me)
+@Client.on_message(filters.command("ping", ["?", "!", ".", "*", "$"]) & filters.me)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -116,7 +116,7 @@ async def pingme(client: Client, message: Message):
 @Client.on_message(
     filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("pink", cmd) & filters.me)
+@Client.on_message(filters.command("pink", ["?", "!", ".", "*", "$"]) & filters.me)
 async def kping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -129,7 +129,7 @@ async def kping(client: Client, message: Message):
     )
 
 @Client.on_message(
-    filters.command(["rama", "alive"], cmd) & (filters.me)
+    filters.command(["rama", "alive"], ["?", "!", ".", "*", "$"]) & (filters.me)
 )
 async def module_ping(client: Client, message: Message):
     cdm = message.command
