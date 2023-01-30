@@ -26,7 +26,7 @@ def ReplyCheck(message: Message):
 
     return reply_id
 
-@Client.on_message(filters.command(["help", "helpme"], cdm) & filters.me)
+@Client.on_message(filters.command(["help", "helpme"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
@@ -75,7 +75,7 @@ async def module_help(client: Client, message: Message):
                 f"`{help_arg}` **Bukan Nama Modul yang Valid.**",
             )
 
-@Client.on_message(filters.command(["helper", "rhelp"], cdm) & filters.me)
+@Client.on_message(filters.command(["helper", "rhelp"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def module_helper(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
