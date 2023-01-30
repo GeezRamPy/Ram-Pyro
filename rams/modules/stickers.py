@@ -89,7 +89,7 @@ async def add_text_img(image_path, text):
     img.save(final_image, **img_info)
     return final_image
 
-@Client.on_message(filters.command(["tikel", "kang"], cmd) & filters.me)
+@Client.on_message(filters.command(["tikel", "kang"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def kang(client: Client, message: Message):
     user = client.me
     replied = message.reply_to_message
@@ -310,7 +310,7 @@ async def get_response(message, client):
     return [x async for x in client.get_chat_history("Stickers", limit=1)][0].text
 
 
-@Client.on_message(filters.command(["packinfo", "stickerinfo"], cmd) & filters.me)
+@Client.on_message(filters.command(["packinfo", "stickerinfo"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def packinfo(client: Client, message: Message):
     rep = await edit_or_reply(message, "`Processing...`")
     if not message.reply_to_message:
@@ -366,7 +366,7 @@ async def cb_sticker(client: Client, message: Message):
     await xx.edit(reply)
 
 
-@Client.on_message(filters.command("tiny", cmd) & filters.me)
+@Client.on_message(filters.command("tiny", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def tinying(client: Client, message: Message):
     reply = message.reply_to_message
     if not (reply and (reply.media)):
@@ -443,7 +443,7 @@ async def tinying(client: Client, message: Message):
     os.remove(ik)
 
 
-@Client.on_message(filters.command(["mmf", "memify"], cmd) & filters.me)
+@Client.on_message(filters.command(["mmf", "memify"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def memify(client: Client, message: Message):
     if not message.reply_to_message_id:
         await edit_or_reply(message, "**Balas ke pesan foto atau sticker!**")
@@ -469,7 +469,7 @@ async def memify(client: Client, message: Message):
     os.remove(meme)
 
 
-@Client.on_message(filters.command(["get", "getsticker", "mtoi"], cmd) & filters.me)
+@Client.on_message(filters.command(["get", "getsticker", "mtoi"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def stick2png(client: Client, message: Message):
     try:
         await message.edit("`Downloading . . .`")
