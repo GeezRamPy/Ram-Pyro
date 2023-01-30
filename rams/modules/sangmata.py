@@ -20,7 +20,7 @@ from config import CMD_HANDLER as cmd
 from .help import add_command_help
 
 
-@Client.on_message(filters.command(["sm", "sg", "sangmata"], cmd) & filters.me)
+@Client.on_message(filters.command(["sm", "sg", "sangmata"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def sg(client: Client, message: Message):
     args = await extract_user(message)
     lol = await edit_or_reply(message, "Gua kepo, Sapa si namalu pepek....`")
