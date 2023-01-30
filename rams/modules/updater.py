@@ -22,7 +22,7 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.adminHelpers import DEVS
+from rams.split.berak.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from rams.split.misc import HAPP, XCB
 from rams.split.tools import get_arg
