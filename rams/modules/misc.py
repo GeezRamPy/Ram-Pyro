@@ -85,7 +85,7 @@ async def types(client: Client, message: Message):
 
 @Client.on_message(filters.command(["directmessage", "dm"], cmd) & filters.me)
 async def dm(coli: Client, memek: Message):
-    geez = await memek.reply_text("⚡ Processing.....")
+    geez = await memek.reply_text("⚡ sabaran.....")
     quantity = 1
     inp = memek.text.split(None, 2)[1]
     user = await coli.get_chat(inp)
@@ -93,16 +93,16 @@ async def dm(coli: Client, memek: Message):
     quantity = int(quantity)
 
     if memek.reply_to_message:
-        reply_to_id = memek.reply_to_memek.memek_id
+        reply_to_id = memek.reply_to_message.message_id
         for _ in range(quantity):
             await geez.edit("Message Sended Successfully 😘")
-            await coli.send_memek(user.id, spam_text,
-                                      reply_to_memek_id=reply_to_id)
+            await coli.send_message(user.id, spam_text,
+                                      reply_to_messsge_id=reply_to_id)
             await asyncio.sleep(0.15)
         return
 
     for _ in range(quantity):
-        await coli.send_memek(user.id, spam_text)
+        await coli.send_messsage(user.id, spam_text)
         await geez.edit("Message Sended Successfully 😘")
         await asyncio.sleep(0.15)
 
