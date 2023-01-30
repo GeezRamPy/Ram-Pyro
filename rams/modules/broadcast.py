@@ -13,7 +13,7 @@ import dotenv
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from requests import get
-from geezlibs.ram.helpers.adminHelpers import DEVS
+from rams.split.berak.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from rams.split.misc import HAPP, in_heroku
 from geezlibs.ram.helpers.tools import get_arg
