@@ -9,7 +9,7 @@ from config import CMD_HANDLER as cmd
 from .help import *
 
 
-@Client.on_message(filters.command("trump", cmd) & filters.me)
+@Client.on_message(filters.command("trump", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def trump_tweet(client: Client, message: Message):
     text = get_text(message)
     if not text:
@@ -24,7 +24,7 @@ async def trump_tweet(client: Client, message: Message):
     await message.delete()
 
 
-@Client.on_message(filters.command("ctweet", cmd) & filters.me)
+@Client.on_message(filters.command("ctweet", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def custom_tweet(client: Client, message: Message):
     text = get_text(message)
     input_str = get_text(message)
