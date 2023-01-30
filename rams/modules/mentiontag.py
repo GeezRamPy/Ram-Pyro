@@ -18,7 +18,7 @@ from .help import add_command_help
 spam_chats = []
 
 
-@Client.on_message(filters.command("mention", cmd) & filters.me)
+@Client.on_message(filters.command("mention", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def mentionall(client: Client, message: Message):
     await message.delete()
     chat_id = message.chat.id
@@ -50,7 +50,7 @@ async def mentionall(client: Client, message: Message):
         pass
 
 
-@Client.on_message(filters.command("cancel", cmd) & filters.me)
+@Client.on_message(filters.command("cancel", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def cancel_spam(client: Client, message: Message):
     if not message.chat.id in spam_chats:
         return await message.edit("**Sepertinya tidak ada tagall disini.**")
