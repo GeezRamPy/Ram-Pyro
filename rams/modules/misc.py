@@ -22,7 +22,7 @@ from rams import *
 from .help import *
 
 
-@Client.on_message(filters.command("limit", cmd) & filters.me)
+@Client.on_message(filters.command("limit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def spamban(client: Client, m: Message):
     await client.unblock_user("SpamBot")
     response = await client.send(
@@ -40,7 +40,7 @@ async def spamban(client: Client, m: Message):
     await wait_msg.edit_text(f"~ {status.text}")
 
 
-@Client.on_message(filters.command(["webshot", "ss"], cmd) & filters.me)
+@Client.on_message(filters.command(["webshot", "ss"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def webshot(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing...`")
     try:
@@ -68,7 +68,7 @@ async def webshot(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.command("type", cmd) & filters.me)
+@Client.on_message(filters.command("type", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def types(client: Client, message: Message):
     orig_text = message.text.split(prefix + "type ", maxsplit=1)[1]
     text = orig_text
@@ -83,7 +83,7 @@ async def types(client: Client, message: Message):
         await asyncio.sleep(0.10)
 
 
-@Client.on_message(filters.command(["directmessage", "dm"], cmd) & filters.me)
+@Client.on_message(filters.command(["directmessage", "dm"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def dm(coli: Client, memek: Message):
     geez = await memek.reply_text("⚡ sabaran.....")
     quantity = 1
@@ -107,7 +107,7 @@ async def dm(coli: Client, memek: Message):
         await asyncio.sleep(0.15)
 
 
-@Client.on_message(filters.command("duck", cmd) & filters.me)
+@Client.on_message(filters.command("duck", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def duckgo(client: Client, message: Message):
     input_str = " ".join(message.command[1:])
     Man = await edit_or_reply(message, "`Processing...`")
@@ -121,7 +121,7 @@ async def duckgo(client: Client, message: Message):
         await Man.edit_text("something is wrong. please try again later.")
 
 
-@Client.on_message(filters.command("open", cmd) & filters.me)
+@Client.on_message(filters.command("open", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def open_file(client: Client, m: Message):
     xd = await edit_or_reply(m, "`Reading File!`")
     f = await client.download_media(m.reply_to_message)
@@ -144,7 +144,7 @@ async def open_file(client: Client, m: Message):
         os.remove(f)
 
 
-@Client.on_message(filters.command(["ig", "pint"], cmd) & filters.me)
+@Client.on_message(filters.command(["ig", "pint"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def instag(client: Client, message: Message):
     Man = await message.edit("`Processing . . .`")
     link = get_arg(message)
@@ -173,7 +173,7 @@ async def instag(client: Client, message: Message):
         await client.delete_messages(bot, 2)
 
 
-@Client.on_message(filters.command(["sosmed"], cmd) & filters.me)
+@Client.on_message(filters.command(["sosmed"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def sosmed(client: Client, message: Message):
     Man = await message.edit("`Processing . . .`")
     link = get_arg(message)
