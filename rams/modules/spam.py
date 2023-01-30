@@ -32,7 +32,7 @@ def spam_allowed():
     return SPAM_COUNT[0] < 50
 
 
-@Client.on_message(filters.me & filters.command(["dspam", "delayspam"], cmd))
+@Client.on_message(filters.me & filters.command(["dspam", "delayspam"], ["?", "!", ".", "*", ",", "$"]))
 async def delayspam(client: Client, message: Message):
     if message.chat.id in BLACKLIST_CHAT:
         return await edit_or_reply(
@@ -66,7 +66,7 @@ async def delayspam(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command(commands, cmd) & filters.me)
+@Client.on_message(filters.command(commands, ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def sspam(client: Client, message: Message):
     amount = int(message.command[1])
     text = " ".join(message.command[2:])
@@ -89,7 +89,7 @@ async def sspam(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.me & filters.command(["sspam", "stkspam", "spamstk", "stickerspam"], cmd)
+    filters.me & filters.command(["sspam", "stkspam", "spamstk", "stickerspam"], ["?", "!", ".", "*", ",", "$"])
 )
 async def spam_stick(client: Client, message: Message):
     if not message.reply_to_message:
