@@ -10,10 +10,11 @@ from rams.modules import ALL_MODULES
 
 MSG_ON = """
 🔥 **RamPyro-Bot Menyala** 🔥
-╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
+━──────────────╯•╰──────────────━
 🤖 **Userbot Version -** `{}`
+⚜️ prefixes: ? ! , . *
 ⌨️ **Ketik** `{}rama` **untuk Mengecheck Bot**
-╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
+━──────────────╮•╭─────────────━
 """
 MSG_BOT = (f"**Ram Pyro Assistant**\nis alive...")
 
@@ -28,7 +29,7 @@ async def main():
             bot.me = await bot.get_me()
             await bot.join_chat("geezram")
             await bot.join_chat("userbotch")
-            await bot.join_chat("b4c0d")
+            await bot.join_chat("GeezSupport")
             ids.append(bot.me.id)
             try:
                 await bot.send_message(
