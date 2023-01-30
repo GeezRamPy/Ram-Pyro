@@ -36,7 +36,7 @@ async def absen(_, message: Message):
 
 
 
-@Client.on_message(filters.command(["uptime", "up"], cmd) & filters.me)
+@Client.on_message(filters.command(["uptime", "up"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def uptime(client: Client, message: Message):
     now = datetime.now()
     current_uptime = now - START_TIME
@@ -45,7 +45,7 @@ async def uptime(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("id", cmd) & filters.me)
+@Client.on_message(filters.command("id", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def get_id(client: Client, message: Message):
     file_id = None
     user_id = None
