@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, WebAppInfo
 class Data:
 
     text_help_menu = (
-        f"**《 Menu Inline RamPyro-Master 》\n╰┈➤ perintah: ? ! . * $ **"
+        f"**《 Menu Inline RamPyro-Master 》**\n╰┈➤ perintah: ? ! . * , $"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
