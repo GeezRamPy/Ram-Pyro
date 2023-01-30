@@ -4,7 +4,7 @@ from pyrogram import Client as ram
 from pyrogram.errors import MessageNotModified
 from rams.split.apaan import *
 from geezlibs.ram.helpers.basic import *
-from geezlibs.ram.helpers.adminHelpers import DEVS
+from rams.split.berak.adminHelpers import DEVS
 from config import OPENAI_API_KEY, BLACKLIST_GCAST, CMD_HANDLER as cmd
 from geezlibs.ram.utils.misc import *
 from geezlibs.ram.utils.tools import *
