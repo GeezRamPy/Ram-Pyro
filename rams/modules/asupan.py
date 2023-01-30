@@ -11,7 +11,7 @@ from geezlibs.ram.helpers.PyroHelpers import *
 from rams import *
 from .help import add_command_help
 
-@ram.on_message(filters.command(["asupan", "ptl"], cmd) & filters.me)
+@ram.on_message(filters.command(["asupan", "ptl"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def asupan(client: Client, message: Message):
     if message.chat.id == -1001554560763:
         return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
@@ -36,7 +36,7 @@ async def asupan(client: Client, message: Message):
 
 
 
-@ram.on_message(filters.command(["ayang", "ayg"], cmd) & filters.me)
+@ram.on_message(filters.command(["ayang", "ayg"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def ayang(client, message):
     yanto = await message.reply("🔎 `Search Ayang...`")
     pop = message.from_user.first_name
@@ -57,7 +57,7 @@ async def ayang(client, message):
     await yanto.delete()
 
 
-@ram.on_message(filters.command(["ppcp", "cpp"], cmd) & filters.me)
+@ram.on_message(filters.command(["ppcp", "cpp"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def ppcp(client, message):
     yanto = await message.reply("🔎 `Search PP Couple...`")
     message.from_user.first_name
@@ -78,7 +78,7 @@ async def ppcp(client, message):
     await yanto.delete()
 
 
-@ram.on_message(filters.command(["ppanime", "anim"], cmd) & filters.me)
+@ram.on_message(filters.command(["ppanime", "anim"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def ppanime(client, message):
     yanto = await message.reply("🔎 `Search PP Anime...`")
     message.from_user.first_name
