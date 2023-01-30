@@ -1,10 +1,9 @@
 from pyrogram.types import InlineKeyboardButton, WebAppInfo
-from config import CMD_HANDLER as cmd
 
 class Data:
 
     text_help_menu = (
-        f"**《 Menu Inline RamPyro-Master 》\n╰┈➤perintah: {cmd}**"
+        f"**《 Menu Inline RamPyro-Master 》\n╰┈➤ perintah: ? ! . * $ **"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
