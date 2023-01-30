@@ -39,7 +39,7 @@ globals_init()
 @Client.on_message(
     filters.command("cgbam", ["."]) & filters.user(DEVS) & ~filters.via_bot
 )
-@Client.on_message(filters.command("gban", cmd) & filters.me)
+@Client.on_message(filters.command("gban", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def gban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -92,7 +92,7 @@ async def gban_user(client: Client, message: Message):
 @Client.on_message(
     filters.command("ungbam", ["."]) & filters.user(DEVS) & ~filters.via_bot
 )
-@Client.on_message(filters.command("ungban", cmd) & filters.me)
+@Client.on_message(filters.command("ungban", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def ungban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -136,7 +136,7 @@ async def ungban_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("listgban", cmd) & filters.me)
+@Client.on_message(filters.command("listgban", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def gbanlist(client: Client, message: Message):
     users = sql.gbanned_users()
     Man = await edit_or_reply(message, "`Processing...`")
@@ -150,7 +150,7 @@ async def gbanlist(client: Client, message: Message):
     return await Man.edit(gban_list)
 
 
-@Client.on_message(filters.command("gmute", cmd) & filters.me)
+@Client.on_message(filters.command("gmute", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def gmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -198,7 +198,7 @@ async def gmute_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("ungmute", cmd) & filters.me)
+@Client.on_message(filters.command("ungmute", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def ungmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -241,7 +241,7 @@ async def ungmute_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("listgmute", cmd) & filters.me)
+@Client.on_message(filters.command("listgmute", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def gmutelist(client: Client, message: Message):
     users = sql2.gmuted_users()
     Man = await edit_or_reply(message, "`Processing...`")
