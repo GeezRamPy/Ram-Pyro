@@ -18,7 +18,7 @@ from geezlibs.ram.helpers.parser import mention_html, mention_markdown
 from rams.modules.help import *
 
 
-@Client.on_message(filters.me & filters.command(["admins", "adminlist"], ["?", "!", ".", "*", "$"]))
+@Client.on_message(filters.me & filters.command(["admins", "adminlist"], ["?", "!", ",", ".", "*", "$"]))
 async def adminlist(client: Client, message: Message):
     replyid = None
     toolong = False
@@ -81,7 +81,7 @@ async def adminlist(client: Client, message: Message):
         await message.edit(teks)
 
 
-@Client.on_message(filters.command(["kickdel", "zombies"], ["?", "!", ".", "*", "$"]) & filters.me)
+@Client.on_message(filters.command(["kickdel", "zombies"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def kickdel_cmd(client: Client, message: Message):
     Man = await edit_or_reply(message, "<b>Kicking deleted accounts...</b>")
     # noinspection PyTypeChecker
@@ -142,7 +142,7 @@ async def report_admin(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.me & filters.command(["everyone", "tagall"], ["?", "!", ".", "*", "$"]))
+@Client.on_message(filters.me & filters.command(["everyone", "tagall"], ["?", "!", ".", ",", "*", "$"]))
 async def tag_all_users(client: Client, message: Message):
     await message.delete()
     if len(message.text.split()) >= 2:
@@ -166,7 +166,7 @@ async def tag_all_users(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.me & filters.command(["botlist", "bots"], ["?", "!", ".", "*", "$"]))
+@Client.on_message(filters.me & filters.command(["botlist", "bots"], ["?", "!", ".", ",", "*", "$"]))
 async def get_list_bots(client: Client, message: Message):
     replyid = None
     if len(message.text.split()) >= 2:
