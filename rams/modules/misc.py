@@ -83,7 +83,7 @@ async def types(client: Client, message: Message):
         await asyncio.sleep(0.10)
 
 
-@Client.on_message(filters.command(["directmessage", "dm"], cmds) & filters.me)
+@Client.on_message(filters.command(["directmessage", "dm"], cmd) & filters.me)
 async def dm(coli: Client, memek: Message):
     geez = await memek.reply_text("⚡ Processing.....")
     quantity = 1
