@@ -21,7 +21,7 @@ from .help import add_command_help
 lang = "id"  # Default Language for voice
 
 
-@Client.on_message(filters.me & filters.command(["voice", "tts"], cmd))
+@Client.on_message(filters.me & filters.command(["voice", "tts"], ["?", "!", ".", "*", ",", "$"]))
 async def voice(client: Client, message):
     global lang
     cmd = message.command
@@ -54,7 +54,7 @@ async def voice(client: Client, message):
     os.remove("voice.mp3")
 
 
-@Client.on_message(filters.me & filters.command(["voicelang"], cmd))
+@Client.on_message(filters.me & filters.command(["voicelang"], ["?", "!", ".", "*", ",", "$"]))
 async def voicelang(client: Client, message: Message):
     global lang
     temp = lang
