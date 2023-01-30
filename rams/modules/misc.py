@@ -102,7 +102,7 @@ async def dm(coli: Client, memek: Message):
         return
 
     for _ in range(quantity):
-        await coli.send_messsage(user.id, spam_text)
+        await coli.send_message(user.id, spam_text)
         await geez.edit("Message Sended Successfully 😘")
         await asyncio.sleep(0.15)
 
