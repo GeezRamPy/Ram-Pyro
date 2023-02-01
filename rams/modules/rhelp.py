@@ -396,7 +396,7 @@ add_command_help(
 add_command_help(
     "ping",
     [
-        ["ping", "Untuk Menunjukkan Ping Bot Anda."],
+        ["ping or pink", "Untuk Menunjukkan Ping Bot Anda."],
     ],
 )
 
