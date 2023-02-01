@@ -87,7 +87,7 @@ async def nearest_dc(client: Client, message: Message):
 @Client.on_message(
     filters.command("ceping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("ping", ["?", "!", ",", ".", "*", "$"]) & filters.me)
+@Client.on_message(filters.command("pink", ["?", "!", ",", ".", "*", "$"]) & filters.me)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -116,17 +116,26 @@ async def pingme(client: Client, message: Message):
 @Client.on_message(
     filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("pink", ["?", "!", ".", ",", "*", "$"]) & filters.me)
-async def kping(client: Client, message: Message):
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    await message.reply_text(
-        f"**╰☞ 𝗠𝗮𝘀𝘁𝗲𝗿:** "
-        f"`%sms`\n"
-        f"**╰☞:** {client.me.mention}" % (duration)
-    )
+@Client.on_message(
+    filters.command("ping", ["?", "!", ".", ",", "*", "$"]) & (filters.me)
+)
+async def module_ping(client: Client, message: Message):
+    cdm = message.command
+    help_arg = ""
+    bot_username = (await app.get_me()).username
+    if len(cdm) > 1:
+        help_arg = " ".join(cdm[1:])
+    elif not message.reply_to_message and len(cdm) == 1:
+        try:
+            nice = await client.get_inline_bot_results(bot=bot_username, query="alive")
+            await asyncio.gather(
+                client.send_inline_bot_result(
+                    message.chat.id, nice.query_id, nice.results[0].id),
+                message.delete(),
+            )
+        except BaseException as e:
+            print(f"{e}")
+
 
 @Client.on_message(
     filters.command(["rama", "alive"], ["?", "!", ".", ",", "*", "$"]) & (filters.me)
