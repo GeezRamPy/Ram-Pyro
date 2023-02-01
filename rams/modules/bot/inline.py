@@ -62,7 +62,7 @@ async def get_readable_time(seconds: int) -> str:
 async def alive_function(message: Message, answers):
     uptime = await get_readable_time((time.time() - StartTime))
     msg = (
-        f"☞ 𝗠𝗮𝘀𝘁𝗲𝗿: {message.from_user.mention}\n"
+        f"☞ 𝗠𝗮𝘀𝘁𝗲𝗿: </b> {message.from_user.mention}\n"
         f"☞ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{uptime}</code>"
     )
     answers.append(
@@ -99,7 +99,7 @@ async def ping_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="❈ Oᴡɴᴇʀ ❈", url=f"tg://openmessage?user_id={ID_OWNER}")]]
+                [[InlineKeyboardButton(text="❈ Oᴡɴᴇʀ ❈", url=f"tg://openmessage?user_id={message.from_user.id}")]]
             ),
         )
     )
