@@ -63,7 +63,7 @@ async def alive_function(message: Message, answers):
     uptime = await get_readable_time((time.time() - StartTime))
     msg = (
         f"☞ 𝗠𝗮𝘀𝘁𝗲𝗿: {message.from_user.mention}\n"
-        f"☞ 𝗨𝗽𝘁𝗶𝗺𝗲: `{uptime}`\n"
+        f"☞ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{uptime}</code>"
     )
     answers.append(
         InlineQueryResultArticle(
