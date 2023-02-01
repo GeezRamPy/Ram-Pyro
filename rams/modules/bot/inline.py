@@ -9,6 +9,7 @@
 # kopas repo dan hapus credit, ga akan jadikan lu seorang developer
 # ©2023 Geez & Ram Team
 import time
+from datetime import datetime
 import traceback
 from sys import version as pyver
 import os
@@ -60,10 +61,14 @@ async def get_readable_time(seconds: int) -> str:
 
 
 async def alive_function(message: Message, answers):
+    start = datetime.now()
     uptime = await get_readable_time((time.time() - StartTime))
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
     msg = (
-        f"☞ 𝗠𝗮𝘀𝘁𝗲𝗿: </b> {message.from_user.mention}\n"
-        f"☞ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{uptime}</code>"
+        f"☞ 𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗕𝗼𝘁!! 
+        f"☞ 𝗦𝗶𝗴𝗻𝗮𝗹: `%sms`\n"
+        f"☞ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{uptime}</code>" % (duration)
     )
     answers.append(
         InlineQueryResultArticle(
@@ -74,7 +79,7 @@ async def alive_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("ʜᴇʟᴘ", callback_data="helper")]]
+                [[InlineKeyboardButton("☬ 𝗠𝗮𝘀𝘁𝗲𝗿 ☬", url=f"tg://openmessage?user_id={message.from_user.id}")]]
             ),
         )
     )
@@ -99,7 +104,7 @@ async def ping_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="❈ Oᴡɴᴇʀ ❈", url=f"tg://openmessage?user_id={message.from_user.id}")]]
+                [[InlineKeyboardButton(text="༺ Oᴡɴᴇʀ ༻", url=f"tg://openmessage?user_id={message.from_user.id}")]]
             ),
         )
     )
