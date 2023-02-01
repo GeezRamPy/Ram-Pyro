@@ -41,7 +41,9 @@ from rams import CMD_HELP, StartTime, app
 from .help import add_command_help
 
 modules = CMD_HELP
-
+alive_logo = (
+    gvarstatus("ALIVE_LOGO") or "https://telegra.ph/file/d370f45bf3ff8fa0cba8f.jpg"
+)
     
 
 @Client.on_message(filters.command(["speed", "speedtest"], ["?", "!", ".", ",", "*", "$"]) & filters.me)
@@ -130,7 +132,7 @@ async def module_ping(client: Client, message: Message):
             nice = await client.get_inline_bot_results(bot=bot_username, query="Alive")
             await asyncio.gather(
                 client.send_inline_bot_result(
-                    message.chat.id, nice.query_id, nice.results[0].id),
+                    message.chat.id, alive_logo, nice.query_id, nice.results[0].id),
                 message.delete(),
             )
         except BaseException as e:
