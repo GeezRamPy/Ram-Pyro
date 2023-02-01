@@ -140,7 +140,7 @@ async def module_ping(client: Client, message: Message):
 @Client.on_message(
     filters.command(["rama", "alive"], ["?", "!", ".", ",", "*", "$"]) & (filters.me)
 )
-async def module_ping(client: Client, message: Message):
+async def module_alive(client: Client, message: Message):
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
