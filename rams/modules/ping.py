@@ -33,6 +33,7 @@ from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.constants import WWW
 from geezlibs.ram.helpers.PyroHelpers import SpeedConvert
 from geezlibs.ram.utils.tools import get_readable_time
+from geezlibs.ram.helpers.SQL.globals import gvarstatus
 from rams.split.berak.adminHelpers import DEVS
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from config import BOT_VER, GROUP, CHANNEL, CMD_HANDLER as cmd
