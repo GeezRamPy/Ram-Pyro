@@ -8,6 +8,7 @@ from geezlibs.ram.helpers.basic import *
 from geezlibs.ram.helpers.PyroHelpers import *
 from geezlibs.ram.utils.misc import *
 from geezlibs.ram.utils.tools import *
+from geezlibs.geez.helper.utility import get_arg
 
 #command takepm for forward to save message
 @gez.on_message(filters.command("takepm", [".", ",", "?", "!", "*", "$"]) & filters.me)
