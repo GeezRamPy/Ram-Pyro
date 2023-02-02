@@ -39,6 +39,7 @@ async def kangcopy(client: Client, message: Message):
             await tai.delete()
             async for c in client.get_chat_history(bot, limit=1):
                 await c.copy(message.chat.id)
+            await client.delete_message(bot, link)
         except BaseException:
             pass
         try:
@@ -50,11 +51,7 @@ async def kangcopy(client: Client, message: Message):
                 await g.delete()
         except BaseException:
             pass
-        try:
-            await client.delete_message(bot)
-        except BaseException:
-            pass
-
+     
 @gez.on_message(filters.command("jurus", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def juruscop(client: Client, message: Message):
     reply_message = message.reply_to_message
