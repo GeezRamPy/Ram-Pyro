@@ -10,7 +10,7 @@ from geezlibs.ram.utils.misc import *
 from geezlibs.ram.utils.tools import *
 
 #command takepm for forward to save message
-@gez.on_message(filters.command("takepm", cmds) & filters.me)
+@gez.on_message(filters.command("takepm", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def takepm(client: Client, message: Message):
     lol = message.reply_to_message
     if not lol:
@@ -21,7 +21,7 @@ async def takepm(client: Client, message: Message):
     except BaseException:
         pass
 #command take for anu
-@gez.on_message(filters.command("take", cmds) & filters.me)
+@gez.on_message(filters.command("take", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def take(client: Client, message: Message):
     lol = message.reply_to_message
     if not lol:
@@ -33,7 +33,7 @@ async def take(client: Client, message: Message):
         pass
 
 #command fwd for forward
-@gez.on_message(filters.command("fwd", cmds) & filters.me)
+@gez.on_message(filters.command("fwd", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def fwd(client: Client, message: Message):
     lol = message.reply_to_message
     if not lol:
@@ -44,7 +44,7 @@ async def fwd(client: Client, message: Message):
     except BaseException:
         pass
 #command c for anu
-@gez.on_message(filters.command("c", cmds) & filters.me)
+@gez.on_message(filters.command("c", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def cp(client: Client, message: Message):
     tulis = get_arg(message)
     user = message.reply_to_message
@@ -56,7 +56,7 @@ async def cp(client: Client, message: Message):
         return await message.edit(f"**ERROR** `{e}`")
 
 #command cp for nyolong
-@gez.on_message(filters.command("cp", cmds) & filters.me)
+@gez.on_message(filters.command("cp", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def kangcopy(client: Client, message: Message):
     mmk = await message.reply_text("`Processing . . .`")
     link = get_arg(message)
