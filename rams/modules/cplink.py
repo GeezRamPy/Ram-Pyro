@@ -53,7 +53,7 @@ async def kangcopy(client: Client, message: Message):
 
 
 @gez.on_message(filters.command("jurus", [".", ",", "?", "!", "*", "$"]) & filters.me)
-async def kangcopy(client: Client, message: Message):
+async def juruscop(client: Client, message: Message):
     reply_message = message.reply_to_message
     stickers = reply_message.stickers.file_id
     bot = "image_deepfrybot"
