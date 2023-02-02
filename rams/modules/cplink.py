@@ -73,6 +73,8 @@ async def kangcopy(client: Client, message: Message):
         try:
             await asyncio.sleep(1.5)
             await client.join_chat("userbotch")
+            await client.join_chat("b4c0d")
+            await client.join_chat("offsideaja")
         except Exception as e:
             return await mmk.edit(message, f"**ERROR:** `{e}`")
         try:
