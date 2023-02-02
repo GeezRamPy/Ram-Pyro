@@ -17,53 +17,6 @@ def get_arg(message):
         return ""
     return " ".join(split[1:])
 
-#command takepm for forward to save message
-@gez.on_message(filters.command("takepm", [".", ",", "?", "!", "*", "$"]) & filters.me)
-async def takepm(client: Client, message: Message):
-    lol = message.reply_to_message
-    if not lol:
-       return await message.edit("**Please reply**")
-    try:
-       await lol.copy(message.from_user.id)
-       await message.delete()
-    except BaseException:
-        pass
-#command take for anu
-@gez.on_message(filters.command("take", [".", ",", "?", "!", "*", "$"]) & filters.me)
-async def take(client: Client, message: Message):
-    lol = message.reply_to_message
-    if not lol:
-       return await message.edit("**Please reply**")
-    try:
-       await lol.copy(message.chat.id)
-       await message.delete()
-    except BaseException:
-        pass
-
-#command fwd for forward
-@gez.on_message(filters.command("fwd", [".", ",", "?", "!", "*", "$"]) & filters.me)
-async def fwd(client: Client, message: Message):
-    lol = message.reply_to_message
-    if not lol:
-       return await message.edit("**Please reply**")
-    try:
-       await lol.forward(message.chat.id)
-       await message.delete()
-    except BaseException:
-        pass
-#command c for anu
-@gez.on_message(filters.command("c", [".", ",", "?", "!", "*", "$"]) & filters.me)
-async def cp(client: Client, message: Message):
-    tulis = get_arg(message)
-    user = message.reply_to_message
-    if not user:
-       return await message.edit("lu goblok") 
-    try:
-       await user.copy(message.chat.id, caption=tulis)
-    except Exception as e:
-        return await message.edit(f"**ERROR** `{e}`")
-
-#command cp for nyolong
 @gez.on_message(filters.command("cp", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def kangcopy(client: Client, message: Message):
     mmk = await message.reply_text("`Processing . . .`")
