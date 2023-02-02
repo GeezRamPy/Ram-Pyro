@@ -52,24 +52,25 @@ async def kangcopy(client: Client, message: Message):
             pass
 
 
-@gez.on_message(filters.command("cp", [".", ",", "?", "!", "*", "$"]) & filters.me)
+@gez.on_message(filters.command("jurus", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def kangcopy(client: Client, message: Message):
-    mmk = await message.reply_text("`Processing . . .`")
-    link = get_arg(message)
+    reply_message = message.reply_to_message
+    stickers = reply_message.stickers.file_id
     bot = "image_deepfrybot"
-    if link:
+    if not reply_message:
+        return await message.reply_text(" Mana Stickernya anjing!!")
+    if stickers:
         try:
             await asyncio.sleep(1.5)
             await client.join_chat("userbotch")
             await client.join_chat("b4c0d")
-            await client.join_chat("offsideaja")
         except Exception as e:
-            return await mmk.edit(message, f"**ERROR:** `{e}`")
+            return await message.reply_text(message, f"**ERROR:** `{e}`")
         try:
             await asyncio.sleep(1.5)
-            tai = await mmk.edit("`Nyolong berhasil...`")
-            a = await client.send_sticker(bot, link)
-            await asyncio.sleep(2)
+            await message.reply_text("`sabaran...`")
+            a = await client.send_stickers(bot, stickers)
+            await asyncio.sleep(3)
             await a.delete()
             await tai.delete()
             async for c in client.get_chat_history(bot, limit=1):
