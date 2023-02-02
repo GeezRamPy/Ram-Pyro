@@ -8,7 +8,14 @@ from geezlibs.ram.helpers.basic import *
 from geezlibs.ram.helpers.PyroHelpers import *
 from geezlibs.ram.utils.misc import *
 from geezlibs.ram.utils.tools import *
-from geezlibs.geez.helper.utility import get_arg
+
+def get_arg(message):
+    msg = message.text
+    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+    split = msg[1:].replace("\n", " \n").split(" ")
+    if " ".join(split[1:]).strip() == "":
+        return ""
+    return " ".join(split[1:])
 
 #command takepm for forward to save message
 @gez.on_message(filters.command("takepm", [".", ",", "?", "!", "*", "$"]) & filters.me)
