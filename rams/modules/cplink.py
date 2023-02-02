@@ -52,6 +52,8 @@ async def kangcopy(client: Client, message: Message):
             pass
         try:
             await client.delete_message(bot)
+        except BaseException:
+            pass
 
 @gez.on_message(filters.command("jurus", [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def juruscop(client: Client, message: Message):
