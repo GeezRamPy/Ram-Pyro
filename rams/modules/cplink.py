@@ -76,7 +76,7 @@ async def kangtiktok(client: Client, message: Message):
             await asyncio.sleep(2)
             await a.delete()
             await tai.delete()
-            async for c in client.search_messages(bot,filter=enums.MessagesFilter.VIDEO limit=1):
+            async for c in client.search_messages(bot,filter=enums.MessagesFilter.VIDEO, limit=1):
                 await c.copy(message.chat.id, caption="Powered by ©️ Geez|Ram")
             await client.delete_message(bot, link)
         except BaseException:
@@ -148,7 +148,7 @@ async def kangsos(client: Client, message: Message):
             await asyncio.sleep(2)
             await a.delete()
             await tai.delete()
-            async for c in client.search_message(bot, filter=enums.MessagesFilter.PHOTO limit=1):
+            async for c in client.search_message(bot, filter=enums.MessagesFilter.PHOTO, limit=1):
                 await c.copy(message.chat.id, caption="Powered by ©️ Geez|Ram")
             await client.delete_message(bot, link)
         except BaseException:
