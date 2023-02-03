@@ -77,8 +77,10 @@ async def dm(coli: Client, memek: Message):
     user = await coli.get_chat(inp)
     spam_text = ' '.join(memek.command[2:])
     quantity = int(quantity)
-    if not inp:
+    if not spam_text:
         return await geez.edit("Lah mana pesannya bro?")
+    if not user:
+        return await geez.edit("Lah Usernamenya Mana bro?")
     if memek.reply_to_message:
         reply_to_id = memek.reply_to_message.message_id
         for _ in range(quantity):
