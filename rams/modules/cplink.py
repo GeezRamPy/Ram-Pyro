@@ -1,9 +1,10 @@
 import asyncio
 import os
+import time
 from pyrogram.types import *
 from pyrogram import *
 from pyrogram import Client as gez
-from pyrogram import Client
+from pyrogram import Client, filters, enums
 from geezlibs.ram.helpers.basic import *
 from geezlibs.ram.helpers.PyroHelpers import *
 from geezlibs.ram.utils.misc import *
@@ -51,38 +52,30 @@ async def kangcopy(client: Client, message: Message):
                 await g.delete()
         except BaseException:
             pass
-     
-@gez.on_message(filters.command("jurus", [".", ",", "?", "!", "*", "$"]) & filters.me)
-async def juruscop(client: Client, message: Message):
+# ==================================
+#          LO NGENTOT
+# ==================================
+from pyrogram.types import Message
+from geezlibs import logging
+from geezlibs.ram.helpers.basic import edit_or_reply
+
+@Client.on_message(filters.command("tonime", [".", "!", "?", ",", "$", "*"]) & filters.me)
+async def convert_image(client: Client, message: Message):
+    if not message.reply_to_message:
+        return await message.edit("Please Reply to photo")
+    if message.reply_to_message:
+        await message.edit("processing ...")
+        await logging(client)
     reply_message = message.reply_to_message
-    stickers = reply_message.stickers.file_id
-    bot = "image_deepfrybot"
-    if not reply_message:
-        return await message.reply_text(" Mana Stickernya anjing!!")
-    if stickers:
-        try:
-            await asyncio.sleep(1.5)
-            await client.join_chat("userbotch")
-            await client.join_chat("b4c0d")
-        except Exception as e:
-            return await message.reply_text(message, f"**ERROR:** `{e}`")
-        try:
-            await asyncio.sleep(1.5)
-            await message.reply_text("`sabaran...`")
-            a = await client.send_stickers(bot, stickers)
-            await asyncio.sleep(3)
-            await a.delete()
-            await tai.delete()
-            async for c in client.get_chat_history(bot, limit=1):
-                await c.copy(message.chat.id)
-        except BaseException:
-            pass
-        try:
-            async for f in client.search_messages(message.chat.id, query="Trying to Download."):
-                await f.delete()
-            async for o in client.search_messages(message.chat.id, query="DOWNLOADING:"):
-                await o.delete()
-            async for g in client.search_messages(message.chat.id, query="Preparing to Upload!"):
-                await g.delete()
-        except BaseException:
-            pass
+    photo = reply_message.photo.file_id
+    bot = "qq_2d_ai_bot"
+    await client.send_photo(bot, photo=photo)
+    await asyncio.sleep(18)
+    async for result in client.search_messages(bot, limit=1):
+        if result.photo:
+            await message.edit("uploading...")
+            converted_image_file = await client.download_media(result)
+            await client.send_photo(message.chat.id, converted_image_file, caption="Powered by Geez Pyro")
+            await message.delete()
+        else:
+            await message.edit("error message ...")
