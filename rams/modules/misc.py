@@ -121,28 +121,6 @@ async def duckgo(client: Client, message: Message):
         await Man.edit_text("something is wrong. please try again later.")
 
 
-@Client.on_message(filters.command("open", ["?", "!", ".", "*", ",", "$"]) & filters.me)
-async def open_file(client: Client, m: Message):
-    xd = await edit_or_reply(m, "`Reading File!`")
-    f = await client.download_media(m.reply_to_message)
-    if f:
-        _error = open(f, "r")
-        _error_ = _error.read()
-        _error.close()
-        if len(_error_) >= 4096:
-            await xd.edit("`Pasting to Spacebin!`")
-            ext = "py"
-            x = await s_paste(_error_, ext)
-            s_link = x["url"]
-            s_raw = x["raw"]
-            pasted = f"**Pasted to Spacebin**\n**Link:** [Spacebin]({s_link})\n**Raw Link:** [Raw]({s_raw})"
-            return await xd.edit(pasted, disable_web_page_preview=True)
-        else:
-            await xd.edit(f"**Output:**\n```{_error_}```")
-    else:
-        await edit_or_reply(m, "Balas ke File untuk membukanya!")
-        os.remove(f)
-
 
 @Client.on_message(filters.command(["ig", "pint"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def instag(client: Client, message: Message):
