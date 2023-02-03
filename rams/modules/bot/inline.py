@@ -116,8 +116,6 @@ async def repo_function(message: Message, answers):
         f"│ ✨ 𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗕𝗼𝘁 ✨\n"
         f"├✠╼━━━━━━━━━━━━━━━\n"
         f"│**★ Bot Ver    :** {BOT_VER}\n"
-        f"│**★ Support    :** [Geez│Ram](t.me/geezram)\n"
-        f"│**★ Channel    :** [Ch Support](t.me/UserbotCh)\n"
         f"│**★ Branch     :** {branch}\n"
         f"╰✠╼━━━━━━━━━━━━━━━━"
     )
