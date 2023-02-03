@@ -108,13 +108,6 @@ async def channel(client: Client, message: Message):
     await xx.edit(f"Nih CH Ku = [TEKAN](https://t.me/{CH_SFS})", disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command("repo", ["?", "!", ".", "*", ",", "$"]) & filters.me)
-async def reporl(client: Client, message: Message):
-    xx = await message.reply("**Jan Bawel!!**")
-    await asyncio.sleep(2)
-    await xx.edit(f"Nih REPONYA = [TEKAN](https://github.com/GeezRamPy/Ram-Pyro)", disable_web_page_preview=True)
-
-
 @Client.on_message(filters.command("getstring", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def string(client: Client, message: Message):
     xx = await message.reply("**Jan Bawel!!**")
