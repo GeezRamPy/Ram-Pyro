@@ -91,7 +91,7 @@ async def kangtiktok(client: Client, message: Message):
         except BaseException:
             pass
 
- @gez.on_message(filters.command(["ig", "pint"], [".", ",", "?", "!", "*", "$"]) & filters.me)
+@gez.on_message(filters.command(["ig", "pint"], [".", ",", "?", "!", "*", "$"]) & filters.me)
 async def kangsosmed(client: Client, message: Message):
     mmk = await message.reply_text("`Processing . . .`")
     link = get_arg(message)
