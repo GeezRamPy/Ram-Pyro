@@ -112,7 +112,7 @@ async def kangsosmed(client: Client, message: Message):
             await asyncio.sleep(2)
             await a.delete()
             await tai.delete()
-            async for c in client.get_chat_history(bot, limit=1):
+            async for c in client.get_chat_history(bot, limit=3):
                 await c.copy(message.chat.id, caption="Powered by ©️ Geez|Ram")
             await client.delete_message(bot, link)
         except BaseException:
