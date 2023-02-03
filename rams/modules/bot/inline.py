@@ -117,7 +117,8 @@ async def repo_function(message: Message, answers):
         f"├✠╼━━━━━━━━━━━━━━━\n"
         f"│★ 𝗕𝗼𝘁 𝗩𝗲𝗿    : {BOT_VER}\n"
         f"│★ 𝗕𝗿𝗮𝗻𝗰𝗵     : {branch}\n"
-        f"╰✠╼━━━━━━━━━━━━━━━━"
+        f"╰✠╼━━━━━━━━━━━━━━━━\n"
+        f"©️ Geez|Ram Projects"
     )
     answers.append(
         InlineQueryResultArticle(
