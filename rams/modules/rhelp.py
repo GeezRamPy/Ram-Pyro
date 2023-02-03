@@ -338,6 +338,24 @@ add_command_help(
         ],
     ],
 )
+
+
+
+add_command_help(
+    "tolink",
+    [
+        [
+            "cp [link tautan]",
+            "Untuk Mencuri link Channel, Yang tidak bisa di forward",
+        ],
+        [
+            "tonime",
+            f"Untuk Mengubah Foto Menjadi Anime, (mempunyai batas limit)",
+        ],
+    ],
+)
+
+
 add_command_help(
     "misc",
     [
