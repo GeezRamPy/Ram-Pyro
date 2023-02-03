@@ -4,7 +4,7 @@ aiohttp
 asyncio
 bs4
 ffmpeg
-geezlibs==1.3.7
+geezlibs==1.6.3
 gitpython
 git+https://github.com/Itz-fork/py-trans.git
 googlesearch-python== 1.0.1
