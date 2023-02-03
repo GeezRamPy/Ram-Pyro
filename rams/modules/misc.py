@@ -68,24 +68,10 @@ async def webshot(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.command("type", ["?", "!", ".", "*", ",", "$"]) & filters.me)
-async def types(client: Client, message: Message):
-    orig_text = message.text.split(prefix + "type ", maxsplit=1)[1]
-    text = orig_text
-    tbp = ""
-    typing_symbol = "▒"
-    while tbp != orig_text:
-        await message.edit(str(tbp + typing_symbol))
-        await asyncio.sleep(0.10)
-        tbp = tbp + text[0]
-        text = text[1:]
-        await message.edit(str(tbp))
-        await asyncio.sleep(0.10)
-
 
 @Client.on_message(filters.command(["directmessage", "dm"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def dm(coli: Client, memek: Message):
-    geez = await memek.reply_text("⚡ sabaran.....")
+    geez = await edit_or_reply(memek, "⚡ sabaran.....")
     quantity = 1
     inp = memek.text.split(None, 2)[1]
     user = await coli.get_chat(inp)
@@ -119,63 +105,4 @@ async def duckgo(client: Client, message: Message):
         )
     else:
         await Man.edit_text("something is wrong. please try again later.")
-
-
-
-@Client.on_message(filters.command(["ig", "pint"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
-async def instag(client: Client, message: Message):
-    Man = await message.edit("`Processing . . .`")
-    link = get_arg(message)
-    bot = "saveasbot"
-    if link:
-        try:
-            xnxx = await client.send_message(bot, link)
-            await asyncio.sleep(5)
-            await xnxx.delete()
-        except YouBlockedUser:
-            await client.unblock_user(bot)
-            xnxx = await client.send_message(bot, link)
-            await asyncio.sleep(5)
-            await xnxx.delete()
-    async for instag in client.search_messages(
-        bot, filter=enums.MessagesFilter.VIDEO, limit=1
-    ):
-        await asyncio.gather(
-            Man.delete(),
-            client.send_video(
-                message.chat.id,
-                instag.video.file_id,
-                reply_to_message_id=ReplyCheck(message),
-            ),
-        )
-        await client.delete_messages(bot, 2)
-
-
-@Client.on_message(filters.command(["sosmed"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
-async def sosmed(client: Client, message: Message):
-    Man = await message.edit("`Processing . . .`")
-    link = get_arg(message)
-    bot = "thisvidbot"
-    if link:
-        try:
-            xnxx = await client.send_message(bot, link)
-            await asyncio.sleep(5)
-            await xnxx.delete()
-        except YouBlockedUser:
-            await client.unblock_user(bot)
-            xnxx = await client.send_message(bot, link)
-            await asyncio.sleep(5)
-            await xnxx.delete()
-    async for sosmed in client.search_messages(
-        bot, filter=enums.MessagesFilter.VIDEO, limit=1
-    ):
-        await asyncio.gather(
-            Man.delete(),
-            client.send_video(
-                message.chat.id,
-                sosmed.video.file_id,
-                reply_to_message_id=ReplyCheck(message),
-            ),
-        )
-        await client.delete_messages(bot, 2)
 
