@@ -128,7 +128,7 @@ async def repo_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="⚜ 𝗥𝗲𝗽𝗼𝘀𝗶𝘁𝗼𝗿𝘆 ⚜", url=f"https://github.com/izzy-adeeva/rampyro-master"), InlineKeyboardButton(text="⚜ 𝗟𝗶𝗰𝗲𝗻𝘀𝗲 ⚜", url=f"https://github.com/izzy-adeeva/rampyro-master/blob/master/LICENSE")]]
+                [[InlineKeyboardButton(text="⚜ 𝗥𝗲𝗽𝗼 ⚜", url=f"https://github.com/izzy-adeeva/rampyro-master"), InlineKeyboardButton(text="⚜ 𝗟𝗶𝗰𝗲𝗻𝘀𝗲 ⚜", url=f"https://github.com/izzy-adeeva/rampyro-master/blob/master/LICENSE")]]
             ),
         )
     )
