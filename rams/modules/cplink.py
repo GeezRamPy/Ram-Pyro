@@ -201,6 +201,8 @@ async def deepfry(client: Client, message: Message):
     reply_message = message.reply_to_message
     photo = reply_message.photo.file_id
     bot = "image_deepfrybot"
+    if not photo:
+        return await message.edit("ini bukan foto bgst!!!!")
     await client.send_photo(bot, photo=photo)
     await asyncio.sleep(3)
     async for result in client.search_messages(bot, limit=1):
