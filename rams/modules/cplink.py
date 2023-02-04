@@ -225,11 +225,9 @@ async def deepfry(client: Client, message: Message):
     bot = "image_deepfrybot"
     await client.send_sticker(bot, sticker=sticker)
     await asyncio.sleep(3)
-    async for result in client.search_messages(bot, limit=1):
-        if result.sticker:
+    async for result in client.get_chat_history(bot, limit=1):
             await message.edit("sabaran...")
-            converted_image_file = await client.download_media(result)
-            await client.send_media(message.chat.id, converted_image_file)
+            await result.copy(message.chat.id)
             await message.delete()
         else:
             await message.edit("error message ...")
