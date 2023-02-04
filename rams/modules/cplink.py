@@ -211,23 +211,3 @@ async def deepfry(client: Client, message: Message):
             await message.delete()
         else:
             await message.edit("error message ...")
-
-
-@Client.on_message(filters.command("kamui", [".", "!", "?", ",", "$", "*"]) & filters.me)
-async def deepfry(client: Client, message: Message):
-    if not message.reply_to_message:
-        return await message.edit("Reply sticker Untuk Mengedit")
-    if message.reply_to_message:
-        await message.edit("Gua bikin Jelek sticker lu nih!!!...")
-        await logging(client)
-    reply_message = message.reply_to_message
-    sticker = reply_message.sticker.file_id
-    bot = "image_deepfrybot"
-    await client.send_sticker(bot, sticker=sticker)
-    await asyncio.sleep(3)
-    async for result in client.get_chat_history(bot, limit=1):
-            await message.edit("sabaran...")
-            await result.copy(message.chat.id)
-            await message.delete()
-        else:
-            await message.edit("error message ...")
