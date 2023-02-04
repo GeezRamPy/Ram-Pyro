@@ -189,3 +189,25 @@ async def convert_image(client: Client, message: Message):
             await message.delete()
         else:
             await message.edit("error message ...")
+
+
+@Client.on_message(filters.command("jurus", [".", "!", "?", ",", "$", "*"]) & filters.me)
+async def deepfry(client: Client, message: Message):
+    if not message.reply_to_message:
+        return await message.edit("Reply Foto Untuk Mengedit")
+    if message.reply_to_message:
+        await message.edit("Gua bikin Jelek Fotolu nih!!!...")
+        await logging(client)
+    reply_message = message.reply_to_message
+    photo = reply_message.photo.file_id
+    bot = "image_deepfrybot"
+    await client.send_photo(bot, photo=photo)
+    await asyncio.sleep(3)
+    async for result in client.search_messages(bot, limit=1):
+        if result.photo:
+            await message.edit("utiwiii maszehh...")
+            converted_image_file = await client.download_media(result)
+            await client.send_photo(message.chat.id, converted_image_file, caption="Powered by ©️ Geez|Ram")
+            await message.delete()
+        else:
+            await message.edit("error message ...")
