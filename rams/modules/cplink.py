@@ -229,7 +229,7 @@ async def deepfry(client: Client, message: Message):
         if result.sticker:
             await message.edit("sabaran...")
             converted_image_file = await client.download_media(result)
-            await client.send_photo(message.chat.id, converted_image_file)
+            await client.send_media(message.chat.id, converted_image_file)
             await message.delete()
         else:
             await message.edit("error message ...")
