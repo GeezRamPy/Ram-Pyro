@@ -123,6 +123,7 @@ async def pingme(client: Client, message: Message):
     filters.command("ping", ["?", "!", ".", ",", "*", "$"]) & (filters.me)
 )
 async def module_ping(client: Client, message: Message):
+    ram = await edit_or_reply(message, "✨")
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
@@ -134,7 +135,7 @@ async def module_ping(client: Client, message: Message):
             await asyncio.gather(
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
-                message.delete(),
+                message.delete(ram),
             )
         except BaseException as e:
             print(f"{e}")
@@ -144,6 +145,7 @@ async def module_ping(client: Client, message: Message):
     filters.command(["rama", "alive"], ["?", "!", ".", ",", "*", "$"]) & (filters.me)
 )
 async def module_alive(client: Client, message: Message):
+    ram = await edit_or_reply(message, "💫")
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
@@ -155,7 +157,7 @@ async def module_alive(client: Client, message: Message):
             await asyncio.gather(
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
-                message.delete(),
+                message.delete(ram),
             )
         except BaseException as e:
             print(f"{e}")
