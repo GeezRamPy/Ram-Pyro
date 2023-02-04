@@ -124,6 +124,7 @@ async def pingme(client: Client, message: Message):
 )
 async def module_ping(client: Client, message: Message):
     ram = await edit_or_reply(message, "✨")
+    await asyncio.sleep(2)
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
@@ -146,6 +147,7 @@ async def module_ping(client: Client, message: Message):
 )
 async def module_alive(client: Client, message: Message):
     ram = await edit_or_reply(message, "💫")
+    await asyncio.sleep(2)
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
