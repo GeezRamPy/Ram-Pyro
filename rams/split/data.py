@@ -4,7 +4,7 @@ modules = CMD_HELP
 class Data:
 
     text_help_menu = (
-        f"**Menu Inline Ram-Pyro**\nModules : {len(modules)}\nPerintah : ? ! . * , $"
+        f"**Menu Inline Ram-Pyro**\nModules : </b> <code>{len(modules)} </code>\nPerintah : ? ! . * , $"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
