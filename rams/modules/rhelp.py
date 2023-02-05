@@ -350,11 +350,20 @@ add_command_help(
         ],
         [
             "tonime",
-            f"Untuk Mengubah Foto Menjadi Anime, (mempunyai batas limit)",
+            f"reply Untuk Mengubah Foto Menjadi Anime, (mempunyai batas limit)",
         ],
     ],
 )
 
+add_command_help(
+    "tolink",
+    [
+        [
+            "jurus",
+            f"reply foto Untuk Mengubah Foto Menjadi jelek.",
+        ],
+    ],
+)
 
 add_command_help(
     "misc",
