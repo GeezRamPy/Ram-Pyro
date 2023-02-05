@@ -19,7 +19,7 @@ from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
 
-commands = ["spam", "statspam", "slowspam", "fastspam"]
+commands = ["spam", "statspam", "slowspam", "restspam"]
 SPAM_COUNT = [0]
 
 
@@ -71,7 +71,7 @@ async def sspam(client: Client, message: Message):
     amount = int(message.command[1])
     text = " ".join(message.command[2:])
 
-    cooldown = {"spam": 0.5, "statspam": 0.1, "slowspam": 0.9, "fastspam": 0}
+    cooldown = {"spam": 0, "statspam": 2.0, "slowspam": 2.5, "restspam": 1}
 
     await message.delete()
 
@@ -81,7 +81,7 @@ async def sspam(client: Client, message: Message):
         else:
             sent = await client.send_message(message.chat.id, text)
 
-        if message.command[0] == "statspam":
+        if message.command[0] == "spam":
             await asyncio.sleep(0.1)
             await sent.delete()
 
