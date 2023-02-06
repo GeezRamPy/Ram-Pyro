@@ -103,6 +103,7 @@ async def speech_to_text(client: Client, message: Message):
     await message.reply_text(
         text=text
     )
+    await delete(message)
     
     # kata rama LU KONTOL !!!
     os.remove(wav_file)
