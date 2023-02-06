@@ -1,1 +1,1 @@
-worker: python3 -m Geez
+worker: python3 -m rams
