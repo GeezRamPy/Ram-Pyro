@@ -3,7 +3,7 @@ Pillow
 aiohttp
 asyncio
 bs4
-ffmpeg
+ffmpeg-python
 geezlibs==1.6.3
 gitpython
 git+https://github.com/Itz-fork/py-trans.git
