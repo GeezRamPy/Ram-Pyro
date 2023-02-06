@@ -66,7 +66,7 @@ async def alive_function(message: Message, answers):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     msg = (
-        f"☞ 𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗕𝗼𝘁!!🎾\n\n"
+        f"☞ 𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗕𝗼𝘁!!✨\n\n"
         f"☞ 𝗦𝗶𝗴𝗻𝗮𝗹: %sms\n"
         f"☞ 𝗨𝗽𝘁𝗶𝗺𝗲: </b> <code>{uptime}</code>" % (duration)
     )
