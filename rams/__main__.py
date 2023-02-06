@@ -53,5 +53,5 @@ async def main():
 if __name__ == "__main__":
     LOGGER("rams").info("Starting RamPyro-Bot")
     install()
-    heroku()
+    #heroku()
     LOOP.run_until_complete(main())
