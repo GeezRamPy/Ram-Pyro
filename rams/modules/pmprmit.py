@@ -21,19 +21,12 @@ from rams import TEMP_SETTINGS
 from .help import add_command_help
 
 DEF_UNAPPROVED_MSG = (
-    "╭━━━━━━━━━━━━━━━━━╮\n    🌟SELAMAT DATANG🌟\n"
-    "╰━━━━━━━━━━━━━━━━━╯\n"
-    "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
-    "Mohon Bersabar Kontol, Saya Sebagai\n"
-    f"Bot asisstant Menyarankan Anda, Untuk Sadar Diri.\n"
-    f"Siapa Tau Anda Jelek, Atau Memang Dianggap Tidak Penting Sama **My Lord** \n"
-    "Atau anda memang jelek Dan Ga berguna,Seperti Sampah masyarakat \n"
-    "Jadi Jangan Spam, Nanti anda saya blokir.\n"
-    f"Tunggu **My Lord** membalas Pesan Dan menyetujui Anda\n Terimakasih\n"
-    "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+    "ROOM CHAT || Ram-Pyro\n"
+    "━━━━━━━━━━━━━━━━━━━━\n"
+    "HALLO SELAMAT DATANG, SAYA ADALAH BOT YANG MENJAGA ROOM CHAT INI\nTUNGGU SAMPAI TUAN MENERIMA PESAN ANDA.\n"
     "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    "┣[• 𝐁𝐘 ⭐️𝐑𝐚𝐦𝐏𝐲𝐫𝐨-𝐁𝐨𝐭⭐️\n"
+    "┣[• 𝐁𝐘 𝐑𝐚𝐦-𝐏𝐲𝐫𝐨\n"
     "╰✠╼━━━━━━❖━━━━━━━✠╯"
 )
 
