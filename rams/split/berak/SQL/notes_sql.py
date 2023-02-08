@@ -10,7 +10,7 @@ class Notes(BASE):
     reply = Column(UnicodeText)
     f_mesg_id = Column(Numeric)
 
-    def init(self, user_id, keyword, f_mesg_id):
+    def init(self, user_id, keyword, reply, f_mesg_id):
         self.user_id = str(user_id)
         self.keyword = keyword
         self.reply = reply
