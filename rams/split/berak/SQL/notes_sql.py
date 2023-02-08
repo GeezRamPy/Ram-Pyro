@@ -4,18 +4,18 @@ from . import BASE, SESSION
 
 
 class Note(BASE):
-    tablename = "note"
+    __tablename__ = "note"
     user_id = Column(String(14), primary_key=True)
     keyword = Column(UnicodeText, primary_key=True, nullable=False)
     f_mesg_id = Column(Numeric)
 
-    def init(self, user_id, keyword, f_mesg_id):
+    def __init__(self, user_id, keyword, f_mesg_id):
         self.user_id = str(user_id)
         self.keyword = keyword
         self.f_mesg_id = int(f_mesg_id)
 
 
-Note.table.create(checkfirst=True)
+Note.__table__.create(checkfirst=True)
 
 
 def get_note(user_id, keyword):
