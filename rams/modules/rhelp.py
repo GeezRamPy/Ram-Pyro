@@ -388,9 +388,9 @@ add_command_help(
 add_command_help(
     "notes",
     [
-        ["save key", "untuk Menyimpan Catatan Kamu."],
-        ["clear key", "untuk menghapus Catatan Kamu."],
-        ["get Key", "Untuk Mengambil Catatan kamu."],
+        ["save [key]", "untuk Menyimpan Catatan Kamu."],
+        ["dlt [key]", "untuk menghapus Catatan Kamu."],
+        ["get [Key]", "Untuk Mengambil Catatan kamu."],
         ["notes", "Untuk Melihat Daftar Catatan Kamu."],
     ],
 )
