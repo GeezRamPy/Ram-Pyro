@@ -61,10 +61,3 @@ async def panggil_notes(client, message):
     msg_o = await client.get_messages("me", int(note.f_mesg_id))
     await msg_o.copy(message.chat.id, reply_to_message_id=message.id)
 
-
-modules_help["notes"] = {
-    "notes": "list all save notes",
-    "save": "save the replied message as a notes with name notename",
-    "clear": "clear note with this name",
-    "get": " get the note with thus notename",
-}
