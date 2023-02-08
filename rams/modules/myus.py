@@ -1,47 +1,42 @@
+# if you can read this, this meant you use code from Geez | Ram Project
+# this code is from somewhere else
+# please dont hestitate to steal it
+# because Geez and Ram doesn't care about credit
+# at least we are know as well
+# who Geez and Ram is
+#
+#
+# kopas repo dan hapus credit, ga akan jadikan lu seorang developer
+# ©2023 Geez | Ram Team
 import os
-import math
-import shlex
 import time
-from math import ceil
-import logging
-import ffmpeg
-from rams import (
-     bot1, bot2,
-     bot3, bot4,
-     bot5, bot6,
-     bot7, bot8,
-     bot9, bot10,
-)
-from pyrogram import Client, filters
-from pyrogram import Client as ram
-from pyrogram.types import Message
-
-import functools
-import threading
-from concurrent.futures import ThreadPoolExecutor
-from pyrogram.errors import FloodWait, MessageNotModified
-from config import CMD_HANDLER as cmd
-import multiprocessing
-import time
-import calendar
-from geezlibs.ram.helpers.tools import *
-from .help import *
-from pytgcalls import GroupCallFactory, GroupCallFileAction
-import signal
 import random
 import string
 import asyncio
-import os
 import time
-import requests
 import datetime
+import threading
+
+import logging
+import ffmpeg
+from Geez import app
+from pyrogram import Client, filters
+from pyrogram import Client as gez
+
+from pyrogram.errors import FloodWait, MessageNotModified
+from pytgcalls import GroupCallFactory, GroupCallFileAction
 from yt_dlp import YoutubeDL
 from youtubesearchpython import SearchVideos
+from geezlibs.ram.helpers.tools import get_text, humanbytes, run_in_exc, run_cmd
+from geezlibs.ram.helpers.tools import edit_or_reply
+from geezlibs import logging
+
+cmds = [",", ".", "*", "?", "!", "$"]
 
 s_dict = {}
 GPC = {}
 
-@ram.on_message(filters.command(["playlist"], cmd) & filters.me
+@gez.on_message(filters.command(["playlist"], cmds) & filters.me
 )
 async def pl(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
@@ -52,6 +47,7 @@ async def pl(client, message):
         return await play.edit("`Minimal Buka Os Lag`")
     if not s:
         if group_call.is_connected:
+            await logging(client)
             return await play.edit(f"**📀 Sedang diputar :** `{group_call.song_name}`")
         else:
             return await play.edit("`Minimal Buka Os Lag`")
@@ -99,7 +95,7 @@ async def playout_ended_handler(group_call, filename):
     group_call.song_name = name_
     group_call.input_filename = raw_file
 
-@ram.on_message(filters.command(["skip"], cmd) & filters.me
+@gez.on_message(filters.command(["skip"], cmds) & filters.me
 )
 async def ski_p(client, message):
     m_ = await edit_or_reply(message, "`Bentar Cuk!`")
@@ -138,9 +134,8 @@ async def ski_p(client, message):
         except:
             return await m_.edit("`Buset dah luh.`")
         return await m_.edit(f"`Ganti Lagu : {s_} At Posisi #{no_t_s}`")
-   
-                
-@ram.on_message(filters.command(["play"], cmd) & filters.me
+                                  
+@gez.on_message(filters.command(["play"], cmds) & filters.me
 )
 async def play_m(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
@@ -205,6 +200,7 @@ async def play_m(client, message):
     elif not group_call.is_connected:
         try:
             await group_call.start(message.chat.id)
+            await logging(client.me.id)
         except BaseException as e:
             return await u_s.edit(f"**Ngapa yaa...:** `{e}`")
         group_call.add_handler(playout_ended_handler, GroupCallFileAction.PLAYOUT_ENDED)
@@ -279,7 +275,7 @@ def yt_dl(url, client, message, start):
 RD_ = {}
 FFMPEG_PROCESSES = {}
  
-@ram.on_message(filters.command(["pause"], cmd) & filters.me
+@gez.on_message(filters.command(["pause"], cmds) & filters.me
 )
 async def no_song_play(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
@@ -293,7 +289,7 @@ async def no_song_play(client, message):
     group_call.pause_playout()
     
     
-@ram.on_message(filters.command(["resume"], cmd) & filters.me
+@gez.on_message(filters.command(["resume"], cmds) & filters.me
 )
 async def wow_dont_stop_songs(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
@@ -304,10 +300,10 @@ async def wow_dont_stop_songs(client, message):
         await edit_or_reply(message, "`Lah tau yaaaa`")
         return    
     group_call.resume_playout()
-    await edit_or_reply(message, f"`▶️ Dilanjutkan.`")
+    await edit_or_reply(message, "`▶️ Dilanjutkan.`")
         
 
-@ram.on_message(filters.command(["end"], cmd) & filters.me
+@gez.on_message(filters.command(["end"], cmds) & filters.me
 )
 async def leave_vc_test(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
@@ -326,14 +322,12 @@ async def leave_vc_test(client, message):
 add_command_help(
     "Musik",
     [
-        [
-            "play",
-            "Play Musik & Video Dengan Judul Lagu",
-        ],
-        ["skip", "Skip Lagu."],
-        ["pause", "Pause Musik."],
-        ["resume", "Resume Musik."],
-        ["end", "Stop Musik."],
-        ["playlist", "Play Playlist Musik."],
+        [f"{cmds}play",
+            f"{cmds}Play Musik & Video Dengan Judul Lagu."],
+        [f"{cmds}skip", "Skip Lagu."],
+        [f"{cmds}pause", "Pause Musik."],
+        [f"{cmds}resume", "Resume Musik."],
+        [f"{cmds}end", "Stop Musik."],
+        [f"{cmds}playlist", "Play Playlist Musik."],
     ],
 )
