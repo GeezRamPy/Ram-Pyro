@@ -27,7 +27,7 @@ def get_note(user_id, keyword):
 
 def get_notes(user_id):
     try:
-        return SESSION.query(Notes).filter(Note.user_id == str(user_id)).all()
+        return SESSION.query(Notes).filter(Notes.user_id == str(user_id)).all()
     finally:
         SESSION.close()
 
