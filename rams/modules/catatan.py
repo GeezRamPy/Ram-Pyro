@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 
 from rams import BOTLOG_CHATID
 from rams.split.berak.SQL.notes_sql import add_note, get_note, get_notes, rm_note
-from rams.modul.cplink import get_arg
+from rams.modules.cplink import get_arg
 
 cmd = [",", ".", "?", "*", "!" "$",]
 
