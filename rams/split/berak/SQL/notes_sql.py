@@ -15,7 +15,7 @@ class Notes(BASE):
         self.f_mesg_id = int(f_mesg_id)
 
 
-Notes.table.create(checkfirst=True)
+Notes.__table__.create(checkfirst=True)
 
 
 def get_note(user_id, keyword):
