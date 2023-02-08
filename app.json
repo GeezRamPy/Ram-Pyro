@@ -10,11 +10,11 @@
     },
     "HEROKU_API_KEY": {
       "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
-      "required": false
+      "required": true
     },
     "HEROKU_APP_NAME": {
       "description": "Masukan Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
-      "required": false
+      "required": true
     },
     "BOT_TOKEN": {
       "description": "Buat Lah Bot di @botfather & Masukan Bot Token Untuk Menghidupkan inline Bot",
@@ -23,6 +23,10 @@
     "OPENAI_API_KEY": {
       "description": "Masukan Token Open Ai, Jika ingin menggunakan modul .ask",
       "required": false
+    },
+    "BOTLOG_CHATID": {
+      "description": "Masukan @missrose_bot dan ketik /id Untuk Memasukan Id Group.",
+      "required": true
     }
   },
   "addons": [
