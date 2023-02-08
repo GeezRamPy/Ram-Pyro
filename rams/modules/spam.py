@@ -81,7 +81,7 @@ async def sspam(client: Client, message: Message):
         else:
             sent = await client.send_message(message.chat.id, text)
 
-        if message.command[0] == "spam":
+        if message.command[0] == "statspam":
             await asyncio.sleep(0.1)
             await sent.delete()
 
