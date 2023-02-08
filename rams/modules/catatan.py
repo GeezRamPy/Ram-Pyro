@@ -58,6 +58,6 @@ async def panggil_notes(client, message):
     note = get_note(str(user_id), notename)
     if not note:
         return await message.reply("Tidak ada catatan seperti itu.")
-    msg_o = await client.get_messages("me", int(note.f_mesg_id))
+    msg_o = await client.get_messages(BOTLOG_CHATID, int(note.f_mesg_id))
     await msg_o.copy(message.chat.id, reply_to_message_id=message.id)
 
