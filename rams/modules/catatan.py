@@ -21,7 +21,7 @@ async def list_notes(client, message):
     await message.reply(msg)
 
 
-@Client.on_message(filters.command("clear", cmd) & filters.me)
+@Client.on_message(filters.command("dlt", cmd) & filters.me)
 async def remove_notes(client, message):
     notename = get_arg(message)
     user_id = message.from_user.id
@@ -46,7 +46,7 @@ async def simpan_note(client, message):
         f"#NOTE\nKEYWORD: {keyword}"
         "\n\nPesan berikut disimpan sebagai data balasan catatan untuk obrolan, mohon JANGAN dihapus !!",
     )
-    await sleep(2)
+    await sleep(1)
     add_note(str(user_id), keyword, msg_id)
     await message.reply(f"Berhasil menyimpan note {keyword}")
 
