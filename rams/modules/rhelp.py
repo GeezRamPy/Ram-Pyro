@@ -178,6 +178,14 @@ add_command_help(
         ["create gc", "Untuk membuat group telegram dengan userbot"],
     ],
 )
+
+add_command_help(
+    "whois",
+    [
+        ["info / whois", "Untuk mengetahui info pengguna."],
+    ],
+)
+
 add_command_help(
     "fakeaction",
     [
