@@ -19,7 +19,7 @@ import threading
 
 import logging
 import ffmpeg
-from Geez import app
+from rams import app
 from pyrogram import Client, filters
 from pyrogram import Client as gez
 
