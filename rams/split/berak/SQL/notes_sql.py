@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Numeric, String, UnicodeText
 
-from . import BASE, SESSION
+from geezlibs.ram.helpers.SQL import BASE, SESSION
 
 
 class Note(BASE):
