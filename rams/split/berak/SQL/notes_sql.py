@@ -1,19 +1,19 @@
 from sqlalchemy import Column, Numeric, String, UnicodeText
 
-from . import BASE, SESSION
+try:
+    from . import BASE, SESSION
+except ImportError:
 
 
 class Notes(BASE):
     __tablename__ = "notes"
     user_id = Column(String(14), primary_key=True)
     keyword = Column(UnicodeText, primary_key=True, nullable=False)
-    reply = Column(UnicodeText)
     f_mesg_id = Column(Numeric)
 
-    def init(self, user_id, keyword, reply, f_mesg_id):
+    def __init__(self, user_id, keyword, f_mesg_id):
         self.user_id = str(user_id)
         self.keyword = keyword
-        self.reply = reply
         self.f_mesg_id = int(f_mesg_id)
 
 
@@ -37,14 +37,14 @@ def get_notes(user_id):
 def add_note(user_id, keyword, f_mesg_id):
     to_check = get_note(user_id, keyword)
     if not to_check:
-        adder = Notes(str(user_id), keyword, reply, f_mesg_id)
+        adder = Notes(str(user_id), keyword, f_mesg_id)
         SESSION.add(adder)
         SESSION.commit()
         return True
     rem = SESSION.query(Notes).get((str(user_id), keyword))
     SESSION.delete(rem)
     SESSION.commit()
-    adder = Notes(str(user_id), keyword, reply, f_mesg_id)
+    adder = Notes(str(user_id), keyword, f_mesg_id)
     SESSION.add(adder)
     SESSION.commit()
     return False
