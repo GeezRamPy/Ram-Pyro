@@ -394,6 +394,20 @@ add_command_help(
         ["notes", "Untuk Melihat Daftar Catatan Kamu."],
     ],
 )
+add_command_help(
+    "Musik",
+    [
+        [f"play",
+            f"Play Musik & Video Dengan Judul Lagu."],
+        [f"skip", "Skip Lagu."],
+        [f"pause", "Pause Musik."],
+        [f"resume", "Resume Musik."],
+        [f"end", "Stop Musik."],
+        [f"playlist", "Play Playlist Musik."],
+        ["NOTE", "Masih Dalam Bugs, namun bisa dipakai jika Tertekan."],
+    ],
+)
+
 
 add_command_help(
     "openai",
@@ -710,15 +724,14 @@ add_command_help(
 add_command_help(
     "update",
     [
-        ["apdet", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
+       # ["apdet", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
         ["apdet dulu", "Untuk mengupdate userbot."],
     ],
 )
 
 add_command_help(
-    "voice",
+    "language",
     [
-        [f"voice atau {cmd}tts [text/reply]", "Ubah teks menjadi suara oleh google."],
         [
             f"{cmd}voicelang (lang_id) ",
             "Setel bahasa suara anda\n\nBeberapa Bahasa Suara yang Tersedia:"
@@ -740,5 +753,13 @@ add_command_help(
             "zh-cn: Chinese (Mandarin/China)\n"
             "zh-tw: Chinese (Mandarin/Taiwan)",
         ],
+    ],
+)
+
+add_command_help(
+    "voice",
+    [
+        [f"voice atau tts [text/reply]", "Ubah teks menjadi suara oleh google."],
+        [f"stt", "Reply vn, Untuk mengubah Catatan Suara Menjadi Text oleh google."],
     ],
 )
