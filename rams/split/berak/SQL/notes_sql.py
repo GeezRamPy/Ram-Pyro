@@ -3,7 +3,7 @@ from sqlalchemy import Column, Numeric, String, UnicodeText
 from . import BASE, SESSION
 
 
-class Note(BASE):
+class Notes(BASE):
     __tablename__ = "notes"
     user_id = Column(String(14), primary_key=True)
     keyword = Column(UnicodeText, primary_key=True, nullable=False)
