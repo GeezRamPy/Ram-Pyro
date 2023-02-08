@@ -319,15 +319,3 @@ async def leave_vc_test(client, message):
     await edit_or_reply(message, f"`❌ Turun dulu cuyyy : {message.chat.title} - Vc`")
     del GPC[(message.chat.id, client.me.id)]
     
-add_command_help(
-    "Musik",
-    [
-        [f"{cmds}play",
-            f"{cmds}Play Musik & Video Dengan Judul Lagu."],
-        [f"{cmds}skip", "Skip Lagu."],
-        [f"{cmds}pause", "Pause Musik."],
-        [f"{cmds}resume", "Resume Musik."],
-        [f"{cmds}end", "Stop Musik."],
-        [f"{cmds}playlist", "Play Playlist Musik."],
-    ],
-)
