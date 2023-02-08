@@ -39,10 +39,10 @@ async def simpan_note(client, message):
     msg = message.reply_to_message
     if not msg:
         return await message.reply("Tolong balas ke pesan")
-    anu = await msg.forward("me")
+    anu = await msg.forward(BOTLOG_CHATID)
     msg_id = anu.id
     await client.send_message(
-        "me",
+        BOTLOG_CHATID,
         f"#NOTE\nKEYWORD: {keyword}"
         "\n\nPesan berikut disimpan sebagai data balasan catatan untuk obrolan, mohon JANGAN dihapus !!",
     )
