@@ -395,7 +395,7 @@ add_command_help(
     ],
 )
 add_command_help(
-    "Musik",
+    "musik",
     [
         [f"play",
             f"Play Musik & Video Dengan Judul Lagu."],
