@@ -31,7 +31,7 @@ async def openai(client: Client, message: Message):
         "max_tokens": 200,
         "temperature": 0,
     }
-    msg = await message.reply("`Sabar..")
+    msg = await message.reply("`Nanya Apaan si..")
     try:
         response = (await http.post("https://api.openai.com/v1/completions", headers=headers, json=json_data)).json()
         await msg.edit(response["choices"][0]["text"])
