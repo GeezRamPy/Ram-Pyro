@@ -35,6 +35,8 @@ async def _callbacks(_, callback_query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     elif query == "close":
+        if callback_query.from_user.id not in users:
+           return
         await app.edit_inline_text(callback_query.inline_message_id, f"𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿 \n"
             "ㅤ⋙ sᴛᴀᴛᴜs : 𝗔𝗸𝘁𝗶𝗳!!! \n"
             f"ㅤㅤ⋙ ᴍᴏᴅᴜʟᴇs: </b> <code>{len(modules)} </code> \n"
@@ -48,6 +50,8 @@ async def _callbacks(_, callback_query: CallbackQuery):
         )
         return
     elif query == "tutup":
+        if callback_query.from_user.id not in users:
+           return
         await app.edit_inline_text(callback_query.inline_message_id, "⋙ MENUTUP HELP ⋘",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="❈ ʙᴜᴋᴀ ʟᴀɢɪ ❈", callback_data="close")]]
@@ -55,6 +59,8 @@ async def _callbacks(_, callback_query: CallbackQuery):
         )
         return
     elif query == "close_help":
+        if callback_query.from_user.id not in users:
+           return
         await app.edit_inline_text(
             callback_query.inline_message_id,
             "**⋙ MENU TELAH DITUTUP ⋘**",
@@ -86,7 +92,7 @@ async def _callbacks(_, callback_query: CallbackQuery):
 
 
 @app.on_callback_query(filters.regex("ub_modul_(.*)"))
-# @cb_wrapper
+@cb_wrapper
 async def on_plug_in_cb(_, callback_query: CallbackQuery):
     modul_name = callback_query.matches[0].group(1)
     commands: dict = CMD_HELP[modul_name]
@@ -110,7 +116,7 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
 
 
 @app.on_callback_query(filters.regex("reopen"))
-# @cb_wrapper
+@cb_wrapper
 async def reopen_in_cb(_, callback_query: CallbackQuery):
     buttons = paginate_help(0, CMD_HELP, "helpme")
     await app.edit_inline_text(
@@ -121,7 +127,7 @@ async def reopen_in_cb(_, callback_query: CallbackQuery):
 
 
 @app.on_callback_query(filters.regex("helpme_prev\((.+?)\)"))
-# @cb_wrapper
+@cb_wrapper
 async def on_plug_prev_in_cb(_, callback_query: CallbackQuery):
     current_page_number = int(callback_query.matches[0].group(1))
     buttons = paginate_help(current_page_number - 1, CMD_HELP, "helpme")
@@ -133,7 +139,7 @@ async def on_plug_prev_in_cb(_, callback_query: CallbackQuery):
 
 
 @app.on_callback_query(filters.regex("helpme_next\((.+?)\)"))
-# @cb_wrapper
+@cb_wrapper
 async def on_plug_next_in_cb(_, callback_query: CallbackQuery):
     current_page_number = int(callback_query.matches[0].group(1))
     buttons = paginate_help(current_page_number + 1, CMD_HELP, "helpme")
