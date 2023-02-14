@@ -60,7 +60,7 @@ def cb_wrapper(func):
             try:
                 await func(client, cb)
             except MessageNotModified:
-                await cb.answer("🤔🧐")
+                await cb.answer("Dasar Anak Konto😁")
             except Exception:
                 print(format_exc())
                 await cb.answer(
@@ -82,9 +82,9 @@ def inline_wrapper(func):
                 results=[
                     (
                         InlineQueryResultArticle(
-                            title="Sorry, Friend You Can't Use Me!",
+                            title="Lu siapasi bangsat,bikin sndiri lah di @GeezRam",
                             input_message_content=InputTextMessageContent(
-                                "You cannot access this Bot"
+                                "Maaf anda tidak ada akses untuk menggunakan bot"
                             ),
                         )
                     )
