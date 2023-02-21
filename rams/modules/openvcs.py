@@ -18,7 +18,7 @@ import random
 @ram.on_message(filters.command("ask", ["?", "!", ".", "*", ",", "$"]) & filters.me)
 async def openai(client: Client, message: Message):
     if len(message.command) == 1:
-        return await edit_or_reply(f"Ketik <code>.{message.command[0]} [question]</code> Pertanya untuk menggunakan OpenAI")
+        return await edit_or_reply(message, f"Ketik <code>.{message.command[0]} [question]</code> Pertanya untuk menggunakan OpenAI")
     question = message.text.split(" ", maxsplit=1)[1]
     headers = {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ async def openai(client: Client, message: Message):
         "max_tokens": 200,
         "temperature": 0,
     }
-    msg = await edit_or_reply("`Nanya Apaan si..")
+    msg = await edit_or_reply(message, "`Nanya Apaan si..")
     try:
         response = (await http.post("https://api.openai.com/v1/completions", headers=headers, json=json_data)).json()
         await msg.edit(response["choices"][0]["text"])
