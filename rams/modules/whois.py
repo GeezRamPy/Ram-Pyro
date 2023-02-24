@@ -4,11 +4,11 @@ from pyrogram import Client, filters
 from pyrogram.enums import ChatType
 from pyrogram.types import Message
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram import pyram, ram
 from rams.modules.profile import extract_user
 
-cmds = [",", ".", "*", "?", "$", "!"]
 
-@Client.on_message(filters.command(["whois", "info"], cmds) & filters.me)
+@pyram(["whois", "info"], ram)
 async def who_is(client: Client, message: Message):
     user_id = await extract_user(message)
     ex = await message.edit_text("`Processing . . .`")
@@ -69,7 +69,7 @@ async def who_is(client: Client, message: Message):
         return await ex.edit(f"**INFO:** `{e}`")
 
 
-@Client.on_message(filters.command(["chatinfo", "cinfo", "ginfo"], cmds) & filters.me)
+@pyram(["chatinfo", "cinfo", "ginfo"], ram)
 async def chatinfo_handler(client: Client, message: Message):
     ex = await message.edit_text("`Processing...`")
     try:

@@ -15,6 +15,7 @@ from geezlibs.ram.helpers.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.SQL.globals import addgvar, gvarstatus
 from geezlibs.ram.helpers.tools import get_arg
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 from rams import TEMP_SETTINGS
 
@@ -135,9 +136,7 @@ async def auto_accept(client, message):
     return False
 
 
-@Client.on_message(
-    filters.command(["ok", "setuju", "approve"], ["?", "!", ".", "*", ",", "$"]) & filters.me & filters.private
-)
+@pyram("ok", ram)
 async def approvepm(client: Client, message: Message):
     try:
         from geezlibs.ram.helpers.SQL.pm_permit_sql import approve
@@ -174,9 +173,7 @@ async def approvepm(client: Client, message: Message):
         return
 
 
-@Client.on_message(
-    filters.command(["tolak", "nopm", "disapprove"], ["?", "!", ".", "*", ",", "$"]) & filters.me & filters.private
-)
+@pyram("nopm", ram)
 async def disapprovepm(client: Client, message: Message):
     try:
         from geezlibs.ram.helpers.SQL.pm_permit_sql import dissprove
@@ -210,7 +207,7 @@ async def disapprovepm(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("pmlimit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("pmlimit", ram)
 async def setpm_limit(client: Client, cust_msg: Message):
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
         return await cust_msg.edit(
@@ -238,7 +235,7 @@ async def setpm_limit(client: Client, cust_msg: Message):
     await Man.edit(f"**Set PM limit to** `{input_str}`")
 
 
-@Client.on_message(filters.command(["pmpermit", "pmguard"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["pmpermit", "pmguard"], ram)
 async def onoff_pmpermit(client: Client, message: Message):
     input_str = get_arg(message)
     if input_str == "off":
@@ -262,7 +259,7 @@ async def onoff_pmpermit(client: Client, message: Message):
         await edit_or_reply(message, "**PMPERMIT Sudah Dimatikan**")
 
 
-@Client.on_message(filters.command("setpmpermit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("setpmpermit", ram)
 async def setpmpermit(client: Client, cust_msg: Message):
     """Set your own Unapproved message"""
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
@@ -286,7 +283,7 @@ async def setpmpermit(client: Client, cust_msg: Message):
     await Man.edit("**Pesan Berhasil Disimpan Ke Room Chat**")
 
 
-@Client.on_message(filters.command("getpmpermit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("getpmpermit", ram)
 async def get_pmermit(client: Client, cust_msg: Message):
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
         return await cust_msg.edit(
@@ -308,7 +305,7 @@ async def get_pmermit(client: Client, cust_msg: Message):
         )
 
 
-@Client.on_message(filters.command("resetpmpermit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("resetpmpermit", ram)
 async def reset_pmpermit(client: Client, cust_msg: Message):
     if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
         return await cust_msg.edit(

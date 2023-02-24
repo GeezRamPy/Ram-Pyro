@@ -1,4 +1,4 @@
-
+import time
 import asyncio
 import math
 import os
@@ -8,7 +8,7 @@ from typing import Tuple
 from PIL import Image
 from pymediainfo import MediaInfo
 from pyrogram.types import Message
-
+from pyrogram.errors import FloodWait, MessageNotModified
 import multiprocessing
 import mimetypes
 import functools

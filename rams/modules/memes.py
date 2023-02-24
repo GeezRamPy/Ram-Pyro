@@ -4,16 +4,17 @@ import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import get_text
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 
 from .help import *
 
 
-@Client.on_message(filters.command("trump", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("trump", ram)
 async def trump_tweet(client: Client, message: Message):
     text = get_text(message)
     if not text:
-        await message.edit(f"**Trump :** ``What Should I Tweet For You ?``")
+        await message.edit("**Trump :** ``What Should I Tweet For You ?``")
         return
     url = f"https://nekobot.xyz/api/imagegen?type=trumptweet&text={text}"
     r = requests.get(url=url).json()
@@ -24,7 +25,7 @@ async def trump_tweet(client: Client, message: Message):
     await message.delete()
 
 
-@Client.on_message(filters.command("ctweet", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("ctweet", ram)
 async def custom_tweet(client: Client, message: Message):
     text = get_text(message)
     input_str = get_text(message)

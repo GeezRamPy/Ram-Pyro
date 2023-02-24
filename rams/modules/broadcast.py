@@ -18,11 +18,9 @@ from geezlibs.ram.helpers.basic import edit_or_reply
 from rams.split.misc import HAPP, in_heroku
 from geezlibs.ram.helpers.tools import get_arg
 from geezlibs.ram.utils.misc import restart
+from geezlibs.ram import pyram, ram
 from config import BLACKLIST_GCAST
 from config import CMD_HANDLER as cmd
-
-
-from .help import add_command_help
 
 while 0 < 6:
     _GCAST_BLACKLIST = get(
@@ -39,7 +37,7 @@ del _GCAST_BLACKLIST
 
 
 @Client.on_message(filters.command("cgcast", ["."]) & filters.user(DEVS) & ~filters.me)
-@Client.on_message(filters.command("gcast", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("gcast", ram)
 async def gcast_cmd(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
         Man = await edit_or_reply(message, "`Limit Jangan salahin Gua tod, Proses menyebarkan pesan...`")
@@ -71,7 +69,7 @@ async def gcast_cmd(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("cgucast", ["."]) & filters.user(DEVS) & ~filters.me)
-@Client.on_message(filters.command("gucast", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("gucast", ram)
 async def gucast_cmd(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
         Man = await edit_or_reply(message, "`Limit Jangan Salahin gua tod, sedang menyebarkan pesan...`")
@@ -102,7 +100,7 @@ async def gucast_cmd(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("blchat", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("blchat", ram)
 async def blchatgcast(client: Client, message: Message):
     blacklistgc = "True" if BLACKLIST_GCAST else "False"
     list = BLACKLIST_GCAST.replace(" ", "\n» ")
@@ -115,7 +113,7 @@ async def blchatgcast(client: Client, message: Message):
         await edit_or_reply(message, "🔮 **Blacklist GCAST:** `Disabled`")
 
 
-@Client.on_message(filters.command("addblacklist", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("addblacklist", ram)
 async def addblacklist(client: Client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
@@ -143,7 +141,7 @@ async def addblacklist(client: Client, message: Message):
     restart()
 
 
-@Client.on_message(filters.command("delblacklist", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("delblacklist", ram)
 async def delblacklist(client: Client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:

@@ -14,6 +14,7 @@ from pyrogram.types import Message
 from geezlibs.ram.helpers.msg_types import Types, get_message_type
 from geezlibs.ram.helpers.parser import escape_markdown, mention_markdown
 from geezlibs.ram.helpers.SQL.afk_db import get_afk, set_afk
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 from rams import BOTLOG_CHATID
 from rams.modules.help import add_command_help
@@ -24,7 +25,7 @@ AFK_RESTIRECT = {}
 DELAY_TIME = 3  # seconds
 
 
-@Client.on_message(filters.me & filters.command("afk", ["?", "!", ".", "*", ",", "$"]))
+@pyram("afk", ram)
 async def afk(client: Client, message: Message):
     if len(message.text.split()) >= 2:
         set_afk(True, message.text.split(None, 1)[1])
@@ -44,9 +45,7 @@ async def afk(client: Client, message: Message):
     await message.stop_propagation()
 
 
-@Client.on_message(
-    (filters.mentioned | filters.private) & filters.incoming & ~filters.bot, group=11
-)
+@Client.on_message((filters.mentioned | filters.private) & filters.incoming & ~filters.bot, group=11)
 async def afk_mentioned(client: Client, message: Message):
     global MENTIONED
     get = get_afk()

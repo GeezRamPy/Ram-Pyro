@@ -14,6 +14,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 from rams import aiosession
 
@@ -29,7 +30,7 @@ async def make_carbon(code):
     return image
 
 
-@Client.on_message(filters.command("carbon", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("carbon", ram)
 async def carbon_func(client: Client, message: Message):
     text = (
         message.text.split(None, 1)[1]

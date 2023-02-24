@@ -11,6 +11,7 @@ from pyrogram import Client, filters
 from pyrogram.errors import PeerIdInvalid
 from pyrogram.types import Message
 from urllib.request import urlretrieve
+from geezlibs.ram import pyram, ram
 import requests as r
 import wget
 from .help import add_command_help
@@ -30,7 +31,7 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 
-@Client.on_message(filters.command("song", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("song", ram)
 async def song(client: Client, message: Message):
     input_str = get_text(message)
     rep= await edit_or_reply(message, f"`Processing...`")
@@ -93,7 +94,7 @@ async def song(client: Client, message: Message):
             
 	
 	
-@Client.on_message(filters.command("saavn", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("saavn", ram)
 async def savnana(client: Client, message: Message):
     song = get_text(message)
     if not song:
@@ -120,7 +121,7 @@ async def savnana(client: Client, message: Message):
     os.remove(title + ".jpg")
 
 
-@Client.on_message(filters.command("deezer", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("deezer", ram)
 async def deezergeter(client: Client, message: Message):
     rep = await message.edit_text("`Searching For Song On Deezer.....`")
     sgname = get_text(message)

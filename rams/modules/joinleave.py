@@ -10,16 +10,15 @@
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram import pyram, ram
 from rams.split.berak.adminHelpers import DEVS
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER as cmd
 from .help import add_command_help
 
 
-@Client.on_message(
-    filters.command("cjoin", ["."]) & filters.user(DEVS) & ~filters.me
-)
-@Client.on_message(filters.command("join", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("cjoin", ["."]) & filters.user(DEVS) & ~filters.me)
+@pyram("join", ram)
 async def join(client: Client, message: Message):
     Man = message.command[1] if len(message.command) > 1 else message.chat.id
     xxnx = await edit_or_reply(message, "`Sedang Proses...`")
@@ -31,10 +30,8 @@ async def join(client: Client, message: Message):
 
 
 
-@Client.on_message(
-    filters.command("exitc", ["."]) & filters.user(DEVS) & ~filters.me
-)
-@Client.on_message(filters.command(["leave", "exit"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("exitc", ["."]) & filters.user(DEVS) & ~filters.me)
+@pyram(["leave", "exit"], ram)
 async def leave(client: Client, message: Message):
     Man = message.command[1] if len(message.command) > 1 else message.chat.id
     xxnx = await edit_or_reply(message, "`Sedang Proses...`")
@@ -47,7 +44,7 @@ async def leave(client: Client, message: Message):
         await xxnx.edit_text(f"**ERROR:** \n\n{str(ex)}")
 
 
-@Client.on_message(filters.command(["exitsgc"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("exitsgc", ram)
 async def kickmeall(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Global Leave from group chats...`")
     er = 0
@@ -65,7 +62,7 @@ async def kickmeall(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command(["exitsch"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("exitsch", ram)
 async def kickmeallch(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Global Leave from channels...`")
     er = 0

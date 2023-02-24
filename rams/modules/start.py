@@ -13,6 +13,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from rams.split.berak.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram import pyram, ram
 from geezlibs.ram.helpers.constants import First
 from config import CMD_HANDLER as cmd
 from config import *
@@ -36,7 +37,7 @@ async def absen(_, message: Message):
 
 
 
-@Client.on_message(filters.command(["uptime", "up"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("uptime", ram)
 async def uptime(client: Client, message: Message):
     now = datetime.now()
     current_uptime = now - START_TIME
@@ -45,7 +46,7 @@ async def uptime(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("id", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("id", ram)
 async def get_id(client: Client, message: Message):
     file_id = None
     user_id = None

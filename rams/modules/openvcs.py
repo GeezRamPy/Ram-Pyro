@@ -1,9 +1,10 @@
 from pyrogram import *
 from pyrogram.types import *
-from pyrogram import Client as ram
+from pyrogram import Client as rams
 from pyrogram.errors import MessageNotModified
 from rams.split.apaan import *
 from geezlibs.ram.helpers.basic import *
+from geezlibs.ram import pyram, ram
 from rams.split.berak.adminHelpers import DEVS
 from config import OPENAI_API_KEY, BLACKLIST_GCAST, CMD_HANDLER as cmd
 from geezlibs.ram.utils.misc import *
@@ -14,8 +15,8 @@ import os
 import json
 import random
 
-@ram.on_message(filters.command("cask", ["."]) & filters.user(DEVS) & ~filters.me)
-@ram.on_message(filters.command("ask", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@rams.on_message(filters.command("cask", ["."]) & filters.user(DEVS) & ~filters.me)
+@pyram("ask", ram)
 async def openai(client: Client, message: Message):
     if len(message.command) == 1:
         return await edit_or_reply(message, f"Ketik <code>.{message.command[0]} [question]</code> Pertanya untuk menggunakan OpenAI")

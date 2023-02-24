@@ -3,11 +3,11 @@ from telegraph import upload_file
 
 from pyrogram import filters, Client
 from pyrogram.types import Message
-
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 from .help import add_command_help
 
-@Client.on_message(filters.command(["tm", "tgm", "telegraph"], ["?", "!", ".", "*", ",", "$"]) & filters.me) 
+@pyram(["tg", "telegraph"], ram) 
 async def telegraph(client: Client, message: Message):
     replied = message.reply_to_message
     if not replied:

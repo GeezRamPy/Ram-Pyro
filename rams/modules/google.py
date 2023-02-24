@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 from googlesearch import search
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from geezlibs.ram import pyram, ram
 from geezlibs.ram.helpers.basic import edit_or_reply
 from config import CMD_HANDLER as cmd
 
@@ -39,7 +40,7 @@ def googlesearch(query):
     return returnquery
 
 
-@Client.on_message(filters.command(["gs", "google"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["google", "gs"], ram)
 async def gs(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing...`")
     msg_txt = message.text

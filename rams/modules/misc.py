@@ -16,13 +16,14 @@ from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from geezlibs.ram.helpers.tools import get_arg
 from geezlibs.ram.utils import s_paste
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 from rams import *
 
 from .help import *
 
 
-@Client.on_message(filters.command("limit", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("limit", ram)
 async def spamban(client: Client, m: Message):
     await client.unblock_user("SpamBot")
     response = await client.send(
@@ -40,7 +41,7 @@ async def spamban(client: Client, m: Message):
     await wait_msg.edit_text(f"~ {status.text}")
 
 
-@Client.on_message(filters.command(["webshot", "ss"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["webshot", "ss"], ram)
 async def webshot(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing...`")
     try:
@@ -69,7 +70,7 @@ async def webshot(client: Client, message: Message):
 
 
 
-@Client.on_message(filters.command(["directmessage", "dm"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["dm", "directmessage"], ram)
 async def dm(coli: Client, memek: Message):
     geez = await edit_or_reply(memek, "⚡ sabaran.....")
     quantity = 1
@@ -96,7 +97,7 @@ async def dm(coli: Client, memek: Message):
         await asyncio.sleep(0.15)
 
 
-@Client.on_message(filters.command("duck", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("duck", ram)
 async def duckgo(client: Client, message: Message):
     input_str = " ".join(message.command[1:])
     Man = await edit_or_reply(message, "`Processing...`")

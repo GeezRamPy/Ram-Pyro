@@ -24,6 +24,7 @@ from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
 from rams.split.misc import HAPP, in_heroku
 from geezlibs.ram.utils.misc import restart
+from geezlibs.ram import pyram, ram
 from config import *
 
 from .help import add_command_help
@@ -31,7 +32,7 @@ from .help import add_command_help
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-@Client.on_message(filters.command("setvar", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("setvar", ram)
 async def set_var(client: Client, message: Message):
     if len(message.command) < 3:
         return await edit_or_reply(
@@ -63,7 +64,7 @@ async def set_var(client: Client, message: Message):
         restart()
 
 
-@Client.on_message(filters.command("getvar", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("getvar", ram)
 async def varget_(client: Client, message: Message):
     if len(message.command) != 2:
         return await edit_or_reply(
@@ -94,7 +95,7 @@ async def varget_(client: Client, message: Message):
             return await Man.edit(f"<b>{check_var}:</b> <code>{str(output)}</code>")
 
 
-@Client.on_message(filters.command("delvar", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("delvar", ram)
 async def vardel_(client: Client, message: Message):
     if len(message.command) != 2:
         return await message.edit(f"<b>Usage:</b> {CMD_HANDLER}delvar [Var Name]")
@@ -123,7 +124,7 @@ async def vardel_(client: Client, message: Message):
         restart()
 
 
-@Client.on_message(filters.command(["usage", "dyno"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["usage", "dyno"], ram)
 async def usage_heroku(client: Client, message: Message):
     ### Credits CatUserbot
     if await in_heroku():
@@ -189,7 +190,7 @@ async def usage_heroku(client: Client, message: Message):
     return await dyno.edit(text)
 
 
-@Client.on_message(filters.command("uasu", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("uasu", ram)
 async def usange_heroku(client: Client, message: Message):
     xx = await edit_or_reply(message, "`Processing...`")
     await xx.edit(

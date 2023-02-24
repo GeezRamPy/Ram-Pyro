@@ -33,6 +33,7 @@ CH_SFS = getenv("CH_SFS", "b4c0d")
 IG_ALIVE = getenv("IG_ALIVE", "e_rama11")
 CHANNEL = getenv("CHANNEL", "userbotch")
 CMD_HANDLER = getenv("CMD_HANDLER", ".")
+CMD_HNDLR = CMD_HANDLER
 ID_OWNER = getenv("ID_OWNER", "910766621")
 DB_URL = getenv("DATABASE_URL", "")
 GIT_TOKEN = getenv("GIT_TOKEN", "")

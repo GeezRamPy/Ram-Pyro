@@ -12,12 +12,9 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.tools import get_arg
-from config import CMD_HANDLER as cmd
+from geezlibs.ram import pyram, ram
 
-from .help import add_command_help
-
-
-@Client.on_message(filters.me & filters.command(["q", "quotly"], ["?", "!", ".", "*", ",", "$"]))
+@pyram(["q", "quotly"], ram)
 async def quotly(client: Client, message: Message):
     args = get_arg(message)
     if not message.reply_to_message and not args:

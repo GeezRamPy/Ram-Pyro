@@ -11,6 +11,7 @@ from asyncio import sleep
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.tools import get_arg
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
@@ -18,7 +19,7 @@ from .help import add_command_help
 spam_chats = []
 
 
-@Client.on_message(filters.command("mention", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("mention", ram)
 async def mentionall(client: Client, message: Message):
     await message.delete()
     chat_id = message.chat.id
@@ -50,7 +51,7 @@ async def mentionall(client: Client, message: Message):
         pass
 
 
-@Client.on_message(filters.command("cancel", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("cancel", ram)
 async def cancel_spam(client: Client, message: Message):
     if not message.chat.id in spam_chats:
         return await message.edit("**Sepertinya tidak ada tagall disini.**")

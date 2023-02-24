@@ -13,6 +13,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
@@ -33,7 +34,7 @@ commands = {
 }
 
 
-@Client.on_message(filters.command(list(commands), ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(list(commands), ram)
 async def fakeactions_handler(client: Client, message: Message):
     cmd = message.command[0]
     try:

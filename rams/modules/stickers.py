@@ -26,6 +26,7 @@ from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from geezlibs.ram.helpers.tools import get_arg, get_text, resize_media
 from geezlibs.ram.utils.tools import bash
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
@@ -89,7 +90,7 @@ async def add_text_img(image_path, text):
     img.save(final_image, **img_info)
     return final_image
 
-@Client.on_message(filters.command(["tikel", "kang"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["tikel", "kang"], ram)
 async def kang(client: Client, message: Message):
     user = client.me
     replied = message.reply_to_message
@@ -310,7 +311,7 @@ async def get_response(message, client):
     return [x async for x in client.get_chat_history("Stickers", limit=1)][0].text
 
 
-@Client.on_message(filters.command(["packinfo", "stickerinfo"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["packinfo", "stickerinfo"], ram)
 async def packinfo(client: Client, message: Message):
     rep = await edit_or_reply(message, "`Processing...`")
     if not message.reply_to_message:
@@ -346,7 +347,7 @@ async def packinfo(client: Client, message: Message):
     await rep.edit(output)
 
 
-@Client.on_message(filters.command("stickers", cmd) & filters.me)
+@pyram("stikers", ram)
 async def cb_sticker(client: Client, message: Message):
     query = get_text(message)
     if not query:
@@ -366,7 +367,7 @@ async def cb_sticker(client: Client, message: Message):
     await xx.edit(reply)
 
 
-@Client.on_message(filters.command("tiny", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("tiny", ram)
 async def tinying(client: Client, message: Message):
     reply = message.reply_to_message
     if not (reply and (reply.media)):
@@ -443,7 +444,7 @@ async def tinying(client: Client, message: Message):
     os.remove(ik)
 
 
-@Client.on_message(filters.command(["mmf", "memify"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["mmf", "memify"], ram)
 async def memify(client: Client, message: Message):
     if not message.reply_to_message_id:
         await edit_or_reply(message, "**Balas ke pesan foto atau sticker!**")
@@ -469,7 +470,7 @@ async def memify(client: Client, message: Message):
     os.remove(meme)
 
 
-@Client.on_message(filters.command(["get", "getsticker", "mtoi"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["get", "mtoi"], ram)
 async def stick2png(client: Client, message: Message):
     try:
         await message.edit("`Downloading . . .`")

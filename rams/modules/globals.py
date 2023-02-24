@@ -13,6 +13,7 @@ from rams.split.berak.adminHelpers import DEVS, WHITELIST
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.PyroHelpers import get_ub_chats
 from geezlibs.ram.utils import extract_user, extract_user_and_reason
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 from rams import *
 
@@ -36,10 +37,8 @@ def globals_init():
 globals_init()
 
 
-@Client.on_message(
-    filters.command("cgbam", ["."]) & filters.user(DEVS) & ~filters.via_bot
-)
-@Client.on_message(filters.command("gban", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("cgbam", ["."]) & filters.user(DEVS) & ~filters.via_bot)
+@pyram("gban", ram)
 async def gban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -89,10 +88,8 @@ async def gban_user(client: Client, message: Message):
     await Man.edit(msg)
 
 
-@Client.on_message(
-    filters.command("ungbam", ["."]) & filters.user(DEVS) & ~filters.via_bot
-)
-@Client.on_message(filters.command("ungban", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("ungbam", ["."]) & filters.user(DEVS) & ~filters.via_bot)
+@pyram("ungban", ram)
 async def ungban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -136,7 +133,7 @@ async def ungban_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("listgban", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("listgban", ram)
 async def gbanlist(client: Client, message: Message):
     users = sql.gbanned_users()
     Man = await edit_or_reply(message, "`Processing...`")
@@ -150,7 +147,7 @@ async def gbanlist(client: Client, message: Message):
     return await Man.edit(gban_list)
 
 
-@Client.on_message(filters.command("gmute", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("gmute", ram)
 async def gmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -198,7 +195,7 @@ async def gmute_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("ungmute", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("ungmute", ram)
 async def ungmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -241,7 +238,7 @@ async def ungmute_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("listgmute", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("listgmute", ram)
 async def gmutelist(client: Client, message: Message):
     users = sql2.gmuted_users()
     Man = await edit_or_reply(message, "`Processing...`")

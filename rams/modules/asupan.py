@@ -1,23 +1,19 @@
 
-from asyncio import *
-from config import CMD_HANDLER as cmd
-from random import *
-from pyrogram import *
-from pyrogram.types import *
-from pyrogram import Client as ram
-from pyrogram import Client, enums, filters
+from asyncio import gather
+from random import choice
+from pyrogram import Client, filters, enums
+from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import *
-from geezlibs.ram.helpers.PyroHelpers import *
+from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram import pyram, ram
 from rams import *
 from .help import add_command_help
 
-@ram.on_message(filters.command(["asupan", "ptl"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("asupan", ram)
 async def asupan(client: Client, message: Message):
-    if message.chat.id == -1001554560763:
-        return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
-    ram = await edit_or_reply(message, "`Wait a moment...`")
+    rams = await edit_or_reply(message, "`Wait a moment...`")
     await gather(
-        ram.delete(),
+        rams.delete(),
         client.send_video(
             message.chat.id,
             choice(
@@ -36,7 +32,7 @@ async def asupan(client: Client, message: Message):
 
 
 
-@ram.on_message(filters.command(["ayang", "ayg"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("ayang", ram)
 async def ayang(client, message):
     yanto = await message.reply("🔎 `Search Ayang...`")
     pop = message.from_user.first_name
@@ -57,7 +53,7 @@ async def ayang(client, message):
     await yanto.delete()
 
 
-@ram.on_message(filters.command(["ppcp", "cpp"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["ppcp", "pp"], ram)
 async def ppcp(client, message):
     yanto = await message.reply("🔎 `Search PP Couple...`")
     message.from_user.first_name
@@ -78,7 +74,7 @@ async def ppcp(client, message):
     await yanto.delete()
 
 
-@ram.on_message(filters.command(["ppanime", "anim"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["ppanime"], ram)
 async def ppanime(client, message):
     yanto = await message.reply("🔎 `Search PP Anime...`")
     message.from_user.first_name

@@ -21,6 +21,7 @@ from pyrogram.types import Message
 from geezlibs.ram.helpers.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.tools import get_arg
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
@@ -43,10 +44,8 @@ async def get_group_call(
     return False
 
 
-@Client.on_message(
-    filters.command("cstr", ["."]) & filters.user(DEVS) & ~filters.me
-)
-@Client.on_message(filters.command(["startvc"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("cstr", ["."]) & filters.user(DEVS) & ~filters.me)
+@pyram("startvc", ram)
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
     Man = await edit_or_reply(message, "`Processing . . .`")
@@ -79,7 +78,7 @@ async def opengc(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("cstp", ["."]) & filters.user(DEVS) & ~filters.me)
-@Client.on_message(filters.command(["stopvc"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("stopvc", ram)
 async def end_vc_(client: Client, message: Message):
     """End group call"""
     chat_id = message.chat.id
@@ -93,10 +92,8 @@ async def end_vc_(client: Client, message: Message):
     await edit_or_reply(message, f"Mengakhiri Obrolan Suara di **Chat ID** : `{chat_id}`")
 
 
-@Client.on_message(
-    filters.command("cjv", ["."]) & filters.user(DEVS) & ~filters.via_bot
-)
-@Client.on_message(filters.command("jvc", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("cjv", ["."]) & filters.user(DEVS) & ~filters.via_bot)
+@pyram("jvc", ram)
 async def joinvc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
@@ -114,10 +111,8 @@ async def joinvc(client: Client, message: Message):
     await client.group_call.set_is_mute(True)
 
 
-@Client.on_message(
-    filters.command("clv", ["."]) & filters.user(DEVS) & ~filters.via_bot
-)
-@Client.on_message(filters.command("lvc", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("clv", ["."]) & filters.user(DEVS) & ~filters.via_bot)
+@pyram("lvc", ram)
 async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:

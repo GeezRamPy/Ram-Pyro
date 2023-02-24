@@ -30,14 +30,14 @@ from youtubesearchpython import SearchVideos
 from geezlibs.ram.helpers.tools import get_text, humanbytes, run_in_exc, run_cmd
 from geezlibs.ram.helpers.tools import edit_or_reply
 from geezlibs import logging
+from geezlibs.ram import pyram, ram
 
-cmds = [",", ".", "*", "?", "!", "$"]
 
+client = Client
 s_dict = {}
 GPC = {}
 
-@gez.on_message(filters.command(["playlist"], cmds) & filters.me
-)
+@pyram("playlist", ram)
 async def pl(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
     play = await edit_or_reply(message, "`Bentar Cuk!`")
@@ -95,8 +95,7 @@ async def playout_ended_handler(group_call, filename):
     group_call.song_name = name_
     group_call.input_filename = raw_file
 
-@gez.on_message(filters.command(["skip"], cmds) & filters.me
-)
+@pyram("skip", ram)
 async def ski_p(client, message):
     m_ = await edit_or_reply(message, "`Bentar Cuk!`")
     no_t_s = get_text(message)
@@ -135,8 +134,7 @@ async def ski_p(client, message):
             return await m_.edit("`Buset dah luh.`")
         return await m_.edit(f"`Ganti Lagu : {s_} At Posisi #{no_t_s}`")
                                   
-@gez.on_message(filters.command(["play"], cmds) & filters.me
-)
+@pyram("play", ram)
 async def play_m(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
     u_s = await edit_or_reply(message, "`Processing..`")
@@ -264,7 +262,7 @@ def yt_dl(url, client, message, start):
                      "preferredcodec": "mp3"
                  }
              ],
-             "outtmpl": "%(id)s.mp3",
+             "outtmpl": "%(id)s",
              "quiet": True,
              "logtostderr": False,
          }
@@ -275,8 +273,7 @@ def yt_dl(url, client, message, start):
 RD_ = {}
 FFMPEG_PROCESSES = {}
  
-@gez.on_message(filters.command(["pause"], cmds) & filters.me
-)
+@pyram("pause", ram)
 async def no_song_play(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
     if not group_call:
@@ -289,8 +286,7 @@ async def no_song_play(client, message):
     group_call.pause_playout()
     
     
-@gez.on_message(filters.command(["resume"], cmds) & filters.me
-)
+@pyram("resume", ram)
 async def wow_dont_stop_songs(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
     if not group_call:
@@ -303,8 +299,7 @@ async def wow_dont_stop_songs(client, message):
     await edit_or_reply(message, "`▶️ Dilanjutkan.`")
         
 
-@gez.on_message(filters.command(["end"], cmds) & filters.me
-)
+@pyram("end", ram)
 async def leave_vc_test(client, message):
     group_call = GPC.get((message.chat.id, client.me.id))
     if not group_call:

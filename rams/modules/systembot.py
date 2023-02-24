@@ -13,6 +13,7 @@ from os import environ, execle, remove
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram import pyram, ram
 from rams.split.misc import HAPP
 from config import CMD_HANDLER as cmd
 from rams import BOTLOG_CHATID, LOGGER
@@ -20,7 +21,7 @@ from rams.split.berak.adminHelpers import DEVS
 from .help import add_command_help
 
 @Client.on_message(filters.command("restc", ["."]) & filters.user(DEVS) & ~filters.me)
-@Client.on_message(filters.command("restart", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("restart", ram)
 async def restart_bot(_, message: Message):
     try:
         msg = await edit_or_reply(message, "`Restarting bot...`")
@@ -36,7 +37,7 @@ async def restart_bot(_, message: Message):
         execle(sys.executable, *args, environ)
 
 
-@Client.on_message(filters.command("shutdown", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("shutdown", ram)
 async def shutdown_bot(client: Client, message: Message):
     if BOTLOG_CHATID:
         await client.send_message(
@@ -51,7 +52,7 @@ async def shutdown_bot(client: Client, message: Message):
         sys.exit(0)
 
 
-@Client.on_message(filters.command("logs", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("logs", ram)
 async def logs_ubot(client: Client, message: Message):
     if HAPP is None:
         return await edit_or_reply(

@@ -23,6 +23,7 @@ from geezlibs.ram.helpers.SQL.globals import gvarstatus
 from geezlibs.ram.helpers.tools import convert_to_image
 from geezlibs.ram.utils import get_readable_time
 from geezlibs.ram.utils.misc import restart
+from geezlibs.ram import pyram, ram
 from config import BOT_VER, CHANNEL
 from config import CMD_HANDLER as cmd
 from config import GROUP
@@ -37,14 +38,14 @@ emoji = gvarstatus("ALIVE_EMOJI") or "🤖"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am rams."
 
 
-@Client.on_message(filters.command(["botme", "gue"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["botme", "gw"], ram)
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "🤖")
     await asyncio.sleep(2)
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"**꧁༺[RamPyro-Bot](https://github.com/izzy-adeeva/RamPyro-Master)༻꧂**\n\n"
+        f"**꧁༺[RamPyro-Bot](https://github.com/GeezRamPy/Ram-Pyro)༻꧂**\n\n"
         f"━───────╯•╰───────━\n"
         f"{emoji} <b>ʙᴏᴛ ᴠᴇʀsɪᴏɴ :</b> <code>{BOT_VER}</code> \n"
         f"{emoji} <b>ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
@@ -67,7 +68,7 @@ async def alive(client: Client, message: Message):
         await xx.edit(man, disable_web_page_preview=True)
 
 
-@Client.on_message(filters.command("setalivelogo", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("setalivelogo", ram)
 async def setalivelogo(client: Client, message: Message):
     try:
         import rams.helpers.SQL.globals as sql
@@ -104,7 +105,7 @@ async def setalivelogo(client: Client, message: Message):
     restart()
 
 
-@Client.on_message(filters.command("setalivetext", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("setalivetext", ram)
 async def setalivetext(client: Client, message: Message):
     try:
         import rams.helpers.SQL.globals as sql
@@ -131,7 +132,7 @@ async def setalivetext(client: Client, message: Message):
     restart()
 
 
-@Client.on_message(filters.command("setemoji", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("setemoji", ram)
 async def setemoji(client: Client, message: Message):
     try:
         import rams.helpers.SQL.globals as sql

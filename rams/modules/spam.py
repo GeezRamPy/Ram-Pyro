@@ -14,6 +14,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.utils.misc import extract_args
+from geezlibs.ram import pyram, ram
 from config import BLACKLIST_CHAT, BOTLOG_CHATID
 from config import CMD_HANDLER as cmd
 
@@ -32,7 +33,7 @@ def spam_allowed():
     return SPAM_COUNT[0] < 50
 
 
-@Client.on_message(filters.me & filters.command(["dspam", "delayspam"], ["?", "!", ".", "*", ",", "$"]))
+@pyram(["dspam", "delayspam"], ram)
 async def delayspam(client: Client, message: Message):
     if message.chat.id in BLACKLIST_CHAT:
         return await edit_or_reply(
@@ -66,7 +67,7 @@ async def delayspam(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command(commands, ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(list(commands), ram)
 async def sspam(client: Client, message: Message):
     amount = int(message.command[1])
     text = " ".join(message.command[2:])
@@ -88,9 +89,7 @@ async def sspam(client: Client, message: Message):
         await asyncio.sleep(cooldown[message.command[0]])
 
 
-@Client.on_message(
-    filters.me & filters.command(["sspam", "stkspam", "spamstk", "stickerspam"], ["?", "!", ".", "*", ",", "$"])
-)
+@pyram(["sspam", "stkspam", "spamstk", "stickerspam"], ram)
 async def spam_stick(client: Client, message: Message):
     if not message.reply_to_message:
         await edit_or_reply(

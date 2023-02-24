@@ -3,12 +3,12 @@ import os
 import time
 from pyrogram.types import *
 from pyrogram import *
-from pyrogram import Client as gez
 from pyrogram import Client, filters, enums
 from geezlibs.ram.helpers.basic import *
 from geezlibs.ram.helpers.PyroHelpers import *
 from geezlibs.ram.utils.misc import *
 from geezlibs.ram.utils.tools import *
+from geezlibs.ram import pyram, ram
 
 def get_arg(message):
     msg = message.text
@@ -18,7 +18,7 @@ def get_arg(message):
         return ""
     return " ".join(split[1:])
 
-@gez.on_message(filters.command("cp", [".", ",", "?", "!", "*", "$"]) & filters.me)
+@pyram("cp", ram)
 async def kangcopy(client: Client, message: Message):
     mmk = await message.reply_text("`Processing . . .`")
     link = get_arg(message)
@@ -55,7 +55,7 @@ async def kangcopy(client: Client, message: Message):
         except BaseException:
             pass
 
-@gez.on_message(filters.command("tt", [".", ",", "?", "!", "*", "$"]) & filters.me)
+@pyram("tt", ram)
 async def kangtiktok(client: Client, message: Message):
     mmk = await message.reply_text("`Processing . . .`")
     link = get_arg(message)
@@ -91,7 +91,7 @@ async def kangtiktok(client: Client, message: Message):
         except BaseException:
             pass
 
-@gez.on_message(filters.command("ig", [".", ",", "?", "!", "*", "$"]) & filters.me)
+@pyram("ig", ram)
 async def kangsosmed(client: Client, message: Message):
     mmk = await message.reply_text("`Processing . . .`")
     link = get_arg(message)
@@ -127,7 +127,7 @@ async def kangsosmed(client: Client, message: Message):
         except BaseException:
             pass
 
-@gez.on_message(filters.command("pint", [".", ",", "?", "!", "*", "$"]) & filters.me)
+@pyram("pint", ram)
 async def kangsos(client: Client, message: Message):
     mmk = await message.reply_text("`Processing . . .`")
     link = get_arg(message)
@@ -169,7 +169,7 @@ from pyrogram.types import Message
 from geezlibs import logging
 from geezlibs.ram.helpers.basic import edit_or_reply
 
-@Client.on_message(filters.command("tonime", [".", "!", "?", ",", "$", "*"]) & filters.me)
+@pyram("toanime", ram)
 async def convert_image(client: Client, message: Message):
     if not message.reply_to_message:
         return await message.edit("Please Reply to photo")
@@ -191,7 +191,7 @@ async def convert_image(client: Client, message: Message):
             await message.edit("error message ...")
 
 
-@Client.on_message(filters.command("jurus", [".", "!", "?", ",", "$", "*"]) & filters.me)
+@pyram("jurus", ram)
 async def deepfry(client: Client, message: Message):
     if not message.reply_to_message:
         return await message.edit("Reply Foto Untuk Mengedit")

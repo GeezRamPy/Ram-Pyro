@@ -8,17 +8,17 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import html
-
+import time
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
-
 from config import CMD_HANDLER as cmd
+from geezlibs.ram import pyram, ram
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.parser import mention_html, mention_markdown
-from rams.modules.help import *
+from rams.modules.help import add_command_help
 
 
-@Client.on_message(filters.me & filters.command(["admins", "adminlist"], ["?", "!", ",", ".", "*", "$"]))
+@pyram(["admins", "adminlist"], ram)
 async def adminlist(client: Client, message: Message):
     replyid = None
     toolong = False
@@ -81,7 +81,7 @@ async def adminlist(client: Client, message: Message):
         await message.edit(teks)
 
 
-@Client.on_message(filters.command(["kickdel", "zombies"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["delkick", "zombies"], ram)
 async def kickdel_cmd(client: Client, message: Message):
     Man = await edit_or_reply(message, "<b>Kicking deleted accounts...</b>")
     # noinspection PyTypeChecker
@@ -93,9 +93,7 @@ async def kickdel_cmd(client: Client, message: Message):
     await Man.edit(f"<b>Successfully kicked {len(values)} deleted account(s)</b>")
 
 
-@Client.on_message(
-    filters.me & filters.command(["reportadmin", "reportadmins", "report"], cmd)
-)
+@pyram(["report", "reportadmin"], ram)
 async def report_admin(client: Client, message: Message):
     await message.delete()
     if len(message.text.split()) >= 2:
@@ -142,7 +140,7 @@ async def report_admin(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.me & filters.command(["everyone", "tagall"], ["?", "!", ".", ",", "*", "$"]))
+@pyram(["tagall", "everyone"], ram)
 async def tag_all_users(client: Client, message: Message):
     await message.delete()
     if len(message.text.split()) >= 2:
@@ -166,7 +164,7 @@ async def tag_all_users(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.me & filters.command(["botlist", "bots"], ["?", "!", ".", ",", "*", "$"]))
+@pyram(["botlist", "bots"], ram)
 async def get_list_bots(client: Client, message: Message):
     replyid = None
     if len(message.text.split()) >= 2:

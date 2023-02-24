@@ -12,6 +12,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.utility import split_list
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cdm
 from rams import CMD_HELP,app
 
@@ -26,7 +27,7 @@ def ReplyCheck(message: Message):
 
     return reply_id
 
-@Client.on_message(filters.command(["help", "helpme"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["help", "helpme"], ram)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
@@ -75,7 +76,7 @@ async def module_help(client: Client, message: Message):
                 f"`{help_arg}` **Bukan Nama Modul yang Valid.**",
             )
 
-@Client.on_message(filters.command(["helper", "rhelp"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["helper", "rhelp"], ram)
 async def module_helper(client: Client, message: Message):
     cmd = message.command
     help_arg = ""

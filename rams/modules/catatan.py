@@ -2,14 +2,13 @@
 from asyncio import sleep
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
+from geezlibs.ram import pyram, ram
 from rams import BOTLOG_CHATID
 from rams.split.berak.SQL.notes_sql import add_note, get_note, get_notes, rm_note
 from rams.modules.cplink import get_arg
 
-cmd = [",", ".", "?", "*", "!" "$",]
 
-@Client.on_message(filters.command("notes", cmd) & filters.me)
+@pyram("notes", ram)
 async def list_notes(client, message):
     user_id = message.from_user.id
     notes = get_notes(str(user_id))
@@ -21,7 +20,7 @@ async def list_notes(client, message):
     await message.reply(msg)
 
 
-@Client.on_message(filters.command("dlt", cmd) & filters.me)
+@pyram("dlt", ram)
 async def remove_notes(client, message):
     notename = get_arg(message)
     user_id = message.from_user.id
@@ -32,7 +31,7 @@ async def remove_notes(client, message):
     return await message.reply("Berhasil Menghapus Catatan: {}".format(notename))
 
 
-@Client.on_message(filters.command("save", cmd) & filters.me)
+@pyram("save", ram)
 async def simpan_note(client, message):
     keyword = get_arg(message)
     user_id = message.from_user.id
@@ -51,7 +50,7 @@ async def simpan_note(client, message):
     await message.reply(f"Berhasil menyimpan note {keyword}")
 
 
-@Client.on_message(filters.command("get", cmd) & filters.me)
+@pyram("get", ram)
 async def panggil_notes(client, message):
     notename = get_arg(message)
     user_id = message.from_user.id

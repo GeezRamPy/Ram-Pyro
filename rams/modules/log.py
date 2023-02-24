@@ -15,6 +15,7 @@ from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.SQL import no_log_pms_sql
 from geezlibs.ram.helpers.SQL.globals import addgvar, gvarstatus
 from geezlibs.ram.helpers.tools import get_arg
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 from rams import BOTLOG_CHATID
 
@@ -84,7 +85,7 @@ async def log_tagged_messages(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("log", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("log", ram)
 async def set_log_p_m(client: Client, message: Message):
     if BOTLOG_CHATID != -100:
         if no_log_pms_sql.is_approved(message.chat.id):
@@ -92,7 +93,7 @@ async def set_log_p_m(client: Client, message: Message):
             await message.edit("**LOG Chat dari Grup ini Berhasil Diaktifkan**")
 
 
-@Client.on_message(filters.command("nolog", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("nolog", ram)
 async def set_no_log_p_m(client: Client, message: Message):
     if BOTLOG_CHATID != -100:
         if not no_log_pms_sql.is_approved(message.chat.id):
@@ -100,7 +101,7 @@ async def set_no_log_p_m(client: Client, message: Message):
             await message.edit("**LOG Chat dari Grup ini Berhasil Dimatikan**")
 
 
-@Client.on_message(filters.command(["pmlog", "pmlogger"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("pmlog", ram)
 async def set_pmlog(client: Client, message: Message):
     if BOTLOG_CHATID == -100:
         return await message.edit(
@@ -128,7 +129,7 @@ async def set_pmlog(client: Client, message: Message):
         await edit_or_reply(message, "**PM LOG Sudah Dimatikan**")
 
 
-@Client.on_message(filters.command(["gruplog", "grouplog", "gclog"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["grouplog", "gclog", "gruplog"], ram)
 async def set_gruplog(client: Client, message: Message):
     if BOTLOG_CHATID == -100:
         return await message.edit(

@@ -22,6 +22,7 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from geezlibs.ram import pyram, ram
 from rams.split.berak.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from rams.split.misc import HAPP, XCB
@@ -76,10 +77,8 @@ async def updateme_requirements():
         return repr(e)
 
 
-@Client.on_message(
-    filters.command("diupdate", ["."]) & filters.user(DEVS) & ~filters.me
-)
-@Client.on_message(filters.command("apdet", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("diupdate", ["."]) & filters.user(DEVS) & ~filters.me)
+@pyram("apdet", ram)
 async def upstream(client: Client, message: Message):
     status = await edit_or_reply(message, "`Gua Cek dulu brok, Sabar...`")
     conf = get_arg(message)
@@ -208,7 +207,7 @@ async def upstream(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("cupdate", ["."]) & filters.user(DEVS) & ~filters.me)
-@Client.on_message(filters.command("goupdate", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("goupdate", ram)
 async def updaterman(client: Client, message: Message):
     if await is_heroku():
         if HAPP is None:

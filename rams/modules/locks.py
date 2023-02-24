@@ -10,9 +10,8 @@
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import ChatNotModified
 from pyrogram.types import ChatPermissions, Message
-
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
-
 from .help import add_command_help
 
 incorrect_parameters = "Incorrect Parameters, Ketik help locks untuk bantuan."
@@ -81,7 +80,7 @@ async def tg_lock(
     await message.edit_text(("Locked." if lock else "Unlocked."))
 
 
-@Client.on_message(filters.command(["lock", "unlock"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["lock", "unlock"], ram)
 async def locks_func(client: Client, message: Message):
     if len(message.command) != 2:
         return await message.edit_text(incorrect_parameters)

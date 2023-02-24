@@ -12,6 +12,7 @@
 import os
 from pyrogram import filters, Client
 from pyrogram.types import Message
+from geezlibs.ram import pyram, ram
 from py_trans import Async_PyTranslator
 from config import CMD_HANDLER as cmds
 
@@ -24,7 +25,7 @@ def get_arg(message):
     return " ".join(split[1:])
 
 
-@Client.on_message(filters.command(["tr", "translate"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["tr", "translate"], ram)
 async def pytrans_tr(_, message: Message):
   tr_msg = await message.edit("`Processing...`")
   r_msg = message.reply_to_message

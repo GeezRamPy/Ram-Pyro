@@ -16,8 +16,6 @@ MSG_ON = """
 ⌨️ **Ketik** `{}rama` **untuk Mengecheck Bot**
 ━───────╮⇕╭───────━
 """
-MSG_BOT = (f"**Ram Pyro Assistant**\nis alive...")
-
 
 async def main():
     await app.start()
@@ -35,7 +33,6 @@ async def main():
                 await bot.send_message(
                     BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)
                 )
-                await app.send_message(BOTLOG_CHATID, MSG_BOT)
             except BaseException:
                 pass
             LOGGER("rams").info(

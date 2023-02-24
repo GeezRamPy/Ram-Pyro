@@ -15,12 +15,13 @@ from pyrogram.errors import YouBlockedUser
 from pyrogram.types import *
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.utils import extract_user
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
 
 
-@Client.on_message(filters.command(["sm", "sg", "sangmata"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["sg", "sm", "sangmata"], ram)
 async def sg(client: Client, message: Message):
     args = await extract_user(message)
     lol = await edit_or_reply(message, "Gua kepo, Sapa si namalu pepek....`")

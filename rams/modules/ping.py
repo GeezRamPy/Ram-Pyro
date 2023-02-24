@@ -36,6 +36,7 @@ from geezlibs.ram.utils.tools import get_readable_time
 from geezlibs.ram.helpers.SQL.globals import gvarstatus
 from rams.split.berak.adminHelpers import DEVS
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from geezlibs.ram import pyram, ram
 from config import BOT_VER, GROUP, CHANNEL, CMD_HANDLER as cmd
 from config import GROUP, BRANCH as branch
 from rams import CMD_HELP, StartTime, app
@@ -47,7 +48,7 @@ alive_logo = (
 )
     
 
-@Client.on_message(filters.command(["speed", "speedtest"], ["?", "!", ".", ",", "*", "$"]) & filters.me)
+@pyram("speedtest", ram)
 async def speed_test(client: Client, message: Message):
     new_msg = await edit_or_reply(message, "`Running speed test . . .`")
     spd = speedtest.Speedtest()
@@ -79,7 +80,7 @@ async def speed_test(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("dc", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("dc", ram)
 async def nearest_dc(client: Client, message: Message):
     dc = await client.send(functions.help.GetNearestDc())
     await edit_or_reply(
@@ -87,26 +88,24 @@ async def nearest_dc(client: Client, message: Message):
     )
 
 
-@Client.on_message(
-    filters.command("ceping", ["."]) & filters.user(DEVS) & ~filters.me
-)
-@Client.on_message(filters.command("pink", ["?", "!", ",", ".", "*", "$"]) & filters.me)
+@Client.on_message(filters.command("ceping", ["."]) & filters.user(DEVS) & ~filters.me)
+@pyram("pink", ram)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    ram = await message.reply("**Mengecek Sinyal...**")
-    await ram.edit("**▁**")
-    await ram.edit("**▁ ▂**")
-    await ram.edit("**▁ ▂ ▄**")
-    await ram.edit("**▁ ▂ ▄ ▅**")
-    await ram.edit("**▁ ▂ ▄ ▅ ▆**")
-    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
-    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
-    await ram.edit("⚡")
+    rams = await message.reply("**Mengecek Sinyal...**")
+    await rams.edit("**▁**")
+    await rams.edit("**▁ ▂**")
+    await rams.edit("**▁ ▂ ▄**")
+    await rams.edit("**▁ ▂ ▄ ▅**")
+    await rams.edit("**▁ ▂ ▄ ▅ ▆**")
+    await rams.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
+    await rams.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
+    await rams.edit("⚡")
     await asyncio.sleep(2.5)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await ram.edit(
+    await rams.edit(
         f"**𝗣𝘆𝗿𝗼-𝗠𝗮𝘀𝘁𝗲𝗿**\n"
         f"** ➠  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
@@ -116,14 +115,10 @@ async def pingme(client: Client, message: Message):
     )
 
 
-@Client.on_message(
-    filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me
-)
-@Client.on_message(
-    filters.command("ping", ["?", "!", ".", ",", "*", "$"]) & (filters.me)
-)
+@Client.on_message(filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me)
+@pyram("ping", ram)
 async def module_ping(client: Client, message: Message):
-    ram = await edit_or_reply(message, "✨")
+    rams = await edit_or_reply(message, "✨")
     await asyncio.sleep(2)
     cdm = message.command
     help_arg = ""
@@ -136,17 +131,15 @@ async def module_ping(client: Client, message: Message):
             await asyncio.gather(
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
-                message.delete(ram),
+                message.delete(rams),
             )
         except BaseException as e:
             print(f"{e}")
 
 
-@Client.on_message(
-    filters.command(["rama", "alive"], ["?", "!", ".", ",", "*", "$"]) & (filters.me)
-)
+@pyram("alive", ram)
 async def module_alive(client: Client, message: Message):
-    ram = await edit_or_reply(message, "💫")
+    rams = await edit_or_reply(message, "💫")
     await asyncio.sleep(2)
     cdm = message.command
     help_arg = ""
@@ -159,17 +152,15 @@ async def module_alive(client: Client, message: Message):
             await asyncio.gather(
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
-                message.delete(ram),
+                message.delete(rams),
             )
         except BaseException as e:
             print(f"{e}")
 
 
-@Client.on_message(
-    filters.command(["repo", "repository"], ["?", "!", ".", ",", "*", "$"]) & (filters.me)
-)
+@pyram("repo", ram)
 async def repo_alive(client: Client, message: Message):
-    ram = await edit_or_reply(message, "Sebentar....✨")
+    rams = await edit_or_reply(message, "Sebentar....✨")
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
@@ -181,7 +172,7 @@ async def repo_alive(client: Client, message: Message):
             await asyncio.gather(
                 client.send_inline_bot_result(
                     message.chat.id, nice.query_id, nice.results[0].id),
-                message.delete(ram),
+                message.delete(rams),
             )
         except BaseException as e:
             print(f"{e}")

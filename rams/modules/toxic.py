@@ -15,12 +15,13 @@ from geezlibs.ram.helpers.adminHelpers import DEVS
 from geezlibs.ram.helpers.basic import edit_or_reply
 from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
 from geezlibs.ram.utils import extract_user, extract_user_and_reason
+from geezlibs.ram import pyram, ram
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER as cmd
 from .help import add_command_help
 
 
-@Client.on_message(filters.command("jamet", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("jamet", ram)
 async def ngejamet(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -50,10 +51,8 @@ async def ngejamet(client: Client, message: Message):
     await xx.edit("**LEMBEK NGENTOT🥵**")
 
 
-@Client.on_message(
-    filters.command("cgbn", ["."]) & filters.user(DEVS) & ~filters.via_bot
-)
-@Client.on_message(filters.command("gbn", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("cgbn", ["."]) & filters.user(DEVS) & ~filters.via_bot)
+@pyram("gbn", ram)
 async def globalfake(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     user = await client.get_users(user_id)
@@ -69,10 +68,8 @@ async def globalfake(client: Client, message: Message):
     
 
 
-@Client.on_message(
-    filters.command("cgmt", ["."]) & filters.user(DEVS) & ~filters.via_bot
-)
-@Client.on_message(filters.command("gmt", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@Client.on_message(filters.command("cgmt", ["."]) & filters.user(DEVS) & ~filters.via_bot)
+@pyram("gmt", ram)
 async def fakegmute(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     user = await client.get_users(user_id)
@@ -87,7 +84,7 @@ async def fakegmute(client: Client, message: Message):
     await xx.edit(f"**\\\ Berhasil Gmute //** \nFirst Name : [{user.first_name}](tg://user?id={user.id})\nReason : {reason}")
     
 
-@Client.on_message(filters.command("ywc", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("ywc", ram)
 async def ywc(client: Client, message: Message):
     await asyncio.gather(
         message.delete(),
@@ -99,7 +96,7 @@ async def ywc(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("pp", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("pp", ram)
 async def toxicpp(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -116,7 +113,7 @@ async def toxicpp(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("dp", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("dp", ram)
 async def toxicdp(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -133,7 +130,7 @@ async def toxicdp(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("so", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("do", ram)
 async def toxicso(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -150,7 +147,7 @@ async def toxicso(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("nb", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("nb", ram)
 async def toxicnb(client: Client, message: Message):
     user_id = await extract_user(message)
     if message.chat.id in BLACKLIST_CHAT:
@@ -171,7 +168,7 @@ async def toxicnb(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("met", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("met", ram)
 async def toxicmet(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -188,7 +185,7 @@ async def toxicmet(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("war", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("war", ram)
 async def toxicwer(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -205,7 +202,7 @@ async def toxicwer(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("wartai", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("wartai", ram)
 async def toxicwartai(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -222,7 +219,7 @@ async def toxicwartai(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("kismin", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("kismin", ram)
 async def toxickismin(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -239,7 +236,7 @@ async def toxickismin(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("ded", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("ded", ram)
 async def toxicded(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -256,7 +253,7 @@ async def toxicded(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("sokab", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("sokab", ram)
 async def toxicsokab(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -273,7 +270,7 @@ async def toxicsokab(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("gembel", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("gembel", ram)
 async def toxicgembel(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -290,7 +287,7 @@ async def toxicgembel(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("cuih", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("cuih", ram)
 async def toxiccuih(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -307,7 +304,7 @@ async def toxiccuih(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("dih", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("dih", ram)
 async def toxicdih(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -324,7 +321,7 @@ async def toxicdih(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("gcs", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("gcs", ram)
 async def toxicgcs(client: Client, message: Message):
     user_id = await extract_user(message)
     if message.chat.id in BLACKLIST_CHAT:
@@ -345,7 +342,7 @@ async def toxicgcs(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("skb", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("skb", ram)
 async def toxicskb(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
@@ -362,7 +359,7 @@ async def toxicskb(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("virtual", ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram("virtual", ram)
 async def toxicvirtual(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:

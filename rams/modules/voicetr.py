@@ -17,6 +17,7 @@ from geezlibs import logging
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from geezlibs.ram.helpers.basic import edit_or_reply
+from geezlibs.ram import pyram, ram
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
@@ -24,7 +25,7 @@ from .help import add_command_help
 lang = "id"  # Default Language for voice
 
 
-@Client.on_message(filters.me & filters.command(["voice", "tts"], ["?", "!", ".", "*", ",", "$"]))
+@pyram(["voice", "tts"], ram)
 async def voice(client: Client, message):
     global lang
     cmd = message.command
@@ -57,7 +58,7 @@ async def voice(client: Client, message):
     os.remove("voice.mp3")
 
 
-@Client.on_message(filters.me & filters.command(["voicelang"], ["?", "!", ".", "*", ",", "$"]))
+@pyram("voicelang", ram)
 async def voicelang(client: Client, message: Message):
     global lang
     temp = lang
@@ -74,12 +75,13 @@ async def voicelang(client: Client, message: Message):
 
 
 
-@Client.on_message(filters.command(["stt","text"], ["?", "!", ".", "*", ",", "$"]) & filters.me)
+@pyram(["stt", "text"], ram)
 async def speech_to_text(client: Client, message: Message):
     reply = message.reply_to_message
     if not (reply and reply.voice):
         return await message.edit("Please reply to a voice message")
     await message.edit("processing...")
+    await logging(client)
     voice_file = await client.download_media(message=reply, file_name='downloads/voice.ogg')
 
     @run_in_exc
