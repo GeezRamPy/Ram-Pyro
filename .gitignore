@@ -119,7 +119,7 @@ venv/
 
 # Rope project settings
 .ropeproject
-.raw
+*.raw
 
 # mkdocs documentation
 /site

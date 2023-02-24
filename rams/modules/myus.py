@@ -29,7 +29,6 @@ from yt_dlp import YoutubeDL
 from youtubesearchpython import SearchVideos
 from geezlibs.ram.helpers.tools import get_text, humanbytes, run_in_exc, run_cmd
 from geezlibs.ram.helpers.tools import edit_or_reply
-from geezlibs import logging
 from geezlibs.ram import pyram, ram
 
 
@@ -198,7 +197,6 @@ async def play_m(client, message):
     elif not group_call.is_connected:
         try:
             await group_call.start(message.chat.id)
-            await logging(client.me.id)
         except BaseException as e:
             return await u_s.edit(f"**Ngapa yaa...:** `{e}`")
         group_call.add_handler(playout_ended_handler, GroupCallFileAction.PLAYOUT_ENDED)
