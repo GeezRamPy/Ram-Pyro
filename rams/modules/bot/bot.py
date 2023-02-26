@@ -98,7 +98,7 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
     commands: dict = CMD_HELP[modul_name]
     this_command = f"**《✧ {str(modul_name).upper()} ✧》**\n\n"
     for x in commands:
-        this_command += f"**ᴄᴍᴅ:\n├⋟** `{str(x)}`\n**└⋟Fungsi:** `{str(commands[x])}`\n\n"
+        this_command += f"**ᴄᴍᴅ:\n├⋟** `{str(x)}`\n**└⋟ Fungsi:** `{str(commands[x])}`\n\n"
     this_command += "© @GeezRam | @UserbotCh"
     bttn = [
         [InlineKeyboardButton(text="⇕ ʙᴀᴄᴋ ⇕", callback_data="reopen"), InlineKeyboardButton(text="⇕ ᴛᴜᴛᴜᴘ ⇕", callback_data="close")],
