@@ -524,16 +524,15 @@ add_command_help(
 add_command_help(
     "quotly",
     [
-        [
-            f"q atau {cmd}quotly",
-            "Membuat pesan menjadi sticker dengan random background.",
-        ],
-        [
-            f"q <warna> atau {cmd}quotly <warna>",
-            "Membuat pesan menjadi sticker dengan custom warna background yang diberikan.",
-        ],
+        [f"q or quotly",
+            "membuat gambar quote."],
+        [f"q <warna> or quotly <warna>",
+            "Membuat gambar quote dengan warna background." ],
+        [f"sq <username> <pesan>",
+            "Membuat tipuan quote." ],
     ],
 )
+
 add_command_help(
     "vctools",
     [
