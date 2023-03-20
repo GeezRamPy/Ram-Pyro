@@ -5,6 +5,7 @@ Pillow
 aiohttp
 asyncio
 bs4
+emoji==1.6.0
 ffmpeg-python
 geezlibs==1.6.50
 gitpython
