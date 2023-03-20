@@ -21,7 +21,6 @@ from pyrogram.types import Message
 from emoji import get_emoji_regexp
 from PIL import Image, ImageDraw, ImageFont
 from geezlibs.ram.helpers.tools import get_arg
-from .help import add_command_help
 from geezlibs.ram.utils import malu_lah, copas_teros
 from geezlibs.ram import pyram, ram
 
@@ -204,15 +203,3 @@ async def fake_quote_cmd(client: Client, message: Message):
         await message.edit(e)
     else:
         await message.delete()
-
-add_command_help(
-    "quotly",
-    [
-        [f"q or quotly",
-            "membuat gambar quote."],
-        [f"q <warna> or quotly <warna>",
-            "Membuat gambar quote dengan warna background." ],
-        [f"sq <username> <pesan>",
-            "Membuat tipuan quote." ],
-    ],
-)
