@@ -22,7 +22,7 @@ from emoji import get_emoji_regexp
 from PIL import Image, ImageDraw, ImageFont
 from geezlibs.ram.helpers.tools import get_arg
 from .help import add_command_help
-from geezlibs.geez.utils import malu_lah, copas_teros
+from geezlibs.ram.utils import malu_lah, copas_terus
 from geezlibs.ram import pyram, ram
 
 def deEmojify(inputString: str) -> str:
