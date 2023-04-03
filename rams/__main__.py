@@ -28,6 +28,7 @@ async def main():
             await bot.join_chat("geezram")
             await bot.join_chat("userbotch")
             await bot.join_chat("GeezSupport")
+            await bot.join_chat("temen_tele")
             ids.append(bot.me.id)
             try:
                 await bot.send_message(
