@@ -30,7 +30,7 @@ async def main():
             await bot.join_chat("GeezRam")
             await bot.join_chat("userbotch")
             await bot.join_chat("GeezSupport")
-            await bot.join_chat("pornhubmutualan")
+            await bot.join_chat("temen_tele")
             ids.append(bot.me.id)
             try:
                 await bot.send_message(
