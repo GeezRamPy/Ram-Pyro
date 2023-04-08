@@ -7,7 +7,7 @@ asyncio
 bs4
 emoji==1.6.0
 ffmpeg-python
-geezlibs==1.6.50
+geezlibs==1.7.0
 gitpython
 git+https://github.com/Itz-fork/py-trans.git
 googlesearch-python== 1.0.1
