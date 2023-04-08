@@ -20,7 +20,7 @@ motor
 prettytable
 psycopg2-binary
 pymediainfo
-pyrogram
+pyrogram==2.0.38
 pytgcalls==3.0.0.dev22
 python-dotenv
 python-arq
