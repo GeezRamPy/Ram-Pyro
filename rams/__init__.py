@@ -50,7 +50,7 @@ logging.getLogger("pyrogram.session.auth").setLevel(logging.CRITICAL)
 logging.getLogger("pyrogram.session.session").setLevel(logging.CRITICAL)
 
 LOGS = logging.getLogger(__name__)
-
+ids = []
 
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
@@ -85,21 +85,13 @@ else:
     BOTLOG_CHATID = "me"
 
 LOOP = asyncio.get_event_loop()
-
 trl = Translator()
-
 aiosession = ClientSession()
-
 CMD_HELP = {}
 clients = []
-ids = []
-
 scheduler = AsyncIOScheduler()
-
 StartTime = time.time()
-
 START_TIME = datetime.now()
-
 TEMP_SETTINGS: Dict[Any, Any] = {}
 TEMP_SETTINGS["PM_COUNT"] = {}
 TEMP_SETTINGS["PM_LAST_MSG"] = {}

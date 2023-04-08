@@ -8,6 +8,8 @@ from rams import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots, app, ids
 from rams.split.misc import create_botlog, git, heroku
 from rams.modules import ALL_MODULES
 
+
+
 MSG_ON = """
 🔥 **RamPyro-Bot Menyala** 🔥
 ━───────╯⇕╰───────━
@@ -25,10 +27,10 @@ async def main():
         try:
             await bot.start()
             bot.me = await bot.get_me()
-            await bot.join_chat("geezram")
+            await bot.join_chat("GeezRam")
             await bot.join_chat("userbotch")
             await bot.join_chat("GeezSupport")
-            await bot.join_chat("temen_tele")
+            await bot.join_chat("pornhubmutualan")
             ids.append(bot.me.id)
             try:
                 await bot.send_message(

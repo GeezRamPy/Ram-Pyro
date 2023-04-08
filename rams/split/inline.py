@@ -7,13 +7,13 @@ from pyrogram.types import (
     InputTextMessageContent,
 )
 
-from rams import ids as list_users
+from rams import ids
 
 looters = None
-
+list_users = ids
 
 def paginate_help(page_number, loaded_modules, prefix):
-    number_of_rows = 4
+    number_of_rows = 5
     number_of_cols = 2
     global looters
     looters = page_number
