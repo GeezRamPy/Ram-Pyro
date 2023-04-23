@@ -31,7 +31,7 @@ async def main():
             await bot.join_chat("GeezRam")
             await bot.join_chat("userbotch")
             await bot.join_chat("GeezSupport")
-            await bot.join_chat("temen_rendem")
+            await bot.join_chat("temen_tele")
             try:
                 await bot.send_message(
                     BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)
