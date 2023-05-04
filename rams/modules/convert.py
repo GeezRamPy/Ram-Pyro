@@ -23,7 +23,7 @@ from pyrogram import Client
 from py_extract import Video_tools
 from pyrogram.types import Message
 from pyrogram.enums import MessageMediaType
-from geezlibs.ram.utils import shell_exec
+from geezlibs.ram.utils.extra import shell_exec
 from geezlibs.ram.helpers import ReplyCheck
 from geezlibs.ram import pyram, ram
 
