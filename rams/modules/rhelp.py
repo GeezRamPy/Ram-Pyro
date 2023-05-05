@@ -182,8 +182,8 @@ add_command_help(
 add_command_help(
     "convert",
     [
-        [f"{cmds}aud <reply ke video>", "mengambil/extract audio dari video"],
-        [f"{cmds}rmbg <reply ke gambar>", "menghapus background gambar"],
+        [f"aud <reply ke video>", "mengambil/extract audio dari video"],
+        [f"rmbg <reply ke gambar>", "menghapus background gambar"],
     ],
 )
 
