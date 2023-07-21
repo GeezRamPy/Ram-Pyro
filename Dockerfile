@@ -1,6 +1,6 @@
 FROM hitokizzy/geezram:slim-buster
 
-RUN git clone -b main https://github.com/geezrampy/ram-Pyro /home/rams/
+RUN git clone -b main https://github.com/GeezRamPy/Ram-Pyro /home/rams/
 WORKDIR /home/rams
 
 RUN wget https://raw.githubusercontent.com/GeezRamPy/Ram-Pyro/main/requirements.txt \
